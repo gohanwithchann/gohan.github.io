@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    p { /* 文字对齐 */
+        text-align: justify;
+        text-align-last: left;
+        text-justify: inter-word;
+    }
+    #toc {
+      background: #f4f4f4;
+      padding: 10px;
+      /* border: 1px solid #ccc; */
+      /* margin-bottom: 20px; */
+      max-width: 100%; /* 限制目录框架的最大宽度 */
+      word-wrap: break-word; /* 强制超长单词换行 */
+      position: relative;
+      margin-left: auto; /* 使目录框架在页面中居右 */
+      margin-right: auto; /* 使目录框架在页面中居右 */
+      box-sizing: border-box; /* 包含内边距和边框在内的宽度计算 */
+  }
+  </style>
+
+<!-- Head -->
+<head>    <!-- Metadata, OpenGraph and Schema.org -->
+
+
+  <!-- Standard metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Kwan Wai-Pang's Blog</title>
+  <meta name="author" content="Kwan Wai-Pang " />
+  <meta name="description" content="Personal Blog of Kwan Wai-Pang" />
+  <meta name="keywords" content="Event-based Vision, SLAM, Robotics" />
+
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="My Technology Blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kwan Wai-Pang | Personal Blog" />
+  <meta property="og:description" content="Welcome to My Blog of Binary Search 😊" />
+  <meta property="og:image" content="https://gohan.github.io/Poster_files/hku_logo.jpg" />
+
+
+  <meta property="og:locale" content="en" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Home" />
+  <meta name="twitter:description" content="Personal Blog of Kwan Wai-Pang" />
+
+  <!-- Bootstrap & MDB -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous" />
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Barriecito&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700">
+
+  <!-- Code Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/PASTIE.css" media="none" id="highlight_theme_light" />
+
+  <!-- Styles -->
+
+  <link rel="shortcut icon" href="https://gohan.github.io/Poster_files/hku_logo.jpg"/>
+
+  <!-- <link rel="stylesheet" href="https://gohan.github.io/File/Blogs/assets/css/main.css"> -->
+  <!-- <link rel="stylesheet" href="https://gohan.github.io/File/Blogs/assets/css/fonts.css"> -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/new_css_js/cpp-highlight/styles/gradient-dark.css">
+  <script src="../assets/new_css_js/cpp-highlight/highlight.js"></script>    <!--引入代码高亮js库-->
+
+  <script>hljs.initHighlightingOnLoad();
+  </script>
+
+  <!-- Dark Mode -->
+
+
+</head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+              <li class="nav-item ">
+                <a class="nav-link" href="../My_Blog.html">Homepage</a>
+              </li>
+
+              <li class="nav-item ">
+                <a class="nav-link" href="../Poster/cpp算法学习笔记.html">Learning Algorithm</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+<header class="post-header">
+  <h1 align="center" class="post-title">
+    <span style="font-weight: 600;">二分法</span>
+  </h1>
+</header>
+
+<!-- Content -->
+<div class="container mt-5">
+<!-- home.html -->
+<div class="post">
+
+<!-- 插入目录 -->
+<div id="toc">
+  <h8>目录</h8>
+  <ul></ul>
+</div>
+        
+<article>
+<!-- 插入博客内容-->
+<p>
+基本的二分法的架构如下代码块所示：
+  </p>
+<pre><code>
+  int binarySearch(vector&ltint&gt& nums, int target) {
+    int left = 0, right = nums.size() - 1;
+
+    while(left &lt= right) {
+        int mid = left + (right - left) / 2;//这与(left + right) / 2 的结果相同，只是为了防止太大导致溢出
+        if (nums[mid] == target) {
+            ...
+        } else if (nums[mid] &lt target) {
+            left = mid + 1;//注意，middle已经寻找过了，为此要避开
+        } else if (nums[mid] &gt target) {
+            right = mid - 1;//注意，middle已经寻找过了，为此要避开
+        }
+    }
+    return ...;
+}
+</code></pre>
+
+<p><br></p>
+<h1>1.寻找一个数</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 60%;" src="https://gohan.github.io/Poster_files/learning_algorithm/dichotomy/微信截图_20240802153201.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>最直接的解法用find函数,时间复杂度应该是O（N），空间复杂度为O（1）</summary>
+<pre><code>
+  class Solution {
+public:
+    int search(vector&ltint&gt& nums, int target) {
+        auto result=find(nums.begin(),nums.end(),target);
+        if (result&ltnums.end())
+            return result-nums.begin();
+        return -1;
+    }
+};
+</code></pre>
+</details>
+
+<details>
+<summary>二分法：时间复杂度为O(logn)，空间复杂度为O（1）</summary>
+<pre><code>
+  class Solution {
+    public:
+        int search(vector&ltint&gt& nums, int target) {
+            //已经排序好的了
+            int left=0, right=nums.size()-1;
+            while(left&lt=right)//注意有等号，由于right的初始化，决定了采用的实际上是闭区间
+            {
+                int middle=(left+right)/2;
+    
+                if(nums[middle]==target)
+                    return middle;
+                else if(nums[middle]&gttarget)//证明target在左半区
+                    right=middle-1;//注意：由于搜索区间是闭区间，[left, mid-1]
+                else if(nums[middle]&lttarget)
+                    left=middle+1;//注意，[mid+1, right] 
+                // mid已经搜索过了，不避开会导致超时~
+            }
+            return -1;
+        }
+    };
+</code></pre>
+</details>
+
+<details>
+<summary>若上题while(left&lt=right)改为while(left&ltright)则应该是：</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        int search(vector<int>& nums, int target) {
+    
+            int left=0, right =nums.size()-1;
+    
+            while(left<right)
+            {
+                int middle=(left+right)/2;
+    
+                if(nums[middle]<target)
+                {
+                    left=middle+1;
+                }
+                else if(nums[middle]>target)
+                {
+                    right=middle-1;
+                }
+                else
+                    return middle;
+            }
+            return nums[left]==target? left:-1;
+        }
+    };
+</script>
+</code></pre>
+
+<p>
+while(left &lt= right) 的终止条件是 left == right + 1（也就是left>right），写成区间的形式就是 [right + 1, right]，或者带个具体的数字进去 [3, 2]，
+可见这时候区间为空，因为没有数字既大于等于 3 又小于等于 2 的吧。所以这时候 while 循环终止是正确的，直接返回 -1 即可。
+<br>
+while(left &lt right) 的终止条件是 left == right，写成区间的形式就是 [right, right]，或者带个具体的数字进去 [2, 2]，
+这时候区间非空，还有一个数 2，但此时 while 循环终止了。也就是说区间 [2, 2] 被漏掉了，索引 2 没有被搜索，如果这时候直接返回 -1 就是错误的。必须再次检查最后一个索引！
+</p>
+</details> 
+
+<p><br></p>
+<h1>2. 左侧边界与右侧边界的二分法查找</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 60%;" src="https://gohan.github.io/Poster_files/learning_algorithm/dichotomy/微信截图_20240802160234.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>要解决这道题，明确以下三种二分法的思路(这个所谓的思路感觉有点问题~按着做容易出错，还是以上题为架构看如何逼近边界较好)</summary>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 50%;" src="https://gohan.github.io/Poster_files/learning_algorithm/dichotomy/微信截图_20240802160619.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 50%;" src="https://gohan.github.io/Poster_files/learning_algorithm/dichotomy/微信截图_20240802160636.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 50%;" src="https://gohan.github.io/Poster_files/learning_algorithm/dichotomy/微信截图_20240802160642.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+</details>
+
+<details>
+<summary>Click to expand the code,时间复杂度： O(logn),空间复杂度：O(1) </summary>
+<pre><code>
+  class Solution {
+    public:
+        int left_bound(vector&ltint&gt& nums, int target) 
+        {
+            int left=0, right=nums.size()-1;
+    
+            while(left&lt=right)
+            {
+                int mid=(left+right)/2;
+                int value=nums[mid];
+                if(value&lttarget)//target应该在右半区
+                    left=mid+1;//中间已经算过了
+                else if(value&gttarget)//应该在左半区
+                    right=mid-1;//中间已经算过了
+                else if(value==target)
+                    right=mid-1;//一直递推收紧右侧的边界以锁定左侧边界，
+                    // 下一个中间值必然是大于或等于，因此可以做到锁定一直更新right
+            }
+            // 注意要先判断是否有数据越界的情况（由于上面right在找到目标后递推，故此有可能left越界）
+            if(left&lt0  || left&gt=nums.size())
+                return -1;
+            // 判断一下 nums[left] 是不是 target（由于上面right在找到目标后递推，故此有可能left不是目标值但是结束了~）
+            return nums[left] == target ? left : -1;
+    
+        }
+        int right_bound(vector&ltint&gt& nums, int target) 
+        {
+            int left=0, right=nums.size()-1;
+    
+            while(left&lt=right)
+            {
+                int mid=(left+right)/2;
+                int value=nums[mid];
+                if(value&lttarget)//target应该在右半区
+                    left=mid+1;//中间已经算过了
+                else if(value&gttarget)//应该在左半区
+                    right=mid-1;//中间已经算过了
+                else if(value==target)
+                    left=mid+1;//一直地推左侧以锁定右侧的边界
+                    // 下一个中间值，必然是小于等于，因此一直推直到锁定右边
+            }
+            
+            // 确保不要越界
+            if(right&lt0  || right&gt=nums.size())
+                return -1;
+    
+            // 判断一下 nums[right] 是不是 target
+            return nums[right] == target ? right : -1;
+    
+        }
+        vector&ltint&gt searchRange(vector&ltint&gt& nums, int target) {
+    
+            // 左侧边界与右侧边界的二分法查找
+            int left=left_bound(nums,target);
+            if(left==-1)//左边界若不合法，就不用判断右边了~
+                return vector&ltint&gt{-1,-1};
+            int right=right_bound(nums,target);
+    
+            return vector&ltint&gt{left,right};
+        }
+    };
+</code></pre>
+</details>
+
+
+<p><br></p>
+<h1>求解立方根</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 60%;" src="https://gohan.github.io/Poster_files/learning_algorithm/Simulation_algorithm/WX20240819-223830.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>Click to expand the code。关键点在于要考虑负号以及小数的情况。且浮点数<mark>left<=right</mark>会无限运行，需要给个小范围的阈值</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+    #include <iomanip>
+    #include <iostream>
+    #include <cmath>
+    using namespace std;
+    
+    int main() {
+       double value;
+       cin>>value;
+    
+       //二分法
+    
+       //由于是开立方根，所以存在为负号的情况
+       //同时需要考虑小数的情况    
+       double left=min(-1.0, value);
+       double right=max(1.0, value);
+       double middle;//就是结果
+    //    while(left<=right)//由于是浮点数，为此永远都很接近不会相等
+        while(abs(right-left)>0.01)//因此给0.01。毕竟小数点保留1位而已（注意是相减大于某个小数）
+       {
+            middle=(left+right)/2.0;
+            double result=pow(middle,3);
+            if(result<value)
+            {
+                left=middle;
+            }
+            else if(result>value)
+            {
+                right=middle;
+            }
+            else//相等
+                break;
+       }
+       std::cout<<fixed<<setprecision(1)<<middle;
+    }
+    
+</script>
+</code></pre>
+</details>
+
+
+
+<p><br></p>
+<h1>寻找两个正序数组的中位数</h1>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/WX20241025-183527.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。最直接的做法其实就是合并一个数组，然后排序，但是时间复杂度为：O((M+N)Log(M+N))其实并不满足题目要求（虽然可以通过所有测试样例）</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+            
+            vector<int> new_group;
+    
+            for(int i=0;i<nums1.size();i++)
+            {
+                new_group.push_back(nums1[i]);
+            }
+    
+            for(int i=0;i<nums2.size();i++)
+            {
+                new_group.push_back(nums2[i]);
+            }
+    
+            // 时间复杂度为：O((M+N)Log(M+N))
+    
+            sort(new_group.begin(),new_group.end());
+    
+            if((nums1.size()+nums2.size())%2==0)//能被偶数整除(余数)
+                return (double)(
+                    new_group[(nums1.size()+nums2.size())/2]+
+                    new_group[(nums1.size()+nums2.size())/2-1]
+                    )/2;
+            
+            return new_group[(nums1.size()+nums2.size())/2];//奇数的情况返回原值
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code，下面的双指针法可以让时间复杂度进一步降低为O（m+n）</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+            vector<int> merged;
+            int i = 0, j = 0;
+    
+            // 合并两个有序数组
+            while (i < nums1.size() && j < nums2.size()) {
+                if (nums1[i] < nums2[j]) {
+                    merged.push_back(nums1[i]);
+                    i++;
+                } else {
+                    merged.push_back(nums2[j]);
+                    j++;
+                }
+            }
+    
+            // 将剩余元素添加到合并数组
+            while (i < nums1.size()) {
+                merged.push_back(nums1[i]);
+                i++;
+            }
+            while (j < nums2.size()) {
+                merged.push_back(nums2[j]);
+                j++;
+            }
+    
+            // 计算中位数
+            int n = merged.size();
+            if (n % 2 == 1) {//为奇数
+                return merged[n / 2];
+            } else {//为偶数
+                return (merged[n / 2 - 1] + merged[n / 2]) / 2.0;
+            }
+        }
+    };
+        
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。而题目要求O(Log(M+N))实际上就是典型的二分法的时间复杂度。
+  <br>思路就是在两个有序数组中找到第k 小的元素。其中k就是中位数。（理解得不是很透彻～）
+</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+    
+            // 确保nums1是较短的数组，以减少二分查找的范围
+            if (nums1.size() > nums2.size())
+                swap(nums2, nums1);
+    
+            int m = nums1.size();
+            int n = nums2.size();
+            int k = (m + n + 1) / 2;//第k小的值
+    
+            int left = 0, right = m;
+            while (left < right) {
+                //i和j为nums1 和 nums2 中的分割点
+                // k为中位数左侧元素的总数
+    
+                // num1中的分割点
+                int i = (right +left) / 2;
+    
+                //num2中的分割点
+                int j = k - i;//第k小的值，对应1中的i个，那么2中就是k-2个
+                if (nums1[i] < nums2[j - 1]) {
+                    left = i + 1;  // i太小了，需要右移
+                } else {
+                    right = i;     // i太大了，需要左移
+                }
+            }
+    
+            int i = left;
+            int j = k - i;
+    
+            int nums1LeftMax = (i == 0 ? INT_MIN : nums1[i - 1]);
+            int nums1RightMin = (i == m ? INT_MAX : nums1[i]);
+            int nums2LeftMax = (j == 0 ? INT_MIN : nums2[j - 1]);
+            int nums2RightMin = (j == n ? INT_MAX : nums2[j]);
+    
+            // 如果总长度是奇数
+            if ((m + n) % 2 == 1) {
+                return std::max(nums1LeftMax, nums2LeftMax);
+            } else {
+                // 如果总长度是偶数
+                return (std::max(nums1LeftMax, nums2LeftMax) + std::min(nums1RightMin, nums2RightMin)) / 2.0;
+            }
+        }
+    };
+    
+</script>
+</code></pre>
+</details>
+
+</div> 
+
+
+
+<p><br></p>
+<h1>参考资料</h1>
+<ul>
+  <li><a href="https://leetcode.cn/u/kwan-wai-pang/" target="_blank">My Leetcode</a></li>
+  <li><a href="https://labuladong.online/algo/essential-technique/binary-search-framework/" target="_blank">二分法</a></li>
+  <li><a href="https://www.bilibili.com/video/BV1Gt4y1b79Q/?vd_source=a88e426798937812a8ffc1a9be5a3cb7" target="_blank">视频：二分搜索核心框架套路</a></li>
+</ul>
+
+</article>
+</div>
+</div>
+
+<!-- Footer --> 
+<p><br></p>   
+<footer class="nofixed-bottom">
+<div class="container mt-0" style="width:100%;text-align:center;">
+  <!-- Please feel free to contact me through <a href="https://gohan.github.io/" target="_blank">my personal website</a> -->
+  A simple star should be the best affirmation 
+  <!-- 载入GitHub按钮库 -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Star按钮 -->
+  <a class="github-button" 
+    href="https://github.com/gohan/gohan.github.io" 
+    data-icon="octicon-star" 
+    data-size="small"
+    data-show-count="true" 
+    aria-label="Star 你的用户名/你的仓库名 on GitHub">Star</a>
+</div>
+</footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/umd/popper.min.js" integrity="sha256-l/1pMF/+J4TThfgARS6KwWrk/egwuVvhRzfLAMQ6Ds4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/ecmd/assets/js/masonry.js" type="text/javascript"></script>
+
+  <!-- Medium Zoom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/ecmd/assets/js/zoom.js"></script><!-- Load Common JS -->
+  <script src="/ecmd/assets/js/common.js"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+   <!-- 下面是插入目录的 -->
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toc = document.querySelector("#toc ul");
+        const headers = document.querySelectorAll(".post h1, .post h2, .post h3, .post h4, .post h5, .post h6");
+        headers.forEach(header => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            const id = header.textContent.replace(/\s+/g, "-").toLowerCase();
+            header.setAttribute("id", id);
+            a.setAttribute("href", `#${id}`);
+            a.textContent = header.textContent;
+            li.style.marginLeft = `${(parseInt(header.tagName.substring(1)) - 2) * 20}px`;
+            li.appendChild(a);
+            toc.appendChild(li);
+        });
+    });
+</script>
+
+</body>
+</html>
+

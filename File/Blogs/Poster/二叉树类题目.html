@@ -1,0 +1,4038 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    p { /* 文字对齐 */
+        text-align: justify;
+        text-align-last: left;
+        text-justify: inter-word;
+    }
+    #toc {
+      background: #f4f4f4;
+      padding: 10px;
+      /* border: 1px solid #ccc; */
+      /* margin-bottom: 20px; */
+      max-width: 100%; /* 限制目录框架的最大宽度 */
+      word-wrap: break-word; /* 强制超长单词换行 */
+      position: relative;
+      margin-left: auto; /* 使目录框架在页面中居右 */
+      margin-right: auto; /* 使目录框架在页面中居右 */
+      box-sizing: border-box; /* 包含内边距和边框在内的宽度计算 */
+  }
+
+  #scrollToTocButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50px; /* 圆角设计 */
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 增加阴影效果 */
+    transition: all 0.3s ease; /* 添加平滑过渡效果 */
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  #scrollToTocButton:hover {
+      background-color: #0056b3; /* 鼠标悬停时颜色变化 */
+      transform: translateY(-3px); /* 悬停时按钮略微上移 */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 悬停时增加阴影 */
+  }
+
+  #toggleTocButton {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    padding: 12px 25px;
+    background-color: #00b34b;
+    color: white;
+    border: none;
+    border-radius: 50px; /* 圆角设计 */
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 增加阴影效果 */
+    transition: all 0.3s ease; /* 添加平滑过渡效果 */
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  #toggleTocButton:hover {
+      background-color: #00b34b; /* 鼠标悬停时颜色变化 */
+      transform: translateY(-3px); /* 悬停时按钮略微上移 */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 悬停时增加阴影 */
+  }
+
+  #newToc {
+  display: none; 
+  position: fixed; 
+  bottom: 70px; 
+  right: 100px; 
+  background: #f4f4f4; 
+  padding: 10px; 
+  font-size: 12px; 
+  max-height: 40%; /* 设置最大高度 */
+  overflow-y: auto; /* 添加垂直滚动条 */
+  overflow-x: hidden; /* 隐藏水平滚动条 */
+}
+
+  </style>
+
+<!-- Head -->
+<head>    <!-- Metadata, OpenGraph and Schema.org -->
+
+
+  <!-- Standard metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Kwan Wai-Pang's Blog</title>
+  <meta name="author" content="Kwan Wai-Pang " />
+  <meta name="description" content="Personal Blog of Kwan Wai-Pang" />
+  <meta name="keywords" content="Event-based Vision, SLAM, Robotics" />
+
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="My Technology Blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kwan Wai-Pang | Personal Blog" />
+  <meta property="og:description" content="Welcome to My Blog of Binary Tree 😊" />
+  <meta property="og:image" content="https://gohan.github.io/Poster_files/hku_logo.jpg" />
+
+  <meta property="og:locale" content="en" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Home" />
+  <meta name="twitter:description" content="Personal Blog of Kwan Wai-Pang" />
+
+  <!-- Bootstrap & MDB -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous" />
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Barriecito&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700">
+
+  <!-- Code Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/PASTIE.css" media="none" id="highlight_theme_light" />
+
+  <!-- Styles -->
+
+    <link rel="shortcut icon" href="https://gohan.github.io/Poster_files/hku_logo.jpg"/>
+
+  <!-- <link rel="stylesheet" href="https://gohan.github.io/File/Blogs/assets/css/main.css"> -->
+  <!-- <link rel="stylesheet" href="https://gohan.github.io/File/Blogs/assets/css/fonts.css"> -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/new_css_js/cpp-highlight/styles/gradient-dark.css">
+  <script src="../assets/new_css_js/cpp-highlight/highlight.js"></script>    <!--引入代码高亮js库-->
+
+  <script>hljs.initHighlightingOnLoad();
+  </script>
+
+  <!-- Dark Mode -->
+
+
+</head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+              <li class="nav-item ">
+                <a class="nav-link" href="../My_Blog.html">Homepage</a>
+              </li>
+
+              <li class="nav-item ">
+                <a class="nav-link" href="../Poster/cpp算法学习笔记.html">Learning Algorithm</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+<header class="post-header">
+  <h1 align="center" class="post-title">
+    <span style="font-weight: 600;">二叉树</span>
+  </h1>
+</header>
+
+<!-- Content -->
+<div class="container mt-5">
+<!-- home.html -->
+<div class="post">
+
+<!-- 添加目录按钮 -->
+<button id="toggleTocButton">📑</button>
+<!-- 新的目录 -->
+<div id="newToc">
+  <h8>Catalog</h8>
+  <ul></ul>
+</div>
+
+<!-- 添加按钮跳转到题目 -->
+<button id="scrollToTocButton">⬆️</button>
+
+<!-- 插入目录 -->
+<div id="toc">
+  <h8>目录</h8>
+  <ul></ul>
+</div>
+
+<article>
+<!-- 插入博客内容-->
+<p><br></p>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 100%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信图片_20240802183641.jpg" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<p>
+  二叉树的种类：
+  <li>满二叉树：如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。(直观理解就是填满了~)</li>
+  <figure style="text-align: center;">
+    <div style="margin-bottom: 10px;">
+      <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240912162401.png" alt="Image description">
+    </div>
+  <figcaption><p>
+  </p></figcaption>
+  </figure> 
+
+  <li>完全二叉树：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。</li>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240912162519.png" alt="Image description">
+  </div>
+<figcaption>注意最后一个的左侧没有填满，故此不是</figcaption>
+</figure> 
+
+<li>平衡二叉搜索树：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。</li>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240912162825.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<li>平衡二叉树与普通二叉树的空间复杂度的区别：</li>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240920-111210.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+</p>
+
+
+
+<p>
+  二叉树解题的思维模式分两类：
+<br>
+1、是否可以通过遍历一遍二叉树得到答案？如果可以，用一个 traverse 函数配合外部变量来实现，这叫「遍历」的思维模式。
+<br>
+2、是否可以定义一个递归函数，通过子问题（子树）的答案推导出原问题的答案？如果可以，写出这个递归函数的定义，并充分利用这个函数的返回值，这叫「分解问题」的思维模式。
+<br>
+无论使用哪种思维模式，你都需要思考：
+
+如果单独抽出一个二叉树节点，它需要做什么事情？需要在什么时候（前/中/后序位置）做？其他的节点不用你操心，递归函数会帮你在所有节点上执行相同的操作。
+<br>
+二叉树的所有问题，就是让你在前中后序位置注入巧妙的代码逻辑，去达到自己的目的，你只需要单独思考每一个节点应该做什么，其他的不用你管，抛给二叉树遍历框架，递归会在所有节点上做相同的操作。
+  </p>
+
+<p><br></p>
+<h1>二叉树的遍历方式</h1>
+
+<p><br></p>
+<h1>DFS深度优先遍历</h1>
+<div>
+<p>
+  DFS深度优先遍历：先往深走，遇到叶子节点再往回走。<br>
+  分为：
+  前序遍历（递归法，迭代法）；
+  中序遍历（递归法，迭代法）；
+  后序遍历（递归法，迭代法）；
+  <br>这里前中后，其实指的就是中间节点的遍历顺序，只要记住:前中后序指的就是中间节点的位置就可以了。
+</p>
+
+<p><br></p>
+<h2>三道题看二叉树的前中后序遍历</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 50%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240802183934.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>根据首页图片中关于二叉树遍历的思路，用递归解题。时间复杂度和空间复杂度都是O（N）：</summary>
+<pre><code>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+ 
+     void calculate(TreeNode* root, vector&ltint&gt &result)//注意以地址的方式来传递参数
+     {
+         if(root==nullptr)
+             return;
+ 
+         result.push_back(root->val);//前序遍历的位置
+         calculate(root->left,result);
+         calculate(root->right,result);
+     }
+ 
+     vector&ltint&gt preorderTraversal(TreeNode* root) {
+         vector&ltint&gt result;        
+         //用递归的形式去解算
+         calculate(root, result);
+         return result;
+     }
+ };
+</code></pre>
+</details>
+
+<details>
+<summary>此外，也可以用栈解题。时间复杂度也是O（N）</summary>
+<pre><code>
+  class Solution {
+    public:
+    
+        vector&ltint&gt preorderTraversal(TreeNode* root) {
+            vector&ltint&gt result;        
+            
+            // 解法：用堆栈的形式，复杂度为O（N）
+            stack&ltTreeNode*&gt stack_tree;
+            //要先确保root不为空指针
+            if(root==nullptr)
+                return result;
+            stack_tree.push(root);
+            while(!stack_tree.empty())//当堆不为空，那就是还有，所以继续
+            {
+                TreeNode* top=stack_tree.top();//获取栈顶
+                stack_tree.pop();
+                result.push_back(top->val);//放入
+                // 通过测试来判断顺序~
+                if(top->right!=nullptr)
+                    stack_tree.push(top->right);
+                if(top->left!=nullptr)
+                    stack_tree.push(top->left);
+            }
+    
+            return result;
+        }
+    };
+    
+</code></pre>
+</details>
+
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 50%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240802185433.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>用递归解题最直接，复杂度跟上面一样，放对了递归的位置，结果就自然出来了~</summary>
+<pre><code>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     void calculate(TreeNode* root, vector&ltint&gt &result)
+     {
+         if(root==nullptr)
+             return;
+         
+         calculate(root->left,result);
+         result.push_back(root->val);//注意位置
+         calculate(root->right,result);
+     }
+ 
+     vector&ltint&gt inorderTraversal(TreeNode* root) {
+         vector&ltint&gt result;
+ 
+          // 解法1：递归（中序遍历就是先左后中再右，从例子中，3才到2，所以先3）
+         calculate(root,result);
+         return result;
+     }
+ };
+</code></pre>
+</details>
+<details>
+<summary>也可以采用栈的思路去解题，但是相对复杂一些，要考虑细致读取顺序</summary>
+<pre><code>
+  class Solution {
+    public:
+    
+        vector&ltint&gt inorderTraversal(TreeNode* root) {
+            vector&ltint&gt result;
+    
+             // 解法2：堆栈
+            stack&ltTreeNode*&gt stack_int;
+            while(!stack_int.empty() || root!=nullptr)
+            {
+                //从最左开始，左中右
+               while(root!=nullptr)
+               {
+                    stack_int.push(root);
+                    root=root->left;//相当与先将所有的左节点放入栈中，直到根节点
+               }
+               root=stack_int.top();//获取栈顶
+               stack_int.pop();//删掉
+               result.push_back(root->val);
+               root = root->right;//下一次就从它的右边开始检查~
+    
+            }
+    
+            return result;
+        }
+    };
+</code></pre>
+</details>
+
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 50%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240912165047.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>Click to expand the code</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     void calculate(TreeNode* root, vector<int> &result)
+     {
+         if(root==nullptr)
+             return;
+ 
+         calculate(root->left,result);
+         calculate(root->right,result);
+         result.push_back(root->val);//后序遍历
+     }
+ 
+     vector<int> postorderTraversal(TreeNode* root) {
+ 
+         vector<int> result;
+         calculate(root, result);
+         return result;
+     }
+ };
+</script>
+</code></pre>
+</details> 
+
+<p><br></p>
+<h3>深入理解前中后序</h3>
+<pre><code>
+  void traverse(TreeNode* root) {//其实就是一个能够遍历二叉树的函数（类似于链表）也就是一个递归
+    if (root == nullptr) {
+        return;
+    }
+    // 前序位置
+    traverse(root->left);
+    // 中序位置
+    traverse(root->right);
+    // 后序位置
+}
+</code></pre>
+
+<p>所谓前序位置，就是刚进入一个节点（元素）的时候，而后序位置就是即将离开一个节点（元素）的时候。
+  如下图所示：
+  <figure style="text-align: center;">
+    <div style="margin-bottom: 10px;">
+      <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240802202544.png" alt="Image description">
+    </div>
+  <figcaption><p>
+  </p></figcaption>
+  </figure> 
+
+  前序位置的代码在刚刚进入一个二叉树节点的时候执行；(前序遍历：中左右)
+  <br>
+  后序位置的代码在将要离开一个二叉树节点的时候执行；(中序遍历：左中右)
+  <br>
+  中序位置的代码在一个二叉树节点左子树都遍历完，即将开始遍历右子树的时候执行。(后序遍历：左右中)
+  <br>所谓的前中后，其实指的就是中间节点的遍历顺序。如下图所示：
+  <figure style="text-align: center;">
+    <div style="margin-bottom: 10px;">
+      <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240802202847.png" alt="Image description">
+    </div>
+  <figcaption>
+    每个节点都有「唯一」属于自己的前中后序位置，所以前中后序遍历是遍历二叉树过程中处理每一个节点的三个特殊时间点。
+  </figcaption>
+  </figure> 
+</p>
+
+<p>
+  <!-- 二叉树的遍历分为递归遍历（DFS）和层序遍历（FBS）。
+  </br> -->
+  对于递归遍历（DFS）本质上就是递归算法。也就说博客<sup><a href="../Poster/递归类题目.html">Link</a></sup>中提到的大部分二叉树的算法都可以用递归来解决的缘由。上面介绍的前中后序遍历都是递归遍历的一种。
+  <br>当然,除了使用递归也可以采用栈的方式来解决，这样的话就是迭代法。此处不做深入介绍，请见<sup><a href="https://www.programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.html" target="_blank">Link</a></sup>。
+</p>
+
+
+<p><br></p>
+<h2>二叉树的直径</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240824-113023.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+<details>
+<summary>Click to expand the code。其实只是在二叉树的最大深度的基础上的一个小拓展而已～</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     int max_len=0;
+     int traverse(TreeNode* root)
+     {
+         if(root==nullptr)//到达根节点就返回
+             return 0;
+ 
+         int left_depth=traverse(root->left);//左边的深度
+         int right_depth=traverse(root->right);//右边的深度
+ 
+         //获取此树的直径
+         int dim=left_depth+right_depth;
+         max_len=max(max_len,dim);
+ 
+         // 后序位置上计算当前节点的最大的深度
+         return max(right_depth,left_depth)+1;
+ 
+         
+     }
+     int diameterOfBinaryTree(TreeNode* root) {
+         // 每一条二叉树的「直径」长度，就是一个节点的左右子树的最大深度之和。
+         // 也就是应该在后序的位置上统计当前树的最大深度
+         traverse(root);
+         return max_len;
+ 
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h2>平衡二叉树</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240920-111435.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+<details>
+<summary>Click to expand the code.DFS跟统计高度/深度基本一样，只是当两边高度差不符合的时候返回-1，而-1就是对应false，其余都是true</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     int traverse(TreeNode* root)//同样是统计二叉树的高度，但是为-1的时候就是不是平衡二叉树，不为-1的时候就输出
+     {
+         if(root==nullptr)//到达跟节点
+             return 0;
+         
+         //前序的位置
+         int left=traverse(root->left);//左侧的树的深度
+         if(left==-1)
+             return -1;
+         //中序的位置
+         int right=traverse(root->right);//右侧的树的深度
+         if(right==-1)
+             return -1;
+         //后序的位置(返回树的高度以及是否为-1)
+         if(abs(right-left)>1)
+             return -1;
+         else//否则就返回当前的深度/高度
+             return max(right,left)+1;
+     }
+     bool isBalanced(TreeNode* root) {
+         // 平衡二叉搜索树：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。
+         // 二叉树节点的深度：指从根节点到该节点的最长简单路径边的条数。
+         // 二叉树节点的高度：指从该节点到叶子节点的最长简单路径边的条数。
+         return traverse(root)==-1 ? false:true;//同样是统计高度
+     }
+ };
+</script>
+</code></pre>
+</details> 
+
+
+<p><br></p>
+<h2>左叶子之和</h2>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240924083014.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。注意题目要求的只是左子叶的和。采用前序遍历</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     int reslut;
+     void traverse(TreeNode* root) 
+     {
+         if(root==nullptr)//到叶节点
+             return;
+         //前序位置累加
+         if(root->left!=nullptr && 
+         (root->left->left==nullptr && root->left->right==nullptr))//不为空，并且它的子节点都为空。则累加
+             reslut=reslut+root->left->val;
+ 
+         traverse(root->left);
+         traverse(root->right);
+     }
+     int sumOfLeftLeaves(TreeNode* root) {
+         // 采用DFS。注意只是左子叶
+         reslut=0;
+         traverse(root);
+         return reslut;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code.另外一种写法（采用后序遍历）</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     int traverse(TreeNode* root) 
+     {
+         if(root==nullptr)//到叶节点
+             return 0;
+ 
+         int leftvalue=traverse(root->left);//左边的左子叶
+         int rightvalue=traverse(root->right);//右边的左子叶
+ 
+         //后序位置
+         if(root->left!=nullptr && 
+         (root->left->left==nullptr && root->left->right==nullptr))//不为空，并且它的子节点都为空。则累加
+             leftvalue=root->left->val;//更新当前左子叶的结果
+         
+         return leftvalue+rightvalue;
+     }
+     int sumOfLeftLeaves(TreeNode* root) {
+         // 采用DFS。注意只是左子叶
+         return traverse(root);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+</div>
+
+
+<p><br></p>
+<h2>二叉树的构造</h2>
+<div>
+  <p>
+    二叉树的构造问题一般都是使用「分解问题」的思路：构造整棵树 = 根节点 + 构造左子树 + 构造右子树。
+  </p>
+<p><br></p>
+<h3>从中序与后序遍历序列构造二叉树</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240925085558.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+<details>
+<summary>Click to expand the code.图片解析见下图。这题其实不难，关键是理解清楚后序与中序遍历相对的位置。而构建的节点以及分割数组都是在前序位置进行的。</summary>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240925091046.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240925091554.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<p>
+分为以下几步：<br>
+第一步：如果数组大小为零的话，说明是空节点了。
+<br>
+第二步：如果不为空，那么取后序数组最后一个元素作为节点元素。
+<br>
+第三步：找到后序数组最后一个元素在中序数组的位置，作为切割点
+<br>
+第四步：切割中序数组，切成中序左数组和中序右数组 （顺序别搞反了，一定是先切中序数组）
+<br>
+第五步：切割后序数组，切成后序左数组和后序右数组
+<br>
+第六步：递归处理左区间和右区间
+</p>
+
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     TreeNode* traversal (vector<int>& inorder, vector<int>& postorder)
+     {
+         //递归终止条件
+         if(postorder.size()==0)
+             return nullptr;
+ 
+         //后序数组中最后一个元素为当前节点的值
+         int cur_rootvalue=postorder[postorder.size()-1];
+         //创建节点
+         TreeNode* root=new TreeNode(cur_rootvalue);
+ 
+         // 如果已经是最后一个了，必然是叶子节点，直接返回即可
+         if (postorder.size() == 1) 
+             return root;
+ 
+         //根据当前的节点值，将中序数组进行切割：切割成left_inorder与right_inorder，给递归继续调用
+         int index = find(inorder.begin(), inorder.end(), cur_rootvalue) - inorder.begin();
+ 
+         //为了保证一致性，统一采用左闭右开的形式[0, delimiterIndex)
+         vector<int> left_inorder(inorder.begin(), inorder.begin() + index);
+         // 注意inorder.begin()+index已经被选择了！[delimiterIndex + 1, end)
+         vector<int> right_inorder(inorder.begin()+index+1, inorder.end());
+ 
+ 
+         //根据inorder size==postorder size的规律，对后序数组进行切割：切割成left_postorder与right_postorder，给递归继续调用
+         // [0, leftInorder.size)
+         vector<int> left_postorder(postorder.begin(), postorder.begin() + left_inorder.size());
+         //  [leftInorder.size(), end-1) 最后一个被选了~
+         vector<int> right_postorder(postorder.begin()+ left_inorder.size(), postorder.end()-1);//注意此处不包含最后一个
+ 
+         // 递归分别构建左子树与右子树（因此，前面属于前序，先构建当前的节点值）
+         root->left=traversal(left_inorder, left_postorder);
+         root->right=traversal(right_inorder, right_postorder);
+ 
+         return root;
+ 
+     }
+ 
+     TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+         if(inorder.size()==0 || postorder.size()==0)
+             return nullptr;//必然为空
+         
+         return traversal(inorder, postorder);
+     }
+ };
+</script>
+</code></pre>
+</details>
+</div>
+
+<p><br></p>
+<h3>从前序与中序遍历序列构造二叉树</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240925094221.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。此题跟上一题基本是一样的，不一样的只是前序遍历是第一个值</summary>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240925094950.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+       TreeNode* traversal (vector<int>& preorder, vector<int>& inorder)
+       {
+           //递归终止条件
+           if(preorder.size()==0)
+               return nullptr;
+   
+           //前序数组中第一个元素为当前节点的值
+           int cur_rootvalue=preorder[0];
+           //创建节点
+           TreeNode* root=new TreeNode(cur_rootvalue);
+   
+           // 如果已经是最后一个了，必然是叶子节点，直接返回即可
+           if (preorder.size() == 1) 
+               return root;
+   
+           //根据当前的节点值，将中序数组进行切割：切割成left_inorder与right_inorder，给递归继续调用
+           int index = find(inorder.begin(), inorder.end(), cur_rootvalue) - inorder.begin();
+   
+           //为了保证一致性，统一采用左闭右开的形式[0, delimiterIndex)
+           vector<int> left_inorder(inorder.begin(), inorder.begin() + index);
+           // 注意inorder.begin()+index已经被选择了！[delimiterIndex + 1, end)
+           vector<int> right_inorder(inorder.begin()+index+1, inorder.end());
+   
+   
+           //根据inorder size==preorder size的规律，对前序数组进行切割：切割成left_preorder与right_preorder，给递归继续调用
+           // [1, leftInorder.size)
+           vector<int> left_preorder(preorder.begin()+1, preorder.begin() +1+ left_inorder.size());
+           //  [leftInorder.size(), end) 
+           vector<int> right_preorder(preorder.begin()+1+ left_inorder.size(), preorder.end());
+   
+           // 递归分别构建左子树与右子树（因此，前面属于前序，先构建当前的节点值）
+           root->left=traversal(left_preorder, left_inorder);
+           root->right=traversal(right_preorder,right_inorder);
+   
+           return root;
+   
+       }
+   
+       TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+           if(preorder.size()==0 || inorder.size()==0)
+                return nullptr;//必然为空
+            
+            return traversal(preorder, inorder);
+       }
+   };
+</script>
+</code></pre>
+</details>
+
+</div>
+
+<p><br></p>
+<p>
+Tips🙋‍通过上面两道题，前序和中序可以唯一确定一棵二叉树；而后序和中序也可以唯一确定一棵二叉树。但是，前序和后序不能唯一确定一棵二叉树！，因为没有中序遍历无法确定左右部分，也就是无法分割。但是leetcode上还是有这道题，为此是让返回其中任意一个答案
+</p>
+
+<p><br></p>
+<h3>根据前序和后序遍历构造二叉树</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240925100753.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。
+  <br>
+  1、首先把前序遍历结果的第一个元素确定为根节点的值(注意，这个值必然等于当前后序遍历结果的最后一个元素)。
+  <br>
+  2、然后把前序遍历结果的第二个元素作为左子树的根节点的值。
+  <br>
+  3、在后序遍历结果中寻找左子树根节点的值，从而确定了左子树的索引边界，进而可以对后序数组进行切割，分为左右子数组，再递归构造左右子树即可。
+</summary>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240925102411.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+    
+        TreeNode* traversal (vector<int>& preorder, vector<int>& postorder)
+        {
+            //递归终止条件
+            if(preorder.size()==0)
+                return nullptr;
+    
+            //前序数组中第一个元素为当前节点的值
+            int cur_rootvalue=preorder[0];
+            //创建节点
+            TreeNode* root=new TreeNode(cur_rootvalue);
+    
+            // 如果已经是最后一个了，必然是叶子节点，直接返回即可
+            if (preorder.size() == 1) 
+                return root;
+    
+            //注意，当前的前序第一个必然为后序最后一个，故此需要剔除掉再选，进而决定下一个左树的起点 
+            //找到后序数组中左子树的根节点。根据此切割哪里之前是左树！
+            int leftRootValue = preorder[1];
+            int index = find(postorder.begin(), postorder.end(), leftRootValue) - postorder.begin();
+    
+             //为了保证一致性，统一采用左闭右开的形式[0, delimiterIndex+1)
+            vector<int> left_postorder(postorder.begin(), postorder.begin() + index+1);//当前的这个index需要被选上，下次用！
+            // [delimiterIndex + 1, end-1)（最后一个不要了）
+            vector<int> right_postorder(postorder.begin()+index+1, postorder.end()-1);//注意最后一个必然跟当前的前序第一个相同，故此不要
+    
+            //根据postordersize==preorder size的规律，对前序数组进行切割：切割成left_preorder与right_preorder，给递归继续调用
+            // [1, leftInorder.size)
+            vector<int> left_preorder(preorder.begin()+1, preorder.begin() +1+ left_postorder.size());
+            //  [leftInorder.size(), end) 
+            vector<int> right_preorder(preorder.begin()+1+ left_postorder.size(), preorder.end());
+    
+            // 递归分别构建左子树与右子树（因此，前面属于前序，先构建当前的节点值）
+            root->left=traversal(left_preorder, left_postorder);
+            root->right=traversal(right_preorder,right_postorder);
+    
+            return root;
+        }
+    
+        TreeNode* constructFromPrePost(vector<int>& preorder, vector<int>& postorder) {
+            if(preorder.size()==0 || postorder.size()==0)
+                return nullptr;//必然为空
+            return traversal(preorder, postorder);
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+</div>
+
+
+<p><br></p>
+<h3>构造最大二叉树</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240925090141.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。跟上面两题很像，只是上面两题通过前序或后序列表先确定本节点的值及在中序的分割，但此题是通过最大值来确定的,然后把输入的数组看成是中序数组即可~</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     TreeNode* traversal (vector<int>& nums)  
+     {
+         //递归终止条件
+         if(nums.size()==0)
+             return nullptr;
+ 
+         //获取当前的最大值作为当前节点的值
+         int cur_rootvalue=*max_element(nums.begin(), nums.end());
+         //创建节点
+         TreeNode* root=new TreeNode(cur_rootvalue);
+ 
+         // 如果已经是最后一个了，必然是叶子节点，直接返回即可
+         if (nums.size() == 1) 
+             return root;
+         
+         //获取当前节点值的索引
+         int index = find(nums.begin(), nums.end(), cur_rootvalue) - nums.begin();
+ 
+         //对数组进行切割。为了保证一致性，统一采用左闭右开的形式[0, delimiterIndex)
+         vector<int> left_nums(nums.begin(), nums.begin() + index);
+         // 注意nums.begin()+index已经被选择了！[delimiterIndex + 1, end)
+         vector<int> right_nums(nums.begin()+index+1, nums.end());
+ 
+ 
+         // 递归分别构建左子树与右子树（因此，前面属于前序，先构建当前的节点值）
+         root->left=traversal(left_nums);
+         root->right=traversal(right_nums);
+ 
+         return root;
+ 
+     }
+ 
+     TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+         if(nums.size()==0)
+             return nullptr;//必然为空
+         
+         return traversal(nums);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+</div>
+
+</div>
+
+<!-- ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！ -->
+
+<p><br></p>
+<h2>中序遍历解决二叉搜索树(Binary Search Tree, BST)</h2>
+<div>
+<p>
+  对于二叉搜索树（BST）它的中序遍历必然是有序的！！！
+因此，遇到在二叉搜索树上求什么最值，求差值之类的，都要思考一下二叉搜索树可是有序的，进而转换为前中后序遍历。
+同时在递归遍历的过程中记录前后两个指针，就可以实现对比
+</p>
+
+<p><br></p>
+<h3>验证二叉搜索树</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240926120431.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code.DFS，注意要求是左边子树的全部都要小于当前的节点，而并不仅仅判断当前的左右的大小！而细看题目的要求，实际上就是中序遍历，然后看该数组是否严格递增，如果是那么就是true</summary>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 60%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240926122919.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     void traverse(TreeNode* root, vector<int>& group)
+     {
+         if(root==nullptr)
+             return;
+ 
+         traverse(root->left,group);
+         //中序的位置
+         group.push_back(root->val);//将二叉树转换为有序数组
+ 
+         traverse(root->right,group);
+ 
+     }
+     bool isValidBST(TreeNode* root) {
+         vector<int> group;
+         
+         traverse(root,group);
+ 
+         // 检查是否严格递增
+         for (int i = 1; i < group.size(); i++) {
+             if (group[i] <= group[i - 1]) // 检查相邻元素
+                 return false;//不是递增
+         }
+         return true;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。直接在dfs的时候判断，但是这种写法相对不好理解~</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     TreeNode* pre = nullptr; // 用来记录前一个节点
+ 
+     bool traverse(TreeNode* root)
+     {
+         if(root==nullptr)
+             return true;
+ 
+         bool left=traverse(root->left);
+ 
+         //中序的位置上再与上一个节点进行对比。
+         if(pre!=nullptr && !(pre->val<root->val))
+             return false;
+         pre=root;// 记录前一个节点
+         //对于中序遍历，应该是左中右。所以上一个节点应该永远小于当前的才可以满足左<中<右
+ 
+         bool right=traverse(root->right);
+ 
+         return (left && right);//有一个为false就不对
+ 
+     }
+     bool isValidBST(TreeNode* root) {
+         
+         return traverse(root);
+ 
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+</div>
+
+
+<p><br></p>
+<h3>二叉搜索树的最小绝对差</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240926142312.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。此题本质上也是一个中序遍历，求的就是中序遍历的数组两两之间的差值的最小值</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        TreeNode* pre=nullptr;
+        void traverse(TreeNode* root, int& min_value)//注意要传地址
+        {
+            if(root==nullptr)
+                return;
+            
+            traverse(root->left,min_value);
+            //中序的位置
+            if(pre!=nullptr)
+            {
+                if(min_value>abs(pre->val-root->val))
+                    min_value=abs(pre->val-root->val);
+            }
+            pre=root;// 记录当前节点作为下一个节点
+            traverse(root->right,min_value);
+    
+        }
+    
+        int getMinimumDifference(TreeNode* root) {
+            int min_value=INT_MAX;//最小绝对差，为此初始化为最大的int
+            traverse(root,min_value);
+    
+            return min_value;
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+</div>
+
+
+<p><br></p>
+<h3>二叉搜索树中的众数</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240926145833.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。最直接的解题思路如下。当然hash table记录的话放前中后序都一样</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     void traverse(TreeNode* root, unordered_map<int, int>& map_group)//注意要传地址
+     {
+         if(root==nullptr)
+             return;   
+ 
+         traverse(root->left,map_group);
+ 
+         //中序的位置记录当前的值
+         map_group[root->val]++;//当前值出现的次数记录
+ 
+         traverse(root->right,map_group);
+     }
+ 
+     static bool comparefunction(pair<int,int>a, pair<int,int>b)
+     {
+         return a.second > b.second;//从大到小排列
+     }
+ 
+     vector<int> findMode(TreeNode* root) {
+         unordered_map<int, int> map_group;//值及出现的次数
+         traverse(root,map_group);
+ 
+         // 将 map 的内容复制到 vector 中
+         vector<pair<int, int>> copy_group(map_group.begin(), map_group.end());//初始化一个vector数组
+ 
+         sort(copy_group.begin(),copy_group.end(),comparefunction);//根据出现的次数进行排序
+ 
+         vector<int> result;
+         for(int i=0;i<copy_group.size();i++)
+         {
+             if(copy_group[i].second==copy_group[0].second)//跟第一个出现次数一致
+             {
+                 result.push_back(copy_group[i].first);//对应值记录
+             }
+             else
+                 break;            
+         }
+ 
+         return result;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。上面的解决思路其实是对于普通的二叉树是通用的，但是由于本题是二叉搜索树，为此它的中序遍历必然是有序的，那么就很自然而然通过计数法就可以得到众数！
+  <br>此外，需要注意的是：关于计数次数的更新不能写入pre!=nullptr中，因为会存在只有一个数也就是pre为空的情况</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+
+  class Solution {
+    public:
+        TreeNode* pre=nullptr;
+        int max_count=0;//出现的数目最多
+        int each_count=1;//出现次数的统计
+        void traverse(TreeNode* root, vector<int>& result)//注意要传地址
+        {
+            if(root==nullptr)
+                return;
+            
+            traverse(root->left,result);
+    
+            //中序的位置
+            if(pre!=nullptr)
+            {
+                if(root->val==pre->val)
+                {
+                    each_count++;//再次出现了
+                }
+                else
+                {
+                    each_count=1;//新出现的，数目为1
+                }
+            }
+    
+            //关于计数次数的更新（注意下面部分不能写入pre!=nullptr中，因为会存在只有一个数也就是pre为空的情况）
+            if(each_count==max_count)//同样是出现次数最多
+            {
+                result.push_back(root->val);
+            }
+            else if(each_count>max_count)//当前才是出现的次数最多的
+            {
+                result.clear();//清空之前的误记录
+                max_count=each_count;//记录当前的最大值
+                result.push_back(root->val);//结果放入
+            }
+    
+            pre=root;//当前节点作为上一个跟后面进行对比。
+    
+            pre=root;// 记录当前节点作为下一个节点
+            traverse(root->right,result);
+    
+        }
+        vector<int> findMode(TreeNode* root) {
+    
+            vector<int> result;
+            traverse(root,result);
+            return result;
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+</div>
+
+<p><br></p>
+<h3>二叉搜索树中的搜索</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240925213023.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。DFS，应该是后序遍历，在后序的位置处理</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     TreeNode* traverse(TreeNode* root, int val)
+     {
+         if(root==nullptr)
+             return root;
+         if(root->val==val)
+             return root;
+         
+         auto left=traverse(root->left,val);
+         auto right=traverse(root->right,val);
+ 
+         //若左右都是空的,证明没有
+         if(left==nullptr && right==nullptr)
+             return nullptr;
+         else//有一个不为空,那么就是返回不为空的那个
+             return (left==nullptr)? right :left;//返回不为空的那个
+ 
+     }
+     TreeNode* searchBST(TreeNode* root, int val) {
+         return traverse(root,val);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。采用BFS</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        TreeNode* searchBST(TreeNode* root, int target) {
+    
+            queue<TreeNode* > que;
+    
+            if(root!=nullptr)
+                que.push(root);
+    
+            while(!que.empty())
+            {
+                int cur_size=que.size();//当前层的节点数
+    
+                for(int i=0;i<cur_size;i++)
+                {
+                    TreeNode* cur=que.front();
+                    que.pop();
+    
+                    if(cur->val==target)
+                        return cur;
+    
+                    if(cur->left!=nullptr)
+                        que.push(cur->left);
+                    if(cur->right!=nullptr)
+                        que.push(cur->right);
+                }
+            }
+    
+            return nullptr;//前面没有return那么必然就是没找到,所以返回空
+    
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code.上面两种解题的思路其实都是适用于普通的二叉树的，对于二叉搜索树，其实更加简单些</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        TreeNode* traverse(TreeNode* root, int val)
+        {
+           if(root==nullptr)
+               return root;
+           else if(root->val==val)
+               return root;
+           
+           else if(root->val > val)//大了，那么选它左边的值
+           return traverse(root->left,val);
+           
+           //若小了，那么久返回他右侧
+           return traverse(root->right,val);
+    
+        }
+        TreeNode* searchBST(TreeNode* root, int val) {
+            return traverse(root,val);
+        }
+    };
+   
+</script>
+</code></pre>
+</details>
+
+</div> 
+
+<p><br></p>
+<h3>二叉搜索树中的插入操作</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240927214012.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。注意只需要给出一个合理结果即可，因此不需要考虑题目中提示所说的改变树的结构的插入方式，只要按照二叉搜索树的规则去遍历，遇到空节点就插入节点就可以了。
+  <br>同时注意！BST是有序的，因此并不需要全部遍历，根据插入元素的数值，决定递归方向。
+  <br>此外，通过递归函数返回值完成了新加入节点的父子关系赋值操作了，下一层将加入节点返回，本层用root->left或者root->right将其接住。
+</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+ 
+     TreeNode* traverse(TreeNode* root, int val)
+     {
+         //递归终止的条件
+         if(root==nullptr)//找到空节点就插入
+         {
+             root=new TreeNode(val);
+             // return root;
+         }
+         
+         if(root->val > val)//太大了，那么就从它的左侧找机会插入
+             root->left=traverse(root->left, val);
+ 
+         if(root->val < val)//太小了，那么就从它的左侧找机会插入
+             root->right=traverse(root->right, val);
+         
+         return root;//返回当前节点
+ 
+     }
+ 
+     TreeNode* insertIntoBST(TreeNode* root, int val) {
+         return traverse(root, val);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。不带返回值的写法如下</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+ class Solution {
+ public:
+     TreeNode* pre=nullptr;
+     void traverse(TreeNode* root, int val)
+     {
+         //递归终止的条件
+         if(root==nullptr)//找到空节点就插入
+         {
+             TreeNode* new_node = new TreeNode(val);
+             //根据前一个节点的值来决定放在左树还是右树
+             if(pre->val < val)
+             {
+                 pre->right=new_node;
+             }
+             else
+                 pre->left=new_node;
+ 
+             return;
+         }
+         
+         pre=root;//记录前一个节点的值（注意不再放于初始的位置）
+ 
+         if(root->val > val)//太大了，那么就从它的左侧找机会插入
+             traverse(root->left, val);
+ 
+         if(root->val < val)//太小了，那么就从它的左侧找机会插入
+             traverse(root->right, val);
+ 
+     }
+ 
+     TreeNode* insertIntoBST(TreeNode* root, int val) {
+         if(root==nullptr)
+             return new TreeNode(val);
+         traverse(root, val);
+         return root;
+     }
+ };
+</script>
+</code></pre>
+</details> 
+
+<details>
+<summary>Click to expand the code。更简单的，带引用地址传指针，连上一个值也无需保留处理，因为递归决定方向的时候已经做了！</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        void traverse(TreeNode*& root, int val) {
+            // 递归终止的条件
+            if (root == nullptr) { // 找到空节点就插入
+                root = new TreeNode(val); // 在此处直接插入节点
+                return;
+            }
+    
+            if (val < root->val) { // 太大了，那么就从左侧找机会插入
+                traverse(root->left, val);
+            } else { // 太小了，那么就从右侧找机会插入
+                traverse(root->right, val);
+            }
+        }
+    
+        TreeNode* insertIntoBST(TreeNode* root, int val) {
+            traverse(root, val); // 直接调用 traverse
+            return root; // 返回根节点
+        }
+    };
+    
+</script>
+</code></pre>
+</details> 
+
+</div>
+
+
+<p><br></p>
+<h3>删除二叉搜索树中的节点</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240927223452.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code.
+  <br>
+  对于二叉搜索树中，删除节点，涉及到二叉树的结构调整，故此有以下5种情况：
+<br>1、没找到删除的节点，遍历到空节点直接返回了。
+<br>2、左右孩子都为空（叶子节点），直接删除节点， 返回NULL为根节点。
+<br>3、删除节点的左孩子为空，右孩子不为空，删除节点，右孩子补位，返回右孩子为根节点。
+<br>4、删除节点的右孩子为空，左孩子不为空，删除节点，左孩子补位，返回左孩子为根节点。
+<br>5、左右孩子节点都不为空，则将删除节点的左子树头结点（左孩子）放到删除节点的右子树的最左面节点的左孩子上（这样就可以保证满足BST的特性），返回删除节点右孩子为新的根节点。
+</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     TreeNode* traverse(TreeNode* root, int key)
+     {
+         //递归终止条件
+         if(root==nullptr)
+             return nullptr;
+ 
+         if(root->val == key)//如果找到了
+         {
+             //情况2：左右孩子都为空（叶子节点），直接删除节点， 返回NULL为根节点。
+             if(root->left==nullptr && root->right==nullptr)
+                 return nullptr;
+ 
+             //情况3：删除节点的左孩子为空，右孩子不为空，删除节点，右孩子补位，返回右孩子为根节点。
+             else if(root->left==nullptr && root->right!=nullptr)
+                 return root->right;
+             
+             //情况4：删除节点的右孩子为空，左孩子不为空，删除节点，左孩子补位，返回左孩子为根节点。
+             else if(root->left!=nullptr && root->right==nullptr)
+                 return root->left;
+             
+             //情况5：将删除节点的左子树头结点（左孩子）放到删除节点的右子树的最左面节点的左孩子上，
+             // 返回删除节点右孩子为新的根节点。
+             else{
+                 // 找右子树最左面的节点
+                 TreeNode* right_tree = root->right; 
+                 while(right_tree->left != nullptr) {
+                     right_tree = right_tree->left;
+                 }
+ 
+                 right_tree->left = root->left; // 把要删除的节点（root）左子树放在right_tree的左孩子的位置
+                 return root->right;//返回右树
+ 
+             }
+ 
+         }
+ 
+         //若没有找到：利用BST特性，左右方向找
+         if(root->val > key)//大了，那么往左树的方向找，那么左边的结果应该为：
+             root->left = traverse(root->left, key);//注意是结果赋值而非直接返回
+ 
+         if(root->val < key)//小了，那么往右树的方向找
+             root->right = traverse(root->right, key);
+ 
+         return root;
+ 
+     }
+ 
+     TreeNode* deleteNode(TreeNode* root, int key) {
+         return traverse(root, key);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+</div>
+
+
+<p><br></p>
+<h3>修剪二叉搜索树</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240928211417.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* traverse(TreeNode* root, int low, int high)
+    {
+        //递归终止条件
+        if(root==nullptr)
+            return nullptr;
+
+        if(root->val < low)//那么应该递归右子树（因为只有右侧有可能满足）
+            return traverse(root->right, low, high);//当前可以删掉，当前的左侧也可以删掉，因为必然小于low，但是当前的右侧需要再次检测！
+
+        else if(root->val > high)//那么应该递归左子树（因为只有左侧有可能满足）
+            return traverse(root->left, low, high);
+
+        //满足条件就继续获取左右子树然后返回
+        // 将下一层处理完左子树的结果赋给root->left，处理完右子树的结果赋给root->right。
+        root->left = traverse(root->left, low, high);// root->left接入符合条件的左孩子
+        root->right = traverse(root->right, low, high);// root->right接入符合条件的右孩子
+
+        return root;
+    }
+
+    TreeNode* trimBST(TreeNode* root, int low, int high) {
+        return traverse(root, low, high);
+    }
+};
+<details>
+<summary>Click to expand the code</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+
+</script>
+</code></pre>
+</details>
+
+</div>
+
+
+<p><br></p>
+<h3>将有序数组转换为二叉搜索树</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240928214029.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。不断中间分割，然后递归处理左区间，右区间，类似二分法</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     //递归函数带有返回值，可以直接实现修改节点
+     TreeNode* traverse(vector<int>& nums, int left, int right)
+     {   
+         //递归终止条件
+         if(left>right)
+             return nullptr;
+ 
+         // 若非偶数也直接取整了~
+         int middle=(left+right)/2;//中间值就是BST中序遍历
+ 
+         //创建节点
+         TreeNode* root=new TreeNode(nums[middle]);
+ 
+         // root的左子树接住下一层左区间的构造节点
+         root->left=traverse(nums, left, middle-1);
+ 
+         // 右子树接住下一层右区间构造的节点。
+         root->right=traverse(nums,  middle+1,right);
+ 
+         return root;
+ 
+     }
+     TreeNode* sortedArrayToBST(vector<int>& nums) {
+         if(nums.size()==0)
+             return nullptr;//必然为空
+         //首先注意是平衡二叉搜索树，因此左右两个子树的高度差的绝对值不超过1。
+         return traverse(nums, 0, nums.size()-1);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+</div> 
+
+<p><br></p>
+<h3>逆向中序遍历: 把二叉搜索树转换为累加树</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240928215600.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code.对于BST本质上就是有序数组。那么换个角度来看。一个有序数组[2, 5, 13]，求从后到前的累加数组，也就是[20, 18, 13]。故此对于BST也应该是从后向前一直遍历累加。中序遍历是左中右。那么此处的反过来遍历应该是右中左。
+  <br><strong>逆向中序遍历<strong>,此题跟《1038.从二叉搜索树到更大和树》一模一样
+
+  </summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     TreeNode* pre=nullptr;//记录上一个节点的值
+     void traverse(TreeNode* root)
+     {
+         //递归终止条件
+         if(root==nullptr)
+             return;
+ 
+         traverse(root->right);//先遍历右节点
+ 
+         //中序的位置
+         if(pre!=nullptr)//若为空，那么就是本值
+             root->val+=pre->val;//加上上一个值
+         pre=root;//记录上一个节点
+ 
+         traverse(root->left);//遍历左节点
+ 
+     }
+     TreeNode* convertBST(TreeNode* root) {
+         traverse(root);
+ 
+         return root;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+</div> 
+
+
+<p><br></p>
+<h3>二叉搜索树中第 K 小的元素</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240929135117.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+      void traverse(TreeNode* root, vector<int> &nums)
+      {
+         //递归终止条件
+         if(root==nullptr)
+             return;
+ 
+         traverse(root->left,nums);
+ 
+         //中序的位置
+         nums.push_back(root->val);
+ 
+         traverse(root->right, nums);
+  
+      }
+     int kthSmallest(TreeNode* root, int k) {
+         // BST,中序遍历实现从小到大
+         vector<int> nums;
+         traverse(root, nums);
+         return nums[k-1];
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+
+<details>
+<summary>Click to expand the code。另外一种写法</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        int result;
+        int index=0;
+         void traverse(TreeNode* root, int k)
+         {
+            //递归终止条件
+            if(root==nullptr)
+                return;
+    
+            traverse(root->left,k);
+    
+            //中序的位置
+           index++;
+           if(index==k)
+           {
+                result=root->val;
+                return;
+           }
+    
+            traverse(root->right, k);
+     
+         }
+        int kthSmallest(TreeNode* root, int k) {
+            // BST,中序遍历实现从小到大
+           
+            traverse(root, k);
+            return result;
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+</div> 
+
+
+</div>
+
+
+<!-- ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！ -->
+
+<p><br></p>
+<h2>后序遍历解最近公共祖先系列(Lowest Common Ancestor，LCA)</h2>
+<div>
+<p>
+  这个其实也是git push与merge的基本原理了。
+<br>
+1.求最小公共祖先，需要从底向上遍历，那么二叉树，只能通过后序遍历（即：回溯）实现从底向上的遍历方式。
+<br>
+2.在回溯的过程中，必然要遍历整棵二叉树，即使已经找到结果了，依然要把其他节点遍历完，因为要使用递归函数的返回值（也就是代码中的left和right）做逻辑判断。
+<br>
+3.要理解如果返回值left为空，right不为空为什么要返回right，为什么可以用返回right传给上一层结果。
+</p>
+
+<p><br></p>
+<h3>二叉树的最近公共祖先</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240926214033.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code.首先后序遍历实现了自下而上的过程，根据目前左右节点的情况来往前推断。
+  <br>而递归的终止就是直到跟节点或找到p或q开始从下而上。
+  <br>而注意p和q必然会出现且只会出现一次，因此当找到了最近处左右都不为空的情况，返回了当前的节点，那么就是最近的祖先了。而之后是不会再存在左右不为空的情况了。
+  <br>更详细的分析请参考博客：<a href="https://www.programmercarl.com/0236.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88.html#%E6%80%9D%E8%B7%AF" target="_blank">代码随想录</a>。
+</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+  * };
+  */
+ class Solution {
+ public:
+     TreeNode* traverse(TreeNode* root, TreeNode* p, TreeNode* q)
+     {
+         //递归终止的条件
+         if(root==NULL || root == q || root == p)
+             return root;//如果 root == q，或者 root == p，说明找到 q p ，则将其返回
+         
+         TreeNode* left=traverse(root->left,p,q);
+ 
+         TreeNode* right=traverse(root->right,p,q);
+ 
+         //后序的位置
+ 
+         if(left!=NULL && right!=NULL)
+             return root;//找到了就返回当前值
+ 
+         // 如果left为空，right不为空，就返回right，说明目标节点是通过right返回的，反之依然。
+         //注意当找到了最近祖先点后，往上传递的时候，永远只保留有值的子树，而另外子树必然是空的，因为没找到！
+         else if(left==NULL && right!=NULL)
+             return right;
+         else if(left!=NULL && right==NULL)
+             return left;
+         else
+             return NULL;//都为空那么就返回空
+ 
+     }
+     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+ 
+         //首先通过二叉树的后序遍历（左右中），就可以实现从底向上查
+         //进而实现根据左右子树的返回值，来处理中节点的逻辑。
+ 
+         //同时，题目也强调了：二叉树节点数值是不重复的，而且一定存在 q 和 p
+ 
+         //因此，判断逻辑是如果递归遍历遇到q，就将q返回，遇到p 就将p返回
+         // 如果 左右子树的返回值都不为空，说明此时的中节点，一定是q 和p 的最近祖先。
+ 
+         return traverse(root,p,q);
+         
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+</div> 
+
+
+<p><br></p>
+<h3>二叉搜索树的最近公共祖先</h3>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240927193855.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code.首先对于二叉搜索树（BST）满足中序遍历有序，而对于公共祖先，需要后序遍历从底而上。
+<br>
+因为是有序树，所以 如果 中间节点是 q 和 p 的公共祖先，那么 中节点的数组 一定是在 [p, q]区间的。即 中节点 > p && 中节点 < q 或者 中节点 > q && 中节点 < p。
+</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+  * };
+  */
+ 
+ class Solution {
+ public:
+     TreeNode* traverse(TreeNode* root, TreeNode* p, TreeNode* q) 
+     {
+         //递归终止条件：空
+         if(root==NULL)
+             return root;
+         
+         if(p->val <= root->val && root->val <= q->val)
+             return root;
+ 
+         if(root->val > q->val)//大了，那么就左遍历，因为左侧更小
+         {
+             TreeNode* left=traverse(root->left, p, q);
+             if(left!=NULL)
+                 return left;
+         }
+ 
+         if(root->val < p->val)//当前值小了，那么就右遍历，因为右侧更大
+         {
+             TreeNode* right=traverse(root->right, p, q);
+             if(right!=NULL)
+                 return right;
+         }
+ 
+         return root;//这个没意义，前面已经包含了，但是不加就报错
+ 
+     }
+ 
+     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+         if(p->val > q->val)//注意对比的的是值
+             swap(p,q);//确保q大于p
+         return traverse(root, p, q);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。当然直接用上一题的思路去解决也可以</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+  * };
+  */
+ 
+ class Solution {
+ public:
+     TreeNode* traverse(TreeNode* root, TreeNode* p, TreeNode* q) 
+     {
+         //递归终止条件：空或者找到了p与q
+         if(root==NULL || root==p || root==q)
+             return root;
+         
+         TreeNode* left=traverse(root->left, p, q);
+         TreeNode* right=traverse(root->right, p, q);
+ 
+         //后序的位置
+         if(left!=NULL && right!=NULL)//若左右都不为空，那就是找到了
+             return root;
+         else if(left==NULL && right!=NULL)
+             return right;
+         else if(left!=NULL && right==NULL)
+             return left;
+         return NULL;
+ 
+     }
+ 
+     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+         
+         return traverse(root, p, q);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<br>
+<p>
+除了上面两题以外，Leetcode上还有三道LCA的题目，分别是：
+1644, 1650, 1676。
+但是均要会员才可以看到题目，后面有机会再补充吧hhh
+</p>
+
+</div>
+</div>
+
+<!-- ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！ -->
+
+</div>
+
+<p><br></p>
+<h1>BFS广度优先遍历</h1>
+<div>
+<p>
+  BFS广度优先遍历：一层一层的去遍历.<br>
+  层次遍历（迭代法）
+</br>
+对于二叉树的层序遍历，就是从左到右一层一层的去遍历二叉树。
+这种遍历方式通常需要借助队列来实现。<strong>队列先进先出</strong>，符合一层一层遍历的逻辑，而用栈先进后出适合模拟深度优先遍历也就是递归的逻辑（故此上面DFS也有给出栈解法，只是递归前中后序更直接～）。
+<!-- <details> -->
+<!-- <summary>-->
+  代码框架如下 ：
+  <!-- (🙋‍暂时还没用到过，也没有理解很透彻。<a href="https://labuladong.online/algo/data-structure-basic/binary-tree-traverse-basic/" target="_blank">参考链接</a>)： -->
+<!-- </summary> -->
+<pre><code>
+void levelOrderTraverse(TreeNode* root) {
+
+  //当到终点的时候就返回
+  if (root == nullptr) {
+      return;
+  }
+
+  // 初始化队列，将根节点加入队列
+  std::queue&ltTreeNode*&gt q;
+  q.push(root);
+  while (!q.empty()) {
+      TreeNode* cur = q.front();//获取队列的头
+      q.pop();//删除队列的头
+
+      // 访问 cur 节点
+      std::cout &lt&lt cur->val &lt&lt std::endl;
+
+      // 把 cur 的左右子节点加入队列
+      if (cur->left != nullptr) {
+          q.push(cur->left);
+      }
+      if (cur->right != nullptr) {
+          q.push(cur->right);
+      }
+  }
+}
+</code></pre>
+<!-- </details> -->
+
+使用队列实现二叉树广度优先遍历，动画如下：
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/102二叉树的层序遍历.gif" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+</p>
+
+<p><br></p>
+<h2>二叉树的层序遍历</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240914-212858.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+<details>
+<summary>Click to expand the code。采用队列进行层序遍历，注意检查是否为空再放入队列中</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     vector<vector<int>> levelOrder(TreeNode* root) {
+ 
+         vector<vector<int>> result;
+ 
+         //初始化队列（先入先出）
+         std::queue<TreeNode*> q;
+         if(root!=nullptr)
+             q.push(root);
+         
+         while(!q.empty())
+         {
+             int cur_size=q.size();//当前层的节点数目
+             vector<int> cur_temp;//存放当前层（从左到右，所有的节点）
+ 
+             for(int i=0;i<cur_size;i++)
+             {
+                 TreeNode* cur=q.front();//获取队列开头（先入先出）
+                 q.pop();//删掉
+                 cur_temp.push_back(cur->val);//获取当前节点的值
+                 
+                 //当前节点的左子节点与右子节点放入队列中，下次用(注意顺序是先放左后放右)
+                 if(cur->left!=nullptr)//注意不为空再放
+                     q.push(cur->left);
+                 if(cur->right!=nullptr)
+                     q.push(cur->right);
+             }
+             result.push_back(cur_temp);
+ 
+         }
+ 
+         return result;
+ 
+ 
+     }
+ };
+</script>
+</code></pre>
+</details> 
+
+<p><br></p>
+<h2>二叉树的层次遍历 II</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240914-215511.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>Click to expand the code。跟上题一样，只是结果加个反转</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     vector<vector<int>> levelOrderBottom(TreeNode* root) {
+         
+         //类似102的程序遍历，最后把结果反转一下即可～
+         vector<vector<int>> result;
+  
+          //初始化队列（先入先出）
+          std::queue<TreeNode*> q;
+          if(root!=nullptr)
+              q.push(root);
+          
+          while(!q.empty())
+          {
+              int cur_size=q.size();//当前层的节点数目
+              vector<int> cur_temp;//存放当前层（从左到右，所有的节点）
+  
+              for(int i=0;i<cur_size;i++)
+              {
+                  TreeNode* cur=q.front();//获取队列开头（先入先出）
+                  q.pop();//删掉
+                  cur_temp.push_back(cur->val);//获取当前节点的值
+                  
+                  //当前节点的左子节点与右子节点放入队列中，下次用(注意顺序是先放左后放右)
+                  if(cur->left!=nullptr)//注意不为空再放
+                      q.push(cur->left);
+                  if(cur->right!=nullptr)
+                      q.push(cur->right);
+              }
+              result.push_back(cur_temp);//把每一层的结果记录
+  
+          }
+ 
+          reverse(result.begin(),result.end());//最后结果进行反转～
+          return result;
+  
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h2>二叉树的右视图</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240914-220107.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>Click to expand the code。同样是层序遍历，不过只看最后一个节点（注意是最后一个，不一定是右侧的）</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     vector<int> rightSideView(TreeNode* root) {
+ 
+         //同样是层序遍历，不过只看最后一个节点（注意是最后一个，不一定是右侧的）
+ 
+         queue<TreeNode*> que;
+ 
+         if(root!=nullptr)
+             que.push(root);
+ 
+         vector<int> result;
+         while(!que.empty())//不为空
+         {
+             int cur_size=que.size();
+             for(int i=0;i<cur_size;i++)
+             {
+                 TreeNode* cur=que.front();//推出第一个
+                 que.pop();//删掉
+ 
+                 if(i==(cur_size-1))//最后一个
+                     result.push_back(cur->val);
+ 
+                 //层序遍历先左后右
+                 if(cur->left!=nullptr)
+                     que.push(cur->left);
+ 
+                 if(cur->right!=nullptr)//不为空，插入
+                     que.push(cur->right);
+             }
+         }
+ 
+         return result;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+
+<p><br></p>
+<h2>二叉树的层平均值</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240914-222011.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+<details>
+<summary>Click to expand the code</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     vector<double> averageOfLevels(TreeNode* root) {
+ 
+         queue<TreeNode*> que;
+ 
+         if(root!=nullptr)
+             que.push(root);
+         
+         vector<double> result;
+         while(!que.empty())
+         {
+             int cur_size=que.size();//当前层节点的数目
+             double sum=0.0;
+             for(int i=0;i<cur_size;i++)
+             {
+                 TreeNode* cur=que.front();
+                 que.pop();
+ 
+                 sum+=cur->val;
+ 
+                 //先放入左再放入右
+                 if(cur->left!=nullptr)
+                     que.push(cur->left);
+                 
+                 if(cur->right!=nullptr)
+                     que.push(cur->right);
+ 
+             }
+             result.push_back( double(sum/cur_size));
+         }
+ 
+         return result;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h2>N叉树的层序遍历</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240915-200549.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>  
+<details>
+<summary>Click to expand the code。N叉树只是二叉树的简单拓展～</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /*
+  // Definition for a Node.
+  class Node {
+  public:
+      int val;
+      vector<Node*> children;
+  
+      Node() {}
+  
+      Node(int _val) {
+          val = _val;
+      }
+  
+      Node(int _val, vector<Node*> _children) {
+          val = _val;
+          children = _children;
+      }
+  };
+  */
+  
+  class Solution {
+  public:
+      vector<vector<int>> levelOrder(Node* root) {
+  
+          vector<vector<int>> result;
+          
+          queue<Node*> que;
+          if(root!=nullptr)
+              que.push(root);
+          
+          while(!que.empty())
+          {
+              int cur_size=que.size();
+              vector<int> temp;
+  
+              for(int i=0;i<cur_size;i++)
+              {
+                  Node* cur=que.front();
+                  que.pop();
+  
+                  temp.push_back(cur->val);
+  
+                  //依次把节点放入que中
+                  for(auto temp_children:cur->children)
+                      que.push(temp_children);
+              }
+              result.push_back(temp);
+          }
+  
+          return result;
+      }
+  };
+</script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h2>在每个树行中找最大值</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240915-203117.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>Click to expand the code</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     vector<int> largestValues(TreeNode* root) {
+         
+         queue<TreeNode*> que;
+  
+         if(root!=nullptr)
+              que.push(root);
+          
+         vector<int> result;
+         while(!que.empty())
+         {
+             int cur_size=que.size();//当前层节点的数目
+             int max_value=INT_MIN;//存在负数，故此不能初始化为0
+ 
+             //遍历当前层，记录最大值
+             for(int i=0;i<cur_size;i++)
+             {
+                 TreeNode* cur=que.front();
+                 que.pop();
+ 
+                 max_value=max(max_value,cur->val);
+ 
+                 //先放入左再放入右
+                 if(cur->left!=nullptr)
+                     que.push(cur->left);
+                 
+                 if(cur->right!=nullptr)
+                     que.push(cur->right);
+ 
+             }
+             result.push_back(max_value);
+         }
+         return result;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h2>填充每个节点的下一个右侧节点指针</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240915-203743.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>Click to expand the code。不要采用指针的思想，单纯把每个节点的next赋值即可</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /*
+  // Definition for a Node.
+  class Node {
+  public:
+      int val;
+      Node* left;
+      Node* right;
+      Node* next;
+  
+      Node() : val(0), left(NULL), right(NULL), next(NULL) {}
+  
+      Node(int _val) : val(_val), left(NULL), right(NULL), next(NULL) {}
+  
+      Node(int _val, Node* _left, Node* _right, Node* _next)
+          : val(_val), left(_left), right(_right), next(_next) {}
+  };
+  */
+  
+  class Solution {
+  public:
+      Node* connect(Node* root) {
+          
+          queue<Node*> que;
+          if(root!=NULL)
+              que.push(root);
+  
+          while(!que.empty())
+          {
+              int cur_size=que.size();
+  
+              //遍历这一层
+              for(int i=0;i<cur_size;i++)
+              {
+                  Node* cur=que.front();
+                  que.pop();
+  
+                  if(i!=cur_size-1)
+                  {//不为最后一个节点
+                      cur->next=que.front();//当前下一个节点指向它的右侧
+                  }
+  
+                  //先左后右
+                  if(cur->left)
+                      que.push(cur->left);
+                  if(cur->right)
+                      que.push(cur->right);
+              }
+              
+          }
+  
+          return root; // 返回节点自身，只是添加了next指针
+      }
+  };
+</script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h2>二叉树的最小深度</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240916-221040.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>Click to expand the code。采用DFS，要注意区分空子树和非空子树。如果一个节点只有一个非空的子树，它的最小深度应该是非空子树的深度，而不是 0。
+</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+ 
+     int traverse(TreeNode* root) 
+     {
+         //递归终止条件
+         if(root==nullptr)
+             return 0;
+         
+         //前序的位置
+         int left=traverse(root->left);//左侧的树的深度
+         //中序的位置
+         int right=traverse(root->right);//右侧的树的深度
+          
+         //后序的位置
+         // 如果一个子树为空，返回另一个子树的深度
+         if (root->left == nullptr)
+             return right + 1;
+         if (root->right == nullptr)
+             return left + 1;
+ 
+         // 如果左右子树都不为空，返回最小深度
+         return min(left, right) + 1;
+         //加上自身+1
+     }
+ 
+     int minDepth(TreeNode* root) {
+         return traverse(root);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。BFS解法。所谓的叶节点指的是左右两个子节点均为空～</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     int minDepth(TreeNode* root) {
+ 
+         queue<TreeNode* >que;
+ 
+         if(root!=nullptr)
+             que.push(root);
+         int min_depth=0;
+         while(!que.empty())
+         {
+             int cur_size=que.size();
+ 
+             min_depth++;//每层深度自加
+             for(int i=0;i<cur_size;i++)//遍历当前层
+             {
+                 TreeNode* cur=que.front();
+                 que.pop();
+ 
+                 //先左后右
+                 if(cur->left!=nullptr)
+                     que.push(cur->left);
+                 if(cur->right!=nullptr)
+                     que.push(cur->right);
+ 
+                 // 当左右子节点都为空的时候，说明是最低点的一层了，退出
+                 if(cur->left==nullptr && cur->right==nullptr)
+                     return min_depth;
+             }
+         }
+ 
+         return min_depth;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h2>找树左下角的值</h2>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240924090605.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。BFS</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     int findBottomLeftValue(TreeNode* root) {
+ 
+         // BFS遍历
+         queue<TreeNode*> que;
+         
+         if(root!=nullptr)
+             que.push(root);
+ 
+         int result=0;
+         while(!que.empty())
+         {
+             int cur_size=que.size();//当前层的节点数目
+ 
+             for(int i=0;i<cur_size;i++)
+             {
+                 TreeNode* cur=que.front();
+                 que.pop();
+ 
+                 if(i==0)//最左侧
+                     result=cur->val;//一直更新
+ 
+                 if(cur->left!=nullptr)
+                     que.push(cur->left);
+                 if(cur->right!=nullptr)
+                     que.push(cur->right);
+             }
+         }
+ 
+         return result;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+</div> 
+</div> 
+
+<p><br></p>
+<h1>同时适用DFS与BFS两种解法</h1>
+<div>
+<p>
+  针对二叉树的问题，解题之前一定要想清楚究竟是前中后序遍历，还是层序遍历。前中后序遍历是DFS，层序遍历是BFS。当然部分的题目两种解法均可，下面给出样例。
+</p>
+<p><br></p>
+<h2>翻转二叉树</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240919-203658.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>  
+<details>
+<summary>Click to expand the code，采用DFS来做</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     void traverse(TreeNode* root) 
+     {
+         //递归终止的条件
+         if(root==nullptr)
+             return;
+ 
+         // *** 前序位置 ***
+         // 每一个节点需要做的事就是交换它的左右子节点.
+         // 先翻转了，然后再继续遍历，为此应该位于前序的位置
+         TreeNode* temp=root->left;
+         root->left=root->right;
+         root->right=temp;
+ 
+         //然后继续遍历左与右节点
+         traverse(root->left); 
+         traverse(root->right); 
+         
+     }
+     TreeNode* invertTree(TreeNode* root) {
+         
+         //DFS,用递归的思路，每一层将它的左右节点调转
+         if(root!=nullptr)
+             traverse(root);
+         return root;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。采用BFS</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     TreeNode* invertTree(TreeNode* root) {
+         
+         queue<TreeNode* > que;
+ 
+         if(root!=nullptr)
+             que.push(root);
+ 
+         while(!que.empty())
+         {
+             int cur_size=que.size();//当前层的节点数
+ 
+             for(int i=0;i<cur_size;i++)
+             {
+                 TreeNode* cur=que.front();
+                 que.pop();
+ 
+                 //进行交换
+                 // auto temp=cur->left;
+                 // cur->left=cur->right;
+                 // cur->right=temp;
+                 swap(cur->left, cur->right); // 函数代替上面3行
+ 
+                 if(cur->left!=nullptr)
+                     que.push(cur->left);
+                 if(cur->right!=nullptr)
+                     que.push(cur->right);
+             }
+         }
+ 
+         return root;//原地替换而非重新生成树（用的是指针～）
+     }
+ };
+</script>
+</code></pre>
+</details> 
+
+<p><br></p>
+<h2>对称二叉树</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240919-210317.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>Click to expand the code。类似BFS的解题思路请见动图。注意对称是对比完一半再到另外一半</summary>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/101.对称二叉树.gif" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     bool isSymmetric(TreeNode* root) {
+ 
+         //BFS，查看第一个和最后一个是否一致。但是队列不好取索引，因此存的时候就变索引
+         // （注意写法虽然跟BFS一样，但是并不是真正意义的BFS）
+         queue<TreeNode* > que;
+  
+         if(root!=nullptr)
+         {
+             que.push(root->left);
+             que.push(root->right);
+         }
+ 
+         while(!que.empty())
+         {
+             // int cur_size=que.size();//当前层的节点数
+ 
+             // for(int i=0;i<cur_size;i++)
+             // {
+                 TreeNode* left_of_pre_left=que.front();
+                 que.pop();
+                 TreeNode* right_of_pre_right=que.front();
+                 que.pop();
+ 
+                 //检查是否对称
+                 if(left_of_pre_left==nullptr && right_of_pre_right==nullptr)//左右都为空，那么是对称的
+                     continue;//跳过
+                 
+                 //若左右有一个不为空，或者两个都不为空但值不等，那么就不是对称的
+                 if(
+                     left_of_pre_left==nullptr //此时右必然为空
+                  || right_of_pre_right==nullptr //此时左必然为空
+                  || (left_of_pre_left->val!=right_of_pre_right->val)
+                 )
+                     return false;
+ 
+                 que.push(left_of_pre_left->left);
+                 que.push(right_of_pre_right->right);
+                 que.push(left_of_pre_left->right);
+                 que.push(right_of_pre_right->left);
+ 
+                 // if(cur->left!=nullptr)
+                 //     que.push(cur->left);
+                 // if(cur->right!=nullptr)
+                 //     que.push(cur->right);
+             // }
+         }
+ 
+         return true;
+     }
+ };
+</script>
+</code></pre>
+</details> 
+<details>
+<summary>Click to expand the code。DFS的解法，注意只有在左右不同时为 nullptr 的情况下，才是不对称的。用 != 逻辑符号可能会导致空节点情况判断错误</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     bool traverse(TreeNode* leftnode, TreeNode* rightnode)
+     {
+         //递归终止条件：若一个为空另一个不是，或者两个值不等，那么就return false
+         if(leftnode==nullptr && rightnode==nullptr)//两个都为空
+             return true;
+         else if (leftnode==nullptr || rightnode==nullptr)//只有一个为空（注意不是判断有一个非空，应该是判断有一个为空）
+             return false;
+         else if (leftnode->val!=rightnode->val)
+             return false;
+ 
+         //继续遍历
+         bool temp1=traverse(leftnode->left, rightnode->right);
+         bool temp2=traverse(leftnode->right,rightnode->left);
+         
+         //后序的位置
+         return temp1 && temp2;
+     }
+     bool isSymmetric(TreeNode* root) {
+         if (root!=nullptr)
+             return traverse(root->left, root->right);
+         else
+             return true;//空节点自然是对称的
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h2>二叉树的最大深度</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240802203146.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>时间复杂度：O(n)，其中 n 为二叉树节点的个数。空间复杂度：O(height)，其中 height 表示二叉树的高度。递归函数需要栈空间，而栈空间取决于递归的深度，</summary>
+<pre><code>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     int traverse(TreeNode* root)
+     {
+         if(root==nullptr)//到达跟节点
+             return 0;
+         
+         //前序的位置
+         int left=traverse(root->left);//左侧的树的深度
+         //中序的位置
+         int right=traverse(root->right);//右侧的树的深度
+         //后序的位置
+         return max(left,right)+1;//// 整棵树的最大深度等于左右子树的最大深度取最大值。然后再加上根节点自己
+
+         //为什么在后序呢？
+         //要首先利用递归函数的定义算出左右子树的最大深度，
+         //然后推出原树的最大深度，主要逻辑自然放在后序位置。
+     }
+     int maxDepth(TreeNode* root) {
+         return  traverse(root);
+     }
+ };
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。上面是DFS的解法，至于BFS的解法如下：</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     int maxDepth(TreeNode* root) {
+         queue<TreeNode* >que;
+ 
+         if(root!=nullptr)
+             que.push(root);
+         int max_depth=0;
+         while(!que.empty())
+         {
+             int cur_size=que.size();
+ 
+             max_depth++;//每层深度自加
+             for(int i=0;i<cur_size;i++)//遍历当前层
+             {
+                 TreeNode* cur=que.front();
+                 que.pop();
+ 
+                 //先左后右
+                 if(cur->left!=nullptr)
+                     que.push(cur->left);
+                 if(cur->right!=nullptr)
+                     que.push(cur->right);
+             }
+         }
+ 
+         return max_depth;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h2>N叉树的最大深度</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240920-103029.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>Click to expand the code。DFS写法</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /*
+  // Definition for a Node.
+  class Node {
+  public:
+      int val;
+      vector<Node*> children;
+  
+      Node() {}
+  
+      Node(int _val) {
+          val = _val;
+      }
+  
+      Node(int _val, vector<Node*> _children) {
+          val = _val;
+          children = _children;
+      }
+  };
+  */
+  
+  class Solution {
+  public:
+      int traverse(Node* root)
+      {
+          //递归终止条件
+          if(root==nullptr)
+              return 0;
+          
+          int maxdepth=0;
+          for(auto each_root:root->children)
+          {
+              maxdepth=max(maxdepth,traverse(each_root));//每个进行对比，获取最大值
+          }
+          //后序位置
+          return maxdepth+1;//注意加一是包含当前的节点的
+      }
+  
+      int maxDepth(Node* root) {
+          return traverse(root);
+      }
+  };
+</script>
+</code></pre>
+</details> 
+
+<details>
+<summary>Click to expand the code。BFS写法</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /*
+  // Definition for a Node.
+  class Node {
+  public:
+      int val;
+      vector<Node*> children;
+  
+      Node() {}
+  
+      Node(int _val) {
+          val = _val;
+      }
+  
+      Node(int _val, vector<Node*> _children) {
+          val = _val;
+          children = _children;
+      }
+  };
+  */
+  
+  class Solution {
+  public:
+      int maxDepth(Node* root) {
+  
+          queue<Node*> que;
+  
+          if(root!=nullptr)
+              que.push(root);
+  
+          int maxdepth=0;
+          while(!que.empty())
+          {
+              int cur_size=que.size();//当前层的数目
+              maxdepth++;//有一层就加
+              for(int i=0;i<cur_size;i++)
+              {
+                  Node* cur=que.front();
+                  que.pop();
+  
+                  for(auto childernnode:cur->children)
+                      que.push(childernnode);
+              }
+          }
+  
+          return maxdepth;
+          
+      }
+  };
+</script>
+</code></pre>
+</details> 
+
+<p><br></p>
+<h2>完全二叉树的节点个数</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240920-105819.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+<details>
+<summary>Click to expand the code.BFS解法。时间复杂度：O(n)。空间复杂度：O(n)</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     int countNodes(TreeNode* root) {
+         
+         queue<TreeNode*> que;
+   
+         if(root!=nullptr)
+             que.push(root);
+ 
+         int num_node=0;
+         while(!que.empty())
+         {
+             int cur_size=que.size();//当前层的数目
+             for(int i=0;i<cur_size;i++)
+             {
+                 TreeNode* cur=que.front();
+                 que.pop();
+                 num_node++;//节点数自加
+ 
+                 if(cur->left!=nullptr)
+                     que.push(cur->left);
+                 if(cur->right)
+                     que.push(cur->right);
+             }
+         }
+ 
+         return num_node;
+     }
+ };
+</script>
+</code></pre>
+</details>
+<details>
+<summary>Click to expand the code.DFS解法。时间复杂度：O(n)。空间复杂度：O(log n)，算上了递归系统栈占用的空间（注意平衡二叉树的空间复杂度是O(log n)，普通二叉树的空间复杂度是O(n)）</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     int traverse(TreeNode* root)
+      {
+         if(root==nullptr)//到达跟节点
+             return 0;
+          
+          //前序的位置
+          int left=traverse(root->left);//左侧的树的深度
+          //中序的位置
+          int right=traverse(root->right);//右侧的树的深度
+          //后序的位置
+          return left+right+1;//左节点数目+右节点数目+自己
+      }
+     int countNodes(TreeNode* root) {
+         return traverse(root);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+
+<p><br></p>
+<h2>合并二叉树</h2>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240925204704.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。DFS前序遍历</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     TreeNode* traverse(TreeNode* root1, TreeNode* root2)
+     {
+         //递归终止条件
+         if(root2==nullptr)
+             return root1;
+         else if(root1==nullptr)
+             return root2;
+         
+         int cur_vale=root1->val+root2->val;
+         TreeNode* root=new TreeNode(cur_vale);
+ 
+         root->left=traverse(root1->left,root2->left);
+         root->right=traverse(root1->right,root2->right);
+ 
+         return root;
+ 
+     }
+     TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+         return traverse(root1,root2);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。采用BFS，层序遍历。注意由于que中push了两个树，故此当前的数目应该要除2</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+ 
+         if(root2==nullptr)
+             return root1;
+         else if(root1==nullptr)
+             return root2;
+ 
+         //初始化队列（先入先出）
+         std::queue<TreeNode*> que;
+         que.push(root1);
+         que.push(root2);
+         
+         while(!que.empty())
+         {
+             int cur_size=que.size();//当前层的节点数目
+             cur_size=cur_size/2;//注意只有一半!
+ 
+             // 遍历当前层
+             for(int i=0;i<cur_size;i++)
+             {
+                 TreeNode* cur1=que.front();//获取队列开头（先入先出）
+                 que.pop();//删掉
+ 
+                 TreeNode* cur2=que.front();
+                 que.pop();//删掉
+ 
+                  // 此时两个节点一定不为空，val相加
+                 cur1->val=cur1->val+cur2->val;//两个值相加
+                 
+                 //当前节点的左子节点与右子节点放入队列中，下次用(注意顺序是先放左后放右)
+                 if(cur1->left!=nullptr && cur2->left!=nullptr)//注意不为空再放
+                 {
+                     que.push(cur1->left);
+                     que.push(cur2->left);
+                 }
+                 if(cur1->right!=nullptr && cur2->right!=nullptr)
+                 {
+                     que.push(cur1->right);
+                     que.push(cur2->right);
+                 }
+ 
+                 //注意:由于返回的是root1，所以对于root2为空的部分不用管
+                 // 下面只处理root1为空,但root2不为空的情况
+                 if(cur1->left==nullptr && cur2->left!=nullptr)
+                 {
+                     cur1->left=cur2->left;//节点地址赋予
+                 }
+                 if(cur1->right==nullptr && cur2->right!=nullptr)
+                 {
+                     cur1->right=cur2->right;
+                 }
+             }
+         }
+         return root1;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+</div>
+
+</div>
+
+<p><br></p>
+<h1>回溯算法解二叉树</h1>
+<p>更多关于回溯算法的介绍请见博客<sup><a href="../Poster/回溯算法.html">Link</a></sup>
+</p>
+<div>
+<p><br></p>
+<h2>二叉树的所有路径</h2>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/WX20240920-123831.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+<details>
+<summary>Click to expand the code，采用DFS其实也就是回溯算法的思路</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     void backtrack(TreeNode* root, string each_path, vector<string>& results)//注意string应该是传值而不是地址
+     {
+         //先写入当前结果
+         each_path+=to_string(root->val);
+         if(root->left==nullptr && root->right==nullptr)//到跟节点了
+         {
+             results.push_back(each_path);//存结果
+             return;
+         }
+ 
+         //选择列表:左节点
+         if(root->left!=nullptr)
+         {
+             //做选择
+             each_path+="->";//值在下一轮存
+             backtrack(root->left, each_path,results);
+             //撤销选择
+             each_path.pop_back(); // 回溯 '>'
+             each_path.pop_back(); // 回溯 '-'
+         }
+ 
+         //选择列表:右节点
+         if(root->right!=nullptr)
+         {
+             //做选择
+             each_path+="->";//值在下一轮存
+             backtrack(root->right, each_path,results);
+             //撤销选择
+             each_path.pop_back(); // 回溯 '>'
+             each_path.pop_back(); // 回溯 '-'
+         }
+ 
+     }
+     vector<string> binaryTreePaths(TreeNode* root) {
+ 
+         //回溯算法
+         string each_path;
+         vector<string> results;
+         backtrack(root, each_path,results);
+         return results;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h2>路径总和</h2>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240924090839.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。DFS+回溯，注意对于回溯终止的条件：并不是判断root是否为空，而是判断root的子节点是否为空</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     bool backtrack(TreeNode* root, int each_patch, int targetSum) 
+     {
+         if(root->left==nullptr && root->right==nullptr)//到达根节点
+         {
+             if(each_patch==targetSum)//凑到了目标值
+                 return true;
+             else
+                 return false;
+         }
+ 
+ 
+         //选择列表
+         if(root->left!=nullptr)
+         {
+             //做选择
+             each_patch+=root->left->val;
+             if(backtrack(root->left, each_patch,targetSum))
+                 return true;
+             //撤销选择
+             each_patch-=root->left->val;
+         }
+ 
+         if(root->right!=nullptr)
+         {
+             //做选择
+             each_patch+=root->right->val;
+             if(backtrack(root->right, each_patch,targetSum))
+                 return true;
+             //撤销选择
+             each_patch-=root->right->val;
+         }
+ 
+         // 两边都试过了，且都无true返回，那么就是false
+         return false;
+     }
+     bool hasPathSum(TreeNode* root, int targetSum) {
+ 
+         // DFS+回溯算法
+         if(root==nullptr)
+             return false;//空的时候为false
+         int each_patch=root->val;//初始化值
+         return backtrack(root, each_patch,targetSum);
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/binary_tree/微信截图_20240924093004.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>Click to expand the code。跟上面题目几乎是一样的。但是注意初始化的时候不要漏了targetSum也要减</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  /**
+  * Definition for a binary tree node.
+  * struct TreeNode {
+  *     int val;
+  *     TreeNode *left;
+  *     TreeNode *right;
+  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  * };
+  */
+ class Solution {
+ public:
+     void backtrack(TreeNode* root, vector<int> each_patch, vector<vector<int>> &results, int targetSum) 
+      {
+          if(root->left==nullptr && root->right==nullptr)//到达根节点
+          {
+             if(targetSum==0)//凑到了目标值(刚好为0)
+                 results.push_back(each_patch);
+             return;
+          }
+  
+  
+          //选择列表
+          if(root->left!=nullptr)
+          {
+             //做选择
+             targetSum-=root->left->val;
+             each_patch.push_back(root->left->val);
+             
+             backtrack(root->left, each_patch,results, targetSum);
+ 
+             //撤销选择
+             targetSum+=root->left->val;
+             each_patch.pop_back();
+          }
+  
+         if(root->right!=nullptr)
+         {
+             //做选择
+             targetSum-=root->right->val;
+             each_patch.push_back(root->right->val);
+             
+             backtrack(root->right, each_patch,results, targetSum);
+ 
+             //撤销选择
+             targetSum+=root->right->val;
+             each_patch.pop_back();
+         }
+  
+      }
+ 
+     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
+         // DFS+回溯算法
+ 
+         vector<int> each_patch;
+         vector<vector<int>> results;
+         if(root!=nullptr)
+         {
+             each_patch.push_back(root->val);
+             targetSum-=root->val;//不要漏了！！！
+             backtrack(root, each_patch,results, targetSum);
+         }
+ 
+         return results;
+     }
+ };
+</script>
+</code></pre>
+</details>
+
+</div>
+</div>
+
+
+
+
+
+
+<!-- 标签内使用 &lt; 和 &gt; 来代替 < 和 > -->
+<!-- <details>
+<summary>Click to expand the code</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+
+</script>
+</code></pre>
+</details> -->
+
+<!-- <p><br></p>
+<h1></h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="../assets/img/binary_tree" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>  -->
+
+<!-- 一整个模块 -->
+<!-- <p><br></p>
+<h1></h1>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="../assets/img/binary_tree" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+
+</script>
+</code></pre>
+</details>
+
+</div> -->
+
+<p><br></p>
+<h1>参考资料</h1>
+<ul>
+  <li><a href="https://leetcode.cn/u/kwan-wai-pang/" target="_blank">My Leetcode</a></li>
+  <li><a href="https://labuladong.online/algo/essential-technique/binary-tree-summary/" target="_blank">labuladong二叉树</a>（PS：感觉写得不是很好，思路不清晰且大部分要付费） </li>
+  <li><a href="https://www.programmercarl.com/" target="_blank">代码随想录</a></li>
+</ul>
+
+</article>
+</div>
+</div>
+
+<!-- Footer --> 
+<p><br></p>   
+<footer class="nofixed-bottom">
+<div class="container mt-0" style="width:100%;text-align:center;">
+  <!-- Please feel free to contact me through <a href="https://gohan.github.io/" target="_blank">my personal website</a> -->
+  A simple star should be the best affirmation 
+  <!-- 载入GitHub按钮库 -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Star按钮 -->
+  <a class="github-button" 
+    href="https://github.com/gohan/gohan.github.io" 
+    data-icon="octicon-star" 
+    data-size="small"
+    data-show-count="true" 
+    aria-label="Star 你的用户名/你的仓库名 on GitHub">Star</a>
+</div>
+</footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/umd/popper.min.js" integrity="sha256-l/1pMF/+J4TThfgARS6KwWrk/egwuVvhRzfLAMQ6Ds4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/ecmd/assets/js/masonry.js" type="text/javascript"></script>
+
+  <!-- Medium Zoom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/ecmd/assets/js/zoom.js"></script><!-- Load Common JS -->
+  <script src="/ecmd/assets/js/common.js"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+   <!-- 下面是插入目录的 -->
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toc = document.querySelector("#toc ul");
+        const headers = document.querySelectorAll(".post h1, .post h2, .post h3, .post h4, .post h5, .post h6");
+        headers.forEach(header => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            const id = header.textContent.replace(/\s+/g, "-").toLowerCase();
+            header.setAttribute("id", id);
+            a.setAttribute("href", `#${id}`);
+            a.textContent = header.textContent;
+            li.style.marginLeft = `${(parseInt(header.tagName.substring(1)) - 2) * 20}px`;
+            li.appendChild(a);
+            toc.appendChild(li);
+        });
+    });
+</script>
+
+ <!-- JavaScripts添加按钮 -->
+ <script>
+      // 添加按钮点击事件
+      const button = document.getElementById("scrollToTocButton");
+      button.addEventListener("click", function() {
+          document.querySelector("#toc").scrollIntoView({ behavior: "smooth" });
+      });
+</script>
+
+<!-- 点击按钮展开目录 -->
+<script>
+  // 添加新的目录
+  const newToc = document.querySelector("#newToc ul");
+  const headers = document.querySelectorAll(".post h1, .post h2, .post h3, .post h4, .post h5, .post h6");
+  
+  headers.forEach(header => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      const id = header.textContent.replace(/\s+/g, "-").toLowerCase();
+      header.setAttribute("id", id);
+      a.setAttribute("href", `#${id}`);
+      a.textContent = header.textContent;
+      li.style.marginLeft = `${(parseInt(header.tagName.substring(1)) - 2) * 20}px`;
+      li.appendChild(a);
+      newToc.appendChild(li);
+  });
+
+  // 控制新的目录的显示与隐藏
+  const toggleButton = document.getElementById("toggleTocButton");
+  toggleButton.addEventListener("click", function() {
+      if (newToc.parentElement.style.display === "none") {
+          newToc.parentElement.style.display = "block"; // 展开新目录
+      } else {
+          newToc.parentElement.style.display = "none"; // 收起新目录
+      }
+  });
+</script>
+
+</body>
+</html>
+

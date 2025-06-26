@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  p { /* 文字对齐 */
+      text-align: justify;
+      text-align-last: left;
+      text-justify: inter-word;
+  }
+  #toc {
+    background: #f4f4f4;
+    padding: 10px;
+    /* border: 1px solid #ccc; */
+    /* margin-bottom: 20px; */
+    max-width: 100%; /* 限制目录框架的最大宽度 */
+    word-wrap: break-word; /* 强制超长单词换行 */
+    position: relative;
+    margin-left: auto; /* 使目录框架在页面中居右 */
+    margin-right: auto; /* 使目录框架在页面中居右 */
+    box-sizing: border-box; /* 包含内边距和边框在内的宽度计算 */
+}
+
+#scrollToTocButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50px; /* 圆角设计 */
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 增加阴影效果 */
+  transition: all 0.3s ease; /* 添加平滑过渡效果 */
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#scrollToTocButton:hover {
+    background-color: #0056b3; /* 鼠标悬停时颜色变化 */
+    transform: translateY(-3px); /* 悬停时按钮略微上移 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 悬停时增加阴影 */
+}
+
+#toggleTocButton {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  padding: 12px 25px;
+  background-color: #00b34b;
+  color: white;
+  border: none;
+  border-radius: 50px; /* 圆角设计 */
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 增加阴影效果 */
+  transition: all 0.3s ease; /* 添加平滑过渡效果 */
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#toggleTocButton:hover {
+    background-color: #00b34b; /* 鼠标悬停时颜色变化 */
+    transform: translateY(-3px); /* 悬停时按钮略微上移 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 悬停时增加阴影 */
+}
+
+#newToc {
+display: none; 
+position: fixed; 
+bottom: 70px; 
+right: 100px; 
+background: #f4f4f4; 
+padding: 10px; 
+font-size: 12px; 
+max-height: 40%; /* 设置最大高度 */
+overflow-y: auto; /* 添加垂直滚动条 */
+overflow-x: hidden; /* 隐藏水平滚动条 */
+}
+</style>
+
+<!-- Head -->
+<head>    <!-- Metadata, OpenGraph and Schema.org -->
+
+
+  <!-- Standard metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Kwan Wai-Pang's Blog</title>
+  <meta name="author" content="Kwan Wai-Pang " />
+  <meta name="description" content="Personal Blog of Kwan Wai-Pang" />
+  <meta name="keywords" content="Event-based Vision, SLAM, Robotics" />
+
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="My Technology Blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kwan Wai-Pang | Personal Blog" />
+  <meta property="og:description" content="Welcome to My Blog of Two Pointers 😊" />
+  <meta property="og:image" content="https://gohan.github.io/Poster_files/hku_logo.jpg" />
+
+
+  <meta property="og:locale" content="en" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Home" />
+  <meta name="twitter:description" content="Personal Blog of Kwan Wai-Pang" />
+
+  <!-- Bootstrap & MDB -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous" />
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Barriecito&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700">
+
+  <!-- Code Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/PASTIE.css" media="none" id="highlight_theme_light" />
+
+  <!-- Styles -->
+
+    <link rel="shortcut icon" href="https://gohan.github.io/Poster_files/hku_logo.jpg"/>
+
+  <!-- <link rel="stylesheet" href="https://gohan.github.io/File/Blogs/assets/css/main.css"> -->
+  <!-- <link rel="stylesheet" href="https://gohan.github.io/File/Blogs/assets/css/fonts.css"> -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/new_css_js/cpp-highlight/styles/gradient-dark.css">
+  <script src="../assets/new_css_js/cpp-highlight/highlight.js"></script>    <!--引入代码高亮js库-->
+
+  <script>hljs.initHighlightingOnLoad();
+  </script>
+
+  <!-- Dark Mode -->
+
+
+</head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+              <li class="nav-item ">
+                <a class="nav-link" href="../My_Blog.html">Homepage</a>
+              </li>
+
+              <li class="nav-item ">
+                <a class="nav-link" href="../Poster/cpp算法学习笔记.html">Learning Algorithm</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+<header class="post-header">
+  <h1 align="center" class="post-title">
+    <span style="font-weight: 600;">双指针数组解法</span>
+  </h1>
+  <!-- <p><br></p> -->
+  <!-- <p>
+    Please feel free to contact me through <a href="https://gohan.github.io/" target="_blank">my personal website</a>
+  </p> -->
+</header>
+
+<!-- Content -->
+<div class="container mt-5">
+<!-- home.html -->
+<div class="post">
+
+<!-- 添加目录按钮，点击展开目录 -->
+<button id="toggleTocButton">📑</button>
+<!-- 新的目录 -->
+<div id="newToc">
+  <h8>Catalog</h8>
+  <ul></ul>
+</div>
+
+<!-- 添加按钮跳转到题目 -->
+<button id="scrollToTocButton">⬆️</button>
+
+
+
+<!-- 插入目录 -->
+<div id="toc">
+  <h8>目录</h8>
+  <ul></ul>
+</div>
+
+      
+<article>
+<!-- 插入博客内容-->
+
+<p>
+  之前博客介绍了采用双指针法来解决链表类题目<sup><a href="../Poster/双指针链表解法.html">Link</a></sup>。
+  本博文主要介绍用双指针法来解决数组类题目，并且把数组类相关的解题思路也放在此博客中。
+  <br>
+  数组与链表是最基本的两种数据结构，其他均可以由这两种构成。
+  链表是用离散的内存块存储数据，而数组是用连续的内存块存储数据。
+  因此，对于数组，只需要直知道内存空间首地址（也就是数组名），通过索引即可访问任意元素。
+  <br>
+  在处理数组和链表相关问题时，双指针技巧是经常用到的，双指针技巧主要分为两类：<strong>左右指针</strong>和<strong>快慢指针</strong>。
+  <ul>
+    <li>左右指针: 两个指针相向而行或者相背而行。</li>
+    <li>快慢指针：两个指针同向而行，一快一慢。</li>
+  </ul>
+  虽然在数组中并没有真正意义上的指针，但可以把索引当做数组中的指针，这样也可以在数组中施展双指针技巧，
+</p>
+
+
+<pre><code>
+<script type='text/html' style='display:block'>
+  // C++ 中的vector的使用
+  // 不用显式指定数组大小，它会根据实际存储的元素数量自动扩缩容
+  vector<int> arr;
+  
+  for (int i = 0; i < 10; i++) {
+      // 在末尾追加元素，时间复杂度 O(1)
+      arr.push_back(i);
+  }
+  
+  // 在中间插入元素，时间复杂度 O(N)
+  // 在索引 2 的位置插入元素 666
+  arr.insert(arr.begin() + 2, 666);
+  
+  // 在头部插入元素，时间复杂度 O(N)
+  arr.insert(arr.begin(), -1);
+  
+  // 删除末尾元素，时间复杂度 O(1)
+  arr.pop_back();
+  
+  // 删除中间元素，时间复杂度 O(N)
+  // 删除索引 2 的元素
+  ⚠️！注意使用方式
+  arr.erase(arr.begin() + 2);
+  
+  // 根据索引查询元素，时间复杂度 O(1)
+  int a = arr[0];
+  
+  // 根据索引修改元素，时间复杂度 O(1)
+  arr[0] = 100;
+  
+  // 根据元素值查找索引，时间复杂度 O(N)
+  int index = find(arr.begin(), arr.end(), 666) - arr.begin();
+
+  //交换两个index的元素
+  swap(arr[i], arr[j]);
+
+  //求index i到j之间的最大值
+  int max = *max_element(arr.begin() + i, arr.begin() + j + 1);
+
+  //求index i到j之间的最小值
+  int min = *min_element(arr.begin() + i, arr.begin() + j + 1);
+</script>
+</code></pre>
+
+
+<p><br></p>
+<h1>1. 删除有序数组中的重复项</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/array/微信截图_20240725232617.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<p>
+  第一次遇到这个题目的时候，还是比较困惑的，主要是返回什么。题目要求是“原地修改”。如果不是原地修改的话，我们直接 new 一个 int[] 数组，把去重之后的元素放进这个新数组中，然后返回这个新数组即可。
+  而所谓的“原地修改”，其实就是原地删除，不允许 new 新数组，只能在原数组上操作，然后返回一个长度，这样就可以通过返回的长度在原始数组中截取去重后的元素了。
+  <br>
+  对于此代码，原本有两个解法：</p>
+<details>
+<summary>解法1：采用unique函数。时间复杂度O(Nlogn)，空间复杂度为O（1）</summary>
+<pre><code>
+  <script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        int removeDuplicates(vector<int>& nums) {
+    
+        sort(nums.begin(),nums.end());
+    
+        // 解法1:时间复杂度O(Nlogn)，空间复杂度为O（1）
+        // 采用unique来“去除”容器或者数组中相邻元素的重复出现的元素
+        auto iter=unique(nums.begin(),nums.end());//返回一个指向去重后序列末尾的迭代器。
+        // unique 并不会改变容器的大小，只是将不重复的元素移到前面，返回去重后末尾的迭代器（最后一个不重复元素）
+        // 去重过程：不停的把后面不重复的元素移到前面来，也可以说是用不重复的元素占领重复元素的位置。
+        return iter-nums.begin();//这就是不重复的元素的个数
+        }
+    };    
+  </script>
+</code></pre>
+</details>
+
+<details>
+<summary> 解法2：采用键值对,时间复杂度为O（n），由于需要一个键值对，空间复杂度估计也是O（n）</summary>
+<pre><code>
+  <script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        int removeDuplicates(vector<int>& nums) {
+    
+            // 解法2：采用键值对,时间复杂度为O（n）
+            map<int,int> group;//会自动根据键的大小进行排序，而输入的数组本身就是递增的。所以可以使用
+            for(int i=0;i<nums.size();i++)
+            {
+                group[nums[i]]++;
+            }
+    
+            nums.clear();//清空，需要重新放入，用于验证
+            for(auto value:group)//遍历map中的每个对
+            {
+                nums.push_back(value.first);//获取键
+            }
+    
+            return nums.size();
+        }
+    };
+  </script>
+</code></pre>
+</details>
+
+<p>
+  而快慢指针法的思路就是：慢指针 slow 走在后面，快指针 fast 走在前面探路，找到一个不重复的元素就赋值给 slow 并让 slow 前进一步。
+  <br>
+  这样，就保证了 <mark>nums[初始点..slow]</mark> 都是无重复的元素，当 fast 指针遍历完整个数组 nums 后，<mark>nums[初始点..slow]</mark> 就是整个数组去重之后的结果。
+</p>
+<details>
+<summary>Click to expand the code. 时间复杂度为O（n），空间复杂度为O（1）</summary>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/array/1.gif" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<pre><code>
+  class Solution {
+    public:
+        int removeDuplicates(vector&ltint&gt& nums) {
+    
+            //采用双指针法（快慢指针）时间复杂度为O（n），空间复杂度为O（1）
+            int slow=0, fast=0;
+            while(fast!=nums.size())//遍历整个数组
+            {
+                if(nums[slow]!=nums[fast])//找到不等的
+                {
+                    slow++;//slow自增（必须先自增，因为一开始fast=slow，下一刻再判断时必须要先把slow自增）
+                    nums[slow]=nums[fast];//进行赋值
+                }
+                fast++;
+            }
+            //代码将不重复的元素放在数组前面slow索引中～
+    
+            return slow+1;//这个就是排在前面的不重复的size（注意要+1）
+        }
+    };
+    
+</code></pre>
+</details>
+
+<p><br>对于前面的解法1和解法2，特别是解法1，除非比较熟悉cpp的函数，不然一般不懂使用，所以更建议实际解题的时候用算法去解题而不是用库函数取巧🤭
+而类似的题目链表类博客中有记录了，给出了两个解法（见Leetcode中83题）</p>
+
+<p><br></p>
+<h1>2.移除元素（原地删除而非上面的换位置）</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/array/微信截图_20240726203514.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>解法1：数组函数的使用，时间复杂度O(Nlogn+N)；空间复杂度O（1）</summary>
+<pre><code>
+  class Solution {
+    public:
+        int removeElement(vector&ltint&gt& nums, int val) {
+    
+            // 先进行排序,排序后只需要对找到对应值的位置进行删除即可
+            sort(nums.begin(),nums.end());//时间复杂度为O（nlogn）
+            auto index=find(nums.begin(),nums.end(),val);//返回的是指针（时间复杂度为O（n））
+    
+            if(index!=nums.end())//代表找到了
+            {
+                //从找到的位置开始，到结尾
+                for(auto it=index;it!=nums.end();)
+                {
+                    if(*it==val)
+                    {
+                        it = nums.erase(it);//直接删掉
+                    }
+                    else
+                        break;
+                }
+            }
+    
+            return nums.size();//返回的是nums 中与 val 不同的元素的数量
+        }
+    };
+</code></pre>
+</details>
+
+<details>
+<summary>解法2：快慢指针，其实跟上面题1的思路是一样的。时间复杂度为O（n），空间复杂度为O（1）</summary>
+<pre><code>
+  class Solution {
+    public:
+        int removeElement(vector&ltint&gt& nums, int val) {
+    
+           int slow=0, fast=0;
+           while(fast!=nums.size())
+           {
+                if(nums[fast]!=val)//不等
+                {
+                    nums[slow]=nums[fast];
+                    slow++;
+                }
+                fast++;
+           }
+           return slow;
+            //此处与有序数组去重的解法有一个细节差异：
+            // 先给 nums[slow] 赋值然后再slow++
+            // nums[0..slow-1] 是不包含值为 val 的元素的，最后的结果数组长度就是 slow
+        }
+    };
+</code></pre>
+</details>
+
+
+<p><br></p>
+<h1>3.移动零</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/array/微信截图_20240726205549.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>类似上面的解法，只是改为vector以及没有返回值。时间复杂度为O（n），空间复杂度为O（1）</summary>
+<pre><code>
+  class Solution {
+    public:
+        void moveZeroes(vector&ltint&gt& nums) {
+    
+            // 快慢指针
+            int slow=0,fast=0;
+    
+            while(fast!=nums.size())
+            {
+                if(nums[fast]!=0)//若不为零
+                {
+                    nums[slow]=nums[fast];
+                    slow++;
+                }
+                fast++;
+            }
+    
+            while(slow!=nums.size())
+            {//由于没有返回值，把后面的也赋值为0（因为可能是原本位置的其他值，上面并不是交换操作）
+                nums[slow]=0;
+                slow++;
+            }
+        }
+    };
+</code></pre>
+</details>
+
+<p><br></p>
+<h1>4. 两数之和 </h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/array/微信截图_20240726211539.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>左右指针,时间复杂度应该为O（N），空间复杂度应该为O（1）</summary>
+<pre><code>
+  class Solution {
+    public:
+        vector&ltint&gt twoSum(vector&ltint&gt& numbers, int target) {
+    
+             // 由于数组已经按照非递减顺序排序，故此可以用左右指针法
+             int left=0, right=numbers.size()-1;
+             while(left&ltright)
+             {
+                int sum=numbers[left]+numbers[right];
+                if(sum==target)//找到了
+                {
+                    return vector&ltint&gt{left+1, right+1};//索引从1开始
+                }
+                else if(sum&lttarget)
+                {
+                    left++;//让值大一些
+                }
+                else if(sum&gttarget)
+                {
+                    right--;//让值小一些
+                }
+    
+             }
+             return vector&ltint&gt{ -1, -1};//找不到
+        }
+    };
+</code></pre>
+</details>
+
+<details>
+<summary>用hash table (时间复杂度为O（N）)</summary>
+<pre><code>
+  class Solution {
+    public:
+        vector&ltint&gt twoSum(vector&ltint&gt& numbers, int target) {
+            
+            int value_a,value_b;
+            vector&ltint&gt result;
+            // 用hash table (时间复杂度可以降为O（N）)
+            unordered_map&ltint, int&gt hash_able;//(具体的值、坐标)
+            for(int i=0;i&ltnumbers.size();i++)
+            {
+                auto it=hash_able.find(target-numbers[i]);//寻找这个值的另一半
+                // 如果找到了，
+                if(it!=hash_able.end())
+                {
+                    int index_1=it->second;
+                    int index_2=i;
+                    // 注意返回的为坐标值（且下标开始为1）
+                    result.push_back(index_1+1);
+                    result.push_back(index_2+1);
+                    break;
+                }
+                hash_able[numbers[i]]=i;//若没找到，就继续放入hash table
+            }
+            
+            return result;
+    
+        }
+    };
+</code></pre>
+</details>
+
+<p>相类似的题目还有下题（几乎一样，只是下标索引从1开始）：</p>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/array/微信截图_20240726211841.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>解法1：用hash table (时间复杂度为O（N）)</summary>
+<pre><code>
+  class Solution {
+    public:
+        vector&ltint&gt twoSum(vector&ltint&gt& nums, int target) {
+            
+            int value_a,value_b;
+            vector&ltint&gt result;
+            // 用hash table (时间复杂度可以降为O（N）)
+            unordered_map&ltint, int&gt hash_able;//(具体的值、坐标)
+            for(int i=0;i&ltnums.size();i++)
+            {
+                auto it=hash_able.find(target-nums[i]);//寻找这个值的另一半
+                // 如果找到了，
+                if(it!=hash_able.end())
+                {
+                    int index_1=it->second;
+                    int index_2=i;
+                    // 注意返回的为坐标值
+                    result.push_back(index_1);
+                    result.push_back(index_2);
+                    break;
+                }
+                hash_able[nums[i]]=i;//若没找到，就继续放入hash table
+            }
+            
+            return result;
+        }
+    };
+</code></pre>
+</details>
+
+<details>
+<summary>解法2： 暴力匹配的解法（时间复杂度为O（N^2））这必然非最优解了🤭</summary>
+<pre><code>
+  class Solution {
+    public:
+        vector&ltint&gt twoSum(vector&ltint&gt& nums, int target) {
+            
+            int value_a,value_b;
+            vector&ltint&gt result;
+            // 暴力匹配的解法（时间复杂度为O（N^2））
+            for(int i=0;i&ltnums.size();i++)
+            {
+                value_a=nums[i];
+                for(int j=i+1;j&ltnums.size();j++)
+                {
+                    value_b=nums[j];
+                    if(value_a+value_b==target)
+                    {
+                        result.push_back(i);
+                        result.push_back(j);
+                        break;
+                    }
+                }
+            }
+            
+            return result;
+        }
+    };
+    
+</code></pre>
+</details>
+
+<p><br></p>
+<h1>5.反转数组 </h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/array/微信截图_20240726215126.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>最简单的就是采用reverse函数了~时间复杂度O(n)</summary>
+<pre><code>
+  class Solution {
+    public:
+        void reverseString(vector&ltchar&gt& s) {
+            //采用reverse函数
+            reverse(s.begin(),s.end());
+        }
+    };
+</code></pre>
+</details>
+
+<details>
+<summary>但是还是采用双指针法来看看,时间复杂度O(n),空间复杂度为O（1）跟上面一样</summary>
+<pre><code>
+  class Solution {
+    public:
+        void reverseString(vector&ltchar&gt& s) {
+    
+            int left=0, right=s.size()-1;
+            while(left&ltright)//等于的时候不处理了
+            {
+                char temp=s[left];//用个中间变量来赋值~
+                s[left]=s[right];
+                s[right]=temp;
+                left++;
+                right--;
+            }       
+        }
+    };
+</code></pre>
+</details>
+
+<p><br></p>
+<h1>6.最长回文子串  </h1>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/array/微信截图_20240726232426.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>回文子串的判断应该是经典的动态规划的题目，但是复杂度是O（N^2）。空间复杂度是O（N^2）（存储动态规划状态需要的空间。）</summary>
+<pre><code>
+  class Solution {
+    public:
+    
+        string longestPalindrome(string s) {
+            int max_length=1;//最长的长度
+            int begin_index=0;//起始的index
+            // 动态规划
+            // 对于坐标为i~j的子串，是否回文子串，状态为dp[i][j]
+            bool dp[s.size()][s.size()];  //定义动态规划的状态矩阵大小
+            
+            //确定初始状态，所有长度为1的都是回文子串
+            for(int i=0;i&lts.size();i++)
+            {
+                int j=i;
+                dp[i][j]=true;
+            }     
+    
+            //进行递推状态转移
+            // for(int i=0;i&lts.size();i++)
+            for(int i=s.size()-1;i&gt=0;i--)//要从小到大！！！
+            {
+                for(int j=i+1;j&lts.size();j++)//j=i的情况以及是初始化了
+                {
+                    if(s[i]==s[j])//如果相等，那么就检查下一个状态
+                    {
+                        if(j&lt=i+2)//如果此时到达边界（aba）或（aa）的情况
+                            dp[i][j]=true;
+                        else//继续递推
+                            dp[i][j]=dp[i+1][j-1];
+                    }
+                    else//如果不等，那么当前就是false
+                        dp[i][j]=false;
+    
+                    //如果是回文子串且长度大于记录值
+                    if(dp[i][j] && j-i+1>max_length)
+                    {
+                        begin_index=i;
+                        max_length=j-i+1;
+                    }
+                }
+            }
+    
+            return s.substr(begin_index,max_length);//字符串的截取
+        }
+    };
+</code></pre>
+</details>
+<details>
+<summary>采用双指针解法,时间复杂度是O（N^2）更上面一样的。但空间复杂度更小，为O（1）</summary>
+<pre><code>
+  class Solution {
+    public:
+    
+        // 对于以left与right为中心的最长回文子串
+        // 通过左右指针向两边扩散
+        string function(string s, int left, int right)
+        {
+            //确保不越界以及相等
+            while(left>=0 && right&lts.size() &&s[left]==s[right])
+            {
+                left--;
+                right++;
+            }
+            //若不等的话，会跳出来。所以应该是当前的left+1到right为目标结果
+            return s.substr(left+1,right-(left+1));
+        }
+    
+        string longestPalindrome(string s) {
+            
+            string result="";
+            for(int i=0;i&lts.size();i++)
+            {
+                //以i为中心的，奇数字符串
+                string s1=function(s,i,i);
+                //以i为中心的，偶数字符串
+                string s2=function(s,i,i+1);
+    
+                // 保存最长的
+                result= result.size()&gts1.size()? result:s1;
+                result= result.size()&gts2.size()? result:s2;
+            }
+            return result;
+        }
+    };
+</code></pre>
+</details>
+
+<p>下面是几乎一样的题目</p>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/array/WX20240814-190830.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>Click to expand the code。先给出双指针解法，跟上面几乎一样～</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+    #include <iostream>
+    using namespace std;
+    
+    // 对于以left与right为中心的最长回文子串
+    // 通过左右指针向两边扩散
+    string function(string s, int left, int right)
+    {
+        //确保不越界以及相等
+        while(left>=0 && right<s.size() &&s[left]==s[right])
+        {
+            left--;
+            right++;
+        }
+        //若不等的话，会跳出来。所以应该是当前的left+1到right为目标结果
+        return s.substr(left+1,right-(left+1));
+    }
+    
+    int main() {
+        //本质上就是求最长的回文子串。可以采用动态规划或者双指针法
+    
+        string input_str, result_str;
+        getline(cin,input_str);
+    
+        for(int i=0;i<input_str.size();i++)
+        {
+            //以i为中心的，奇数字符串
+            string s1=function(input_str,i,i);
+            //以i为中心的，偶数字符串
+            string s2=function(input_str,i,i+1);
+    
+            // 保存最长的
+            result_str= result_str.size()>s1.size()? result_str:s1;
+            result_str= result_str.size()>s2.size()? result_str:s2;
+        }
+    
+        std::cout<<result_str.size();
+    }
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>下面是动态规划的解法，还是双指针法比较简单，建议实际用双指针法解决～</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+    #include <iostream>
+    #include <vector>
+    using namespace std;
+    
+    int main() {
+        //本质上就是求最长的回文子串。可以采用动态规划或者双指针法
+    
+        string input_str, result_str;
+        getline(cin,input_str);
+    
+        //step1:定义dp表，对于起点为i终点为j的dp[i][j]是否为回文串
+        // i，j为字符的索引
+        vector< vector <bool> > dp(input_str.size(), vector<bool> (input_str.size(),false));
+    
+        //step2:初始化dp表：当i=j的时候，回文子串为自身，也就是true
+        // for(int i=0;i<input_str.size();i++)
+        // {
+        //     for(int j=0;j<input_str.size();j++)
+        //     {
+        //         if(i==j)
+        //             dp[i][j]=true;
+        //     }
+        // }
+        for(int i=0;i<input_str.size();i++)
+        {
+            int j=i; //自身都是回文子串
+            dp[i][j]=true;
+        }  
+    
+        int max_len=0;
+        // step3:状态转移方程
+        for(int i=input_str.size()-1;i>=0;i--)//从右往左
+        {
+            for(int j=i+1;j<input_str.size();j++)//从左往右
+            {
+                if(input_str[i]==input_str[j])//若相等，就检查下一个状态
+                {
+                    if(j<=i+2)//如果此时到达边界（aba）或（aa）的情况
+                        dp[i][j]=true;
+                    else//否则就继续缩小范围
+                        dp[i][j]=dp[i+1][j-1];//往内缩小
+                }
+                else//若不等，那么就不是回文子串
+                    dp[i][j]=false;
+    
+                if(dp[i][j]==true)//若当前为回文子串
+                {
+                    if(j-i+1>max_len)
+                        max_len=j-i+1;//如果是回文子串且长度大于记录值,则更新
+                }
+            }
+        }
+    
+        std::cout<<max_len<<std::endl;
+    }
+</script>
+</code></pre>
+</details>
+
+<details>
+  <summary>下面的动态规划解法更容易理解些～</summary>
+  <pre><code>
+  <script type='text/html' style='display:block'>
+      #include <iostream>
+      #include <vector>
+      using namespace std;
+      
+      int main() {
+          //本质上就是求最长的回文子串。可以采用动态规划或者双指针法
+      
+          string input_str, result_str;
+          getline(cin,input_str);
+      
+          //step1:定义dp表，对于起点为j终点为i的dp[j][i]是否为回文串
+          // i，j为字符的索引
+          //step2:初始化dp表：全部为false
+          vector< vector <bool> > dp(input_str.size(), vector<bool> (input_str.size(),false));
+      
+          int max_len=0;
+          // step3:状态转移方程
+          for(int i=0;i<input_str.size();i++)
+          {
+              for(int j=0;j<=i;j++)
+              {
+                  if(i==j)//自身必然为回文子串。//对应aba的情况，基数位
+                      dp[j][i]=true;//注意是j～i
+                  else if(i==j+1)//对应偶数位，回文子串
+                  {
+                      dp[j][i]=(input_str[i]==input_str[j]);
+                  }
+                  else//其他情况
+                      dp[j][i]= (input_str[i]==input_str[j]) && dp[j+1][i-1];//从小范围到大范围
+      
+                  if(dp[j][i]==true)//若当前为回文子串
+                  {
+                      if(i-j+1>max_len)
+                          max_len=i-j+1;//如果是回文子串且长度大于记录值,则更新
+                  }
+              }
+          }
+      
+          std::cout<<max_len<<std::endl;
+      }
+  </script>
+  </code></pre>
+</details>
+</div>
+
+
+<p><br></p>
+<h1>采用二分法来解数组类题目</h1>
+<p>
+  二分法其实就是左右双指针法的一种特殊情况，即两个指针分别指向数组的两端，然后根据题目的要求，每次将指针移动到中间，然后根据中间的值来判断下一步应该移动哪个指针。
+  更多关于二分法的介绍请见博客<sup><a href="../Poster/二分法.html">Link</a></sup>。
+</p>
+
+<p><br></p>
+<h1>采用滑动窗口算法来解数组类题目</h1>
+<p>
+  调滑动窗口算法的快慢指针特性：left 指针在后，right 指针在前，两个指针中间的部分就是「窗口」，算法通过扩大和缩小「窗口」来解决某些问题。
+  更多关于滑动窗口算法的介绍请见博客<sup><a href="../Poster/滑动窗口算法.html">Link</a></sup>。
+</p>
+
+
+<p><br></p>
+<h1>三数之和</h1>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/WX20240821-205035.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>先确定一个值，另外两个通过左右指针的方式获取</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        vector<vector<int>> threeSum(vector<int>& nums) {
+            
+            vector<vector<int>> result;
+            sort(nums.begin(),nums.end());// 先对数组进行排序（这样可以避免用到重复的结果）
+            for(int index=0; index<nums.size();index++)//规定起点为index
+            {
+                //由于前面进行了排序，因此这样可以避免重复的结果 
+                if (index > 0 && nums[index] == nums[index - 1]) //一样的话，情况一样，但是输出要求顺序不重要！
+                    continue; // Skip duplicate elements
+    
+                int target_value=-nums[index];//获下面两数之和的目标值
+    
+                // 采用左右指针
+                int right=nums.size()-1;
+                int left=index+1;
+                while(left<right)
+                {
+                    if(nums[left]+nums[right]>target_value)
+                    {
+                        right--;
+                    }
+                    else if(nums[left]+nums[right]<target_value)
+                    {
+                        left++;
+                    }
+                    else//相同
+                    {
+                        // vector<int> temp={nums[index],nums[left],nums[right]};
+                        result.push_back({nums[index],nums[left],nums[right]});
+                        
+                        //然后继续移动指针避免重复的答案
+                        while (left < right && nums[left] == nums[left + 1]) 
+                            left++;
+                        while (left < right && nums[right] == nums[right - 1]) 
+                            right--;
+    
+                        //必须要继续移动，不然会报错爆内存。要么break掉，但是break掉导致不全
+                        left++;
+                        right--;
+                    }
+                }
+            }
+            return result;
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。解法2也是双指针</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        vector<vector<int>> threeSum(vector<int>& nums) {
+            
+            vector<vector<int>> result;
+            sort(nums.begin(),nums.end());// 先对数组进行排序（这样可以避免用到重复的结果）
+            for(int index=0; index<nums.size();index++)//规定起点为index
+            {
+                //由于前面进行了排序，因此这样可以避免重复的结果 
+                if (index > 0 && nums[index] == nums[index - 1]) //一样的话，情况一样，但是输出要求顺序不重要！
+                    continue; // Skip duplicate elements
+    
+                int target_value=-nums[index];//获下面两数之和的目标值
+    
+                // 解法1：采用左右指针
+               int right=nums.size()-1;
+               for(int left=index+1;left<nums.size();left++)
+               {
+                    //由于前面进行了排序，因此这样可以避免重复的结果 
+                    if (left > index+1 && nums[left] == nums[left - 1])
+                        continue; // Skip duplicate elements
+                    
+                    while(left<right && nums[left]+nums[right]>target_value)
+                        right--; // 每次都要遍历,按顺序排列，如果值大了还可以减
+    
+                    if(right<=left)//交叉了
+                        break;
+    
+                    if(nums[left]+nums[right]==target_value)//找到了
+                        result.push_back({nums[index],nums[left],nums[right]});
+               }
+    
+            //   //解法2 下面做法跟两数之和类似，但是会超出时间限制308 / 313 个通过的测试用例
+            //    unordered_map<int, int> hash_table;
+            //    for(int i=index+1;i<nums.size();i++)
+            //    {
+            //         auto it=hash_table.find(target_value-nums[i]);
+            //         if(it!=hash_table.end())//找到了
+            //         {
+            //             vector<int> temp={nums[index], nums[i], it->first};
+            //             // if(find(result.begin(),result.end(),temp)==result.end())//避免重复
+            //                 result.push_back(temp);
+            //         }
+            //         hash_table[nums[i]]=i;
+            //    }
+            }
+            // Remove duplicates from result（对最后的结果来去重，这可以满足计算量要求，但是不比双指针好）
+            // result.erase(unique(result.begin(), result.end()), result.end());
+            return result;
+        }
+    };
+</script>
+</code></pre>
+</details> 
+</div>
+
+<p><br></p>
+<h1>最接近的三数之和</h1>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/WX20240821-232536.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+<details>
+<summary>Click to expand the code。有时做最大最小值记录的时候，可以选择初始化为INT_MIN和INT_MAX</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        int threeSumClosest(vector<int>& nums, int target) {
+    
+            // 以一个很大的值为初始值
+            int min_diff=INT_MAX;//记录为离target差多少。为0的时候就是target
+            int closest_sum;//最近的结果
+    
+            //先进行排序，这样双指针解法才好做
+            sort(nums.begin(),nums.end());
+    
+            for(int index=0;index<nums.size();index++)
+            {
+                // if(index>0 && nums[index]=nums[index-1])//这种情况是否重复呢？如果是求最值应该不存在重复的情况
+                //     continue;
+    
+                int target_value=target-nums[index];
+    
+                int left=index+1; 
+                int right=nums.size()-1;
+    
+                while(left<right)
+                {
+                    int current_sum = nums[index] + nums[left] + nums[right];
+                    int current_diff = abs(current_sum - target);
+                    //更新当前的最小值
+                    if (current_diff < min_diff) {
+                        min_diff = current_diff;
+                        closest_sum = current_sum;
+                    }
+    
+                    if(nums[left]+nums[right]<target_value)
+                    {
+                        left++;
+                    }
+                    else if(nums[left]+nums[right]>target_value)
+                    {
+                        right--;
+                    }
+                    else//相等的情况
+                    {
+                        return target;
+                    }
+                }
+    
+            }
+    
+            return closest_sum;
+    
+        }
+    };
+</script>
+</code></pre>
+</details>
+</div>
+
+
+<p><br></p>
+<h1>四数之和</h1>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/WX20241029-180631.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。最直接的方法就是用回溯算法。但是运行会超时。230 / 294 个通过的测试用例</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        void backtrack(vector<int>& nums, int target,vector<int> each_path,vector<vector<int>>& results, int index)
+        {
+            //递归终止的条件
+            if(each_path.size()==4)
+            {
+                if(target==0)//刚好为0
+                    results.push_back(each_path);
+                return;
+            }
+    
+            //选择列表
+            for(int i=index;i<nums.size();i++)
+            {
+                // 满足条件进行剪枝,以此去重
+                if(i>index && nums[i]==nums[i-1])//若当前值等于上一个值.同时除掉最开始的index以保证每次选重复值的第一个
+                    continue;
+    
+                // if(target-nums[i]<0)//剪枝(由于target存在负数，不能用此剪枝)
+                //     continue;
+                
+                //前序做选择
+                each_path.push_back(nums[i]);
+    
+                backtrack(nums,target-nums[i],each_path,results,i+1);
+    
+                //后序撤销选择
+                each_path.pop_back();
+            }
+        } 
+        vector<vector<int>> fourSum(vector<int>& nums, int target) {
+            
+            //由于要求按顺序返回，故此先排序
+            sort(nums.begin(),nums.end());
+    
+            //其次返回所有的可能，因此用回溯算法解题应该是最直接的
+    
+            vector<vector<int>> results;
+            vector<int> each_path;
+            backtrack(nums,target,each_path,results,0);
+    
+            return results;
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code。要避免超时应该采用的是双指针法，类似三数之和。在三数和的基础上上再套一层for循环.注意测试样例中存在long数据。时间复杂度为O（N<sup>3</sup>）</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        vector<vector<int>> fourSum(vector<int>& nums, int target) {
+    
+            vector<vector<int>> result;
+            sort(nums.begin(),nums.end());// 先对数组进行排序（这样可以避免用到重复的结果，同时题目要求的也是从小到大返回）
+    
+            for(int index_1=0;index_1<nums.size();index_1++)
+            {
+                //由于前面进行了排序，因此这样可以避免重复的结果 
+                if (index_1 > 0 && nums[index_1] == nums[index_1 - 1]) //一样的话，情况一样
+                    continue; // Skip duplicate elements
+    
+                for(int index_2=index_1+1;index_2<nums.size();index_2++)
+                {
+                    //类似上面的剪枝
+                    if (index_2 > index_1+1 && nums[index_2] == nums[index_2 - 1]) //一样的话，情况一样
+                        continue; // Skip duplicate elements
+                    
+                    // int target_value= target-nums[index_1]-nums[index_2];
+                    long target_value= target- (long) (nums[index_1]+nums[index_2]);//测试样例中存在long
+    
+                    //左右指针法
+                    int left=index_2+1;//第三个
+                    int right=nums.size()-1;//第四个
+                    while(left<right)
+                    {
+                        if(nums[left]+nums[right]>target_value)
+                        {
+                            right--;
+                        }
+                        else if(nums[left]+nums[right]<target_value)
+                        {
+                            left++;
+                        }
+                        else //相同
+                        {
+                            // 记录结果
+                            result.push_back({nums[index_1],nums[index_2],nums[left],nums[right]});
+    
+                            //然后继续移动指针避免重复的答案
+                            while (left < right && nums[left] == nums[left + 1]) 
+                                left++;
+                            while (left < right && nums[right] == nums[right - 1]) 
+                                right--;
+        
+                            //必须要继续移动，不然会报错爆内存。要么break掉，但是break掉导致不全
+                            left++;
+                            right--;
+                        }
+                    }
+                }
+            }
+    
+            return result;
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+</div>
+
+<p><br></p>
+<h1>高效解决接雨水问题</h1>
+<div>
+
+<h2>接雨水</h2>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/WX20241027-151411.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。首先给出暴力的解法。这个思路是最直接的，把问题进行分解然后解题，但是最终只有320 / 323 个通过的测试用例
+  时间复杂度应该是O（N<sup>2</sup>）
+</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        int trap(vector<int>& height) {
+            
+            // 实际上就是用一个数组表示一个条形图，问这个条形图最多能接多少水
+            // 简化题目：对于位置i，它的左边和右边最大的柱子高度为：l_max, r_max。而装水的容量为min(l_max, r_max)-height[i] （对应一格）
+            // 而l_max=max(height[0..i])
+            // r_max=max(height[i..end]) 
+    
+            //
+            int result=0;
+            for(int i=0;i<height.size();i++)
+            {
+                int left_max = *max_element(height.begin() , height.begin() + i);
+                int right_max = *max_element(height.begin()+i, height.end());
+                if(min(left_max,right_max)-height[i]>=0)//要大于0才加，小于0为负就是没有水
+                    result+=min(left_max,right_max)-height[i];
+            }
+    
+            return result;
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code.通过备忘录，先预先计算每个i的两个数组，避免每次循环都重复遍历，可以将时间复杂度降低为O(N),空间复杂度为O（1）</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        int trap(vector<int>& height) {
+            
+            vector<int> left_max(height.size(),0);
+            left_max[0]=height[0];//初始化
+            for(int i=1;i<height.size();i++)
+            {
+                left_max[i]=max(height[i],left_max[i-1]);
+            }
+    
+            vector<int> right_max(height.size(),0);
+            right_max[height.size()-1]=height[height.size()-1];//初始化
+            // 注意：此处需要从右到左遍历
+            for(int i=height.size()-2;i>=0;i--)
+            {
+                right_max[i]=max(height[i],right_max[i+1]);
+            }
+    
+            int result=0;
+            for(int i=0;i<height.size();i++)
+            {
+                if(min(left_max[i],right_max[i])-height[i]>=0)//要大于0才加，小于0为负就是没有水
+                    result+=min(left_max[i],right_max[i])-height[i];
+            }
+    
+            return result;
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code.下面通过双指针法解题，将时间复杂度一样为O（N），如下图所示
+</summary>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/WX20241027-155056@2x.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        int trap(vector<int>& height) {
+    
+            int result=0;
+            int left_max=0, right_max=0;//相当于数组
+            int left_index=0, right_index=height.size()-1;
+    
+            while(left_index<right_index)
+            {
+                left_max=max(left_max,height[left_index]);
+                right_max=max(right_max,height[right_index]);
+    
+                //result+=min(left_max,right_max)-height[i]
+                // 只在乎 min(l_max, r_max)。
+                // 当已经知道 l_max < r_max 了，这个 r_max 是不是右边最大的，不重要。
+                // 重要的是 height[i] 能够装的水只和较低的 l_max 之差有关：
+                
+                if(left_max<right_max)//result就由此处的left决定
+                {
+                    result+=left_max-height[left_index];
+                    left_index++;
+                }
+                else
+                {
+                    result+=right_max-height[right_index];
+                    right_index--;
+                }
+            }
+    
+            return result;
+        }
+    };
+</script>
+</code></pre>
+</details>
+</div>
+
+
+<p><br></p>
+<h2>盛最多水的容器</h2>
+<div>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/WX20241027-160632.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+
+<details>
+<summary>Click to expand the code。上一题给出的类似一幅直方图，每个横坐标都有宽度，而本题给出的每个横坐标是一条竖线，没有宽度。因此就不存在height[i]存放多少水的问题。
+  因此本题只需要知道了两个指针的位置，就可以计算出最大的面积：<code>min(height[left], height[right]) * (right - left)</code>
+
+</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        int maxArea(vector<int>& height) {
+            
+            int result=0;
+    
+            int left_index=0, right_index=height.size()-1;
+    
+            while(left_index<right_index)
+            {
+                // [left, right] 之间的矩形面积
+                int cur_value = min(height[left_index], height[right_index]) * (right_index - left_index);
+                result=max(result,cur_value);
+    
+                // 因为矩形的高度是由 min(height[left], height[right]) 即较低的一边决定的
+                // 如果移动较低的那一边，那条边可能会变高，使得矩形的高度变大，进而就「有可能」使得矩形的面积变大；
+                // 相反，如果移动较高的那一边，矩形的高度是无论如何都不会变大的，所以不可能使矩形的面积变得更大。
+                if(height[left_index]<height[right_index])
+                {
+                    left_index++;
+                }
+                else
+                {
+                    right_index--;
+                }
+            }
+            return result;
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+<details>
+<summary>Click to expand the code下面写法是一样的。注意更新的索引不要写错了～</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        int maxArea(vector<int>& height) {
+            
+            int result=0;
+    
+            int left_index=0, right_index=height.size()-1;
+    
+            while(left_index<right_index)
+            {
+                if(height[left_index]<height[right_index])
+                {
+                    int cur_value=height[left_index]*(right_index-left_index);
+                    result=max(result,cur_value);
+                    left_index++;
+                }
+                else
+                {
+                    int cur_value=height[right_index]*(right_index-left_index);
+                    result=max(result,cur_value);
+                    right_index--;
+                }
+            }
+            return result;
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+</div> 
+
+
+</div> 
+
+
+<!-- <details>
+<summary>Click to expand the code</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+
+</script>
+</code></pre>
+</details> -->
+
+<!-- <p><br></p>
+<h1></h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="../assets/img/" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>  -->
+
+<p><br></p>
+<h1>参考资料</h1>
+<ul>
+  <li><a href="../Poster/双指针链表解法.html">博客：双指针解链表类题目（与本博文的数组类思路很像）</a></li>
+
+  <li><a href="https://leetcode.cn/u/kwan-wai-pang/" target="_blank">My Leetcode</a></li>
+
+  <li><a href="https://labuladong.online/algo/essential-technique/array-two-pointers-summary/" target="_blank">双指针技巧秒杀七道数组题目</a></li>
+
+  <li><a href="https://www.bilibili.com/video/BV1iG411W7Wm/?vd_source=a88e426798937812a8ffc1a9be5a3cb7" target="_blank">解说视频</a></li>
+
+</ul>
+
+</article>
+</div>
+</div>
+
+<!-- Footer -->    
+<p><br></p>
+<footer class="nofixed-bottom">
+<div class="container mt-0" style="width:100%;text-align:center;">
+  <!-- Please feel free to contact me through <a href="https://gohan.github.io/" target="_blank">my personal website</a> -->
+  A simple star should be the best affirmation 
+  <!-- 载入GitHub按钮库 -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Star按钮 -->
+  <a class="github-button" 
+    href="https://github.com/gohan/gohan.github.io" 
+    data-icon="octicon-star" 
+    data-size="small"
+    data-show-count="true" 
+    aria-label="Star 你的用户名/你的仓库名 on GitHub">Star</a>
+</div>
+</footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/umd/popper.min.js" integrity="sha256-l/1pMF/+J4TThfgARS6KwWrk/egwuVvhRzfLAMQ6Ds4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/ecmd/assets/js/masonry.js" type="text/javascript"></script>
+
+  <!-- Medium Zoom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/ecmd/assets/js/zoom.js"></script><!-- Load Common JS -->
+  <script src="/ecmd/assets/js/common.js"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+  <!-- 下面是自定义的一系列功能 -->
+  <script>
+    //下面是插入目录的
+    document.addEventListener("DOMContentLoaded", function() {
+        const toc = document.querySelector("#toc ul");
+        const headers = document.querySelectorAll(".post h1, .post h2, .post h3, .post h4, .post h5, .post h6");
+        headers.forEach(header => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            const id = header.textContent.replace(/\s+/g, "-").toLowerCase();
+            header.setAttribute("id", id);
+            a.setAttribute("href", `#${id}`);
+            a.textContent = header.textContent;
+            li.style.marginLeft = `${(parseInt(header.tagName.substring(1)) - 2) * 20}px`;
+            li.appendChild(a);
+            toc.appendChild(li);
+        });
+    });
+
+    // 添加按钮点击事件
+    const button = document.getElementById("scrollToTocButton");
+    button.addEventListener("click", function() {
+        document.querySelector("#toc").scrollIntoView({ behavior: "smooth" });
+    });
+
+    // 添加新的目录
+    const newToc = document.querySelector("#newToc ul");
+    const headers = document.querySelectorAll(".post h1, .post h2, .post h3, .post h4, .post h5, .post h6");
+
+    headers.forEach(header => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        const id = header.textContent.replace(/\s+/g, "-").toLowerCase();
+        header.setAttribute("id", id);
+        a.setAttribute("href", `#${id}`);
+        a.textContent = header.textContent;
+        li.style.marginLeft = `${(parseInt(header.tagName.substring(1)) - 2) * 20}px`;
+        li.appendChild(a);
+        newToc.appendChild(li);
+    });
+
+    // 控制新的目录的显示与隐藏
+    const toggleButton = document.getElementById("toggleTocButton");
+    toggleButton.addEventListener("click", function() {
+        if (newToc.parentElement.style.display === "none") {
+            newToc.parentElement.style.display = "block"; // 展开新目录
+        } else {
+            newToc.parentElement.style.display = "none"; // 收起新目录
+        }
+    });
+</script>
+
+</body>
+</html>
+

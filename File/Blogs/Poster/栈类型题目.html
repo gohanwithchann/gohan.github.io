@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    p { /* 文字对齐 */
+        text-align: justify;
+        text-align-last: left;
+        text-justify: inter-word;
+    }
+    #toc {
+      background: #f4f4f4;
+      padding: 10px;
+      /* border: 1px solid #ccc; */
+      /* margin-bottom: 20px; */
+      max-width: 100%; /* 限制目录框架的最大宽度 */
+      word-wrap: break-word; /* 强制超长单词换行 */
+      position: relative;
+      margin-left: auto; /* 使目录框架在页面中居右 */
+      margin-right: auto; /* 使目录框架在页面中居右 */
+      box-sizing: border-box; /* 包含内边距和边框在内的宽度计算 */
+  }
+  </style>
+
+<!-- Head -->
+<head>    <!-- Metadata, OpenGraph and Schema.org -->
+
+
+  <!-- Standard metadata -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Kwan Wai-Pang's Blog</title>
+  <meta name="author" content="Kwan Wai-Pang " />
+  <meta name="description" content="Personal Blog of Kwan Wai-Pang" />
+  <meta name="keywords" content="Event-based Vision, SLAM, Robotics" />
+
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="My Technology Blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kwan Wai-Pang | Personal Blog" />
+  <meta property="og:description" content="Welcome to My Blog of Stack 😊" />
+  <meta property="og:image" content="https://gohan.github.io/Poster_files/hku_logo.jpg" />
+
+  <meta property="og:locale" content="en" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Home" />
+  <meta name="twitter:description" content="Personal Blog of Kwan Wai-Pang" />
+
+  <!-- Bootstrap & MDB -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous" />
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Barriecito&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700">
+
+  <!-- Code Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/PASTIE.css" media="none" id="highlight_theme_light" />
+
+  <!-- Styles -->
+
+    <link rel="shortcut icon" href="https://gohan.github.io/Poster_files/hku_logo.jpg"/>
+
+  <!-- <link rel="stylesheet" href="https://gohan.github.io/File/Blogs/assets/css/main.css"> -->
+  <!-- <link rel="stylesheet" href="https://gohan.github.io/File/Blogs/assets/css/fonts.css"> -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/new_css_js/cpp-highlight/styles/gradient-dark.css">
+  <script src="../assets/new_css_js/cpp-highlight/highlight.js"></script>    <!--引入代码高亮js库-->
+
+  <script>hljs.initHighlightingOnLoad();
+  </script>
+
+  <!-- Dark Mode -->
+
+
+</head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+              <li class="nav-item ">
+                <a class="nav-link" href="../My_Blog.html">Homepage</a>
+              </li>
+
+              <li class="nav-item ">
+                <a class="nav-link" href="../Poster/cpp算法学习笔记.html">Learning Algorithm</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+<header class="post-header">
+  <h1 align="center" class="post-title">
+    <span style="font-weight: 600;">栈类型题目</span>
+  </h1>
+  <!-- <p>
+    Please feel free to contact me through <a href="https://gohan.github.io/" target="_blank">my personal website</a>
+  </p> -->
+</header>
+
+<!-- Content -->
+<div class="container mt-5">
+<!-- home.html -->
+<div class="post">
+
+<!-- 插入目录 -->
+<div id="toc">
+  <h8>目录</h8>
+  <ul></ul>
+</div>
+      
+<article>
+<!-- 插入博客内容-->
+<p><br></p>
+<h1>引言</h1>
+<p>栈类型的题目应该是面试中比较常见的，毕竟思路对了基本马上可以做出来。关键其实只是对于堆的思路的理解。此处在总结栈类型的题目的时候也把队列也一并介绍
+  <ul>
+    <li>栈（stack）是先入后出的</li>
+    <li>队列（queue）是先入先出的</li>
+    <li>双端队列（dueue）则是两端都可了~</li>
+  </ul>
+  更直观的请见下图
+  <figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/stack/微信截图_20240724202708.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+下图更加直观的展示了栈和队列的区别
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 50%;" src="https://gohan.github.io/Poster_files/learning_algorithm/stack/微信截图_20240724202520.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+下面则详细的列举了定义及函数的使用：
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 100%;" src="https://gohan.github.io/Poster_files/learning_algorithm/stack/微信截图_20240724202941.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+</p>
+
+<p><br></p>
+<h1>有效括号</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/stack/微信截图_20240724203520.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>Click to expand the code</summary>
+<pre><code>
+  <script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        bool isValid(string s) {
+            stack<char> group;
+            for(int i=0;i<s.size();i++)
+            {
+                if(s[i]=='(' || s[i]=='[' || s[i]=='{')
+                    group.push(s[i]);
+                else
+                {
+                    if(!group.empty())//若不为空
+                    {
+                        if(
+                            (s[i]==')' && group.top()=='(')
+                            ||(s[i]==']' && group.top()=='[')
+                            ||(s[i]=='}' && group.top()=='{')
+                          )
+                            group.pop();//找了就删掉
+                        else //找不到匹配的就不是
+                            return false;
+                    }
+                    else
+                        return false;
+                }
+            }
+            if(group.size()) //结束后如果不是空的，
+                return false;
+            else
+                return true;
+        }
+    };
+  </script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h1>最长有效括号</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/stack/微信截图_20240724204408.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>Click to expand the code。保持栈底元素为当前已经遍历过的元素中「最后一个没有被匹配的右括号的下标」这样才是连续成对的。空间复杂度和时间复杂度都为O（N）</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        int longestValidParentheses(string s) {//输入为只包含 '(' 和 ')' 的字符串
+    
+            int max_len=0;//最长有效（格式正确且连续）
+            stack<int> stack_index;//记录index索引的
+    
+            stack_index.push(-1);//初始化先push一个-1的索引。作为「最后一个没有被匹配的右括号的下标」
+    
+            //左右括号成一对，记录的是当前的右括号与上一个不成对的右括号
+            for(int i=0;i<s.size();i++)
+            {
+                if(s[i]==')')//若是右括号
+                {
+                    stack_index.pop();//删掉这个右括号前一个的左括号（弹出一个栈顶表示匹配了当前的括号！）
+                    if(!stack_index.empty())//若不为空
+                    {
+                        int range=i-stack_index.top();
+                        max_len=max(max_len,range);//记录连续的～
+                    }
+                    else//若为空说明：当前的右括号为没有被匹配的左括号，我们将其下标放入栈中来更新我们之前提到的「最后一个没有被匹配的右括号的下标」
+                        stack_index.push(i);//存入，这个右括号的索引。为当前最后一个没有被匹配的右括号（下次会先删除）
+                }
+                else
+                    stack_index.push(i);//存入左括号的索引
+            }
+            return max_len;
+        }
+    };
+</script>
+</code></pre>
+</details>
+
+<p><br></p>
+<h1>移掉K位数字</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/stack/微信截图_20240724205235.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<p>需要先解读题目，数字应该是顺序不变的。那要保证尽量递增的形式.且要避免前导为0（也就是栈为空时，0不要放入）</p>
+<details>
+<summary>Click to expand the code</summary>
+<pre><code>
+  class Solution {
+    public:
+        string removeKdigits(string num, int k) {
+            stack&ltchar&gt stack_char;
+            for(int i=0;i&ltnum.size();i++)
+            {
+                //每次先检查，如果满足可以先从栈中删除一些：满足条件：从左到右为递增（小的放前面）
+                while(!stack_char.empty() && k&gt0 && stack_char.top()>num[i])
+                {
+                    // 当盏不为空，且盏顶的元素大于当前的元素的时候，把栈顶的元素去掉。放入当前的元素
+                    stack_char.pop();
+                    k--;//计数值自减
+                }
+                if(stack_char.empty() && num[i]=='0')//避免了前导为0
+                    continue;//跳过第一个为0
+                stack_char.push(num[i]);//每次都将当前值放入
+            }
+    
+            string result;//记录结果
+            while(!stack_char.empty())
+            {
+                if(k&gt0)//如果还需要继续删除位数
+                    k--;
+                else //只有当不需要去除数字的时候才加入
+                    result+=stack_char.top();//注意这个比下面的空间复杂度更低
+                    // result=stack_char.top()+result; //每次赋值导致更高的内存消耗
+                stack_char.pop();//弹出栈顶
+            }
+            //栈是反过来的因此需要反转一下
+            reverse(result.begin(), result.end());//stl中的reverse函数，需要反转一下。因为栈是逆过来的
+            return result.empty()? "0":result;//注意最后结果是否为空
+    
+        }
+    };
+</code></pre>
+</details>
+
+
+<p><br></p>
+<h1>string代替栈：去掉重复字母</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/stack/微信截图_20240724210452.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+<details>
+<summary>Click to expand the code</summary>
+<pre><code>
+  class Solution {
+    public:
+        string removeDuplicateLetters(string s) {       
+           //先通过unordered_map记录每个字符出现了多少次
+           unordered_map&ltchar,int&gt map;
+           for(auto str:s)
+                map[str]++;
+    
+            stack&ltchar&gt stack_str;//定义一个栈
+            unordered_map&ltchar,int&gt map_stack;//用于记录这个字符是否在栈中
+            for(int i=0;i&lts.size();i++)
+            {
+                if(map_stack[s[i]]&gt0)//当前已经存在于stack中了
+                {
+                    map[s[i]]--;
+                    continue;
+                }
+                //否则就是不存在了~
+                while(!stack_str.empty() && stack_str.top()&gts[i] && map[stack_str.top()]&gt0)
+                {//当前盏不为空，且top的元素大于s[i]，且stack_str.top()元素数量大于0，也就是后面还有
+                    map_stack[stack_str.top()]=0;//记录（不在栈中）
+                    stack_str.pop();//出栈
+                }
+                stack_str.push(s[i]);//入栈
+                map_stack[s[i]]=1;//入栈记录
+                map[s[i]]--;//也要记录
+            }
+    
+           string output_str;
+           while(!stack_str.empty())
+           {
+                output_str=stack_str.top()+output_str;//注意顺序就不需要采用reverse
+                stack_str.pop();
+           }
+           return output_str;
+        }
+    };
+</code></pre>
+</details>
+<p>上面方法虽然通过栈可以解决，但是却很容易出错，还需要额外记录。因此下面给出用string的解法。其实也是用了栈的思想，只是用了string可以用其函数find这样可以简化操作</p>
+<details>
+<summary>Click to expand the code</summary>
+<pre><code>
+  class Solution {
+    public:
+        string removeDuplicateLetters(string s) {
+            // 注意要求是字典序最小其不能打乱字符，单纯的unordered_map解决不了~
+            // 对于输入bcabc。第一个是b放入，第二个发现是c，b&ltc,也将c放入
+            // 当遇到a，少于c,且a后面有c，所以c删掉。小于b，所以b删掉。
+           
+           //先通过unordered_map记录每个字符出现了多少次
+           unordered_map&ltchar,int&gt map;
+           for(auto str:s)
+           {
+                map[str]++;
+           }
+    
+           string output_str;
+           for(int i=0;i&lts.size();i++)
+           {    
+                //说明当前字符已经存在了，故此不再插入
+                if(output_str.find(s[i])!=string::npos)
+                {
+                    map[s[i]]--;//记录这个字符的数目减一，虽然没有入栈，但是这个字符也被剔除掉了
+                    continue;
+                }
+    
+                //如果没有找到
+                //且栈内不为空，且即将进栈的元素小于当前栈顶的元素，同时当前栈顶的元素也不是最后一个（map中还有）
+                while(!output_str.empty() && output_str.back()&gts[i] && map[output_str.back()]&gt0)
+                {
+                  //循环对比
+                    output_str.pop_back();//就可以删掉（相当于出栈）
+                    //注意由于原本这个字符入栈的时候已经减一了，所以这里不需要再减一
+                }
+                output_str.push_back(s[i]);//入栈操作
+                map[s[i]]--;//入栈后减一。
+           }
+           return output_str;
+        }
+    };
+</code></pre>
+</details>
+
+<p><br></p>
+<h1>简化路径</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/stack/微信截图_20240724211759.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure> 
+
+<details>
+<summary>Click to expand the code。时间与空间复杂度都是O（N）</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+  class Solution {
+    public:
+        string simplifyPath(string path) {
+    
+            // if(path.back()!='/')
+            //     path=path+'/';//在结尾处加上'/'方便对路径的字母进行分组放于str_group中
+
+            vector<string> str_group;
+            string temp_str;
+            for(int i=0;i<path.size();i++)//进行路径的分割
+            {
+                if(path[i]=='/') //遇到斜杆
+                {
+                    if(!temp_str.empty())//如果不为空就push到vector中
+                    {
+                        str_group.push_back(temp_str);
+                        temp_str.clear();//清空一下
+                    }
+                }
+                else
+                    temp_str=temp_str+path[i];
+            }//这样就实现了以斜杆划分,并且不包含斜杆
+            //存入最后一个
+            if(!temp_str.empty())
+                str_group.push_back(temp_str);//若不为空，存进去（不要漏掉了！！！）
+    
+            stack<string> path_stack;//定义栈
+            for(int i=0;i<str_group.size();i++)//遍历分割后的路径
+            {
+                string temp_str=str_group[i];;
+                // if(!temp_str.empty())//作为double check
+                // {
+                    if(temp_str==".")//若为一个点，不处理
+                    {}
+                    else if (temp_str=="..")//如果连续两个点，那么就是要切换到上一级目录
+                    {
+                        if(!path_stack.empty())//如果栈不为空，就把栈顶删掉
+                            path_stack.pop();
+                    }
+                    else//上面都不满足，就应该是正常字符，所以输入作为路径
+                        path_stack.push(temp_str); //放入栈中
+                // }
+            }
+    
+            //最终结果存放到string中
+            string output_str;
+            while(!path_stack.empty())
+            {
+                output_str = "/" + path_stack.top() + output_str;//注意顺序,加到当前的前面
+                path_stack.pop();
+            }
+            return output_str.empty()? "/":output_str;//若为空那么只有一个斜杆
+        }
+    };
+</script>
+</code></pre>
+</details> 
+
+
+<p><br></p>
+<h1>矩阵乘法计算量估算</h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/stack/WX20240818-100907.png" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>
+<details>
+<summary>Click to expand the code。时间复杂度和空间复杂度都为O（N）关键点是：1、每对括号包含两个矩阵。2、矩阵的乘法数量应该是<mark>matrix_1.second*matrix_2.second*matrix_1.first</mark>也就是三个不一样的数字相乘啦</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+    #include <iostream>
+    #include <utility>
+    #include <vector>
+    #include <stack>
+    using namespace std;
+    
+    int main() {
+        int num;
+        cin>>num;
+        vector<pair<int,int>>matrix_group;
+        for(int i=0;i<num;i++)
+        {
+            int a,b;
+            cin>>a>>b;
+            auto each=make_pair(a, b);
+            matrix_group.push_back(each);
+        }
+        string input_str;
+        cin>>input_str;
+    
+        stack<pair<int,int>> string_stack;//定义一个栈来存行列
+        int result=0;
+        for(int i=0,j=0;i<input_str.size();i++)
+        {
+            if(input_str[i]=='(')//找到一个左括号，不做任何操作
+            {
+                int do_nothing;
+            }
+            else if(input_str[i]==')')//找到一个右括号，先出栈2个，必然为2个！！！！！
+            {
+                if(!string_stack.empty())
+                {
+                    auto matrix_2=string_stack.top();
+                    string_stack.pop();//取出后删掉
+                    auto matrix_1=string_stack.top();
+                    string_stack.pop();//取出后删掉
+                    //注意矩阵乘法的数目，
+                    result+=matrix_1.second*matrix_2.second*matrix_1.first;//matrix_1.second=matrix_2.first
+                    auto each_new=make_pair(matrix_1.first, matrix_2.second);
+                    string_stack.push(each_new);
+                }
+            }
+            else {//入栈
+                string_stack.push(matrix_group[j]);
+                j++;
+            }
+        }
+        std::cout<<result;
+    }
+    
+</script>
+</code></pre>
+</details> 
+
+
+<!-- <details>
+<summary>Click to expand the code</summary>
+<pre><code>
+<script type='text/html' style='display:block'>
+
+</script>
+</code></pre>
+</details> -->
+
+<!-- 标签内使用 &lt; 和 &gt; 来代替 < 和 > -->
+
+<!-- <p><br></p>
+<h1></h1>
+<figure style="text-align: center;">
+  <div style="margin-bottom: 10px;">
+    <img style="width: 60%;" src="https://gohan.github.io/Poster_files/learning_algorithm/stack/" alt="Image description">
+  </div>
+<figcaption><p>
+</p></figcaption>
+</figure>  -->
+
+
+<p><br></p>
+<h1>参考资料</h1>
+<ul>
+  <li><a href="https://leetcode.cn/u/kwan-wai-pang/" target="_blank">My Leetcode</a></li>
+
+</ul>
+<p><br></p>
+
+</article>
+</div>
+</div>
+
+<!-- Footer -->    
+<footer class="nofixed-bottom">
+<div class="container mt-0" style="width:100%;text-align:center;">
+  <!-- Please feel free to contact me through <a href="https://gohan.github.io/" target="_blank">my personal website</a> -->
+  A simple star should be the best affirmation 
+  <!-- 载入GitHub按钮库 -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Star按钮 -->
+  <a class="github-button" 
+    href="https://github.com/gohan/gohan.github.io" 
+    data-icon="octicon-star" 
+    data-size="small"
+    data-show-count="true" 
+    aria-label="Star 你的用户名/你的仓库名 on GitHub">Star</a>
+</div>
+</footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/umd/popper.min.js" integrity="sha256-l/1pMF/+J4TThfgARS6KwWrk/egwuVvhRzfLAMQ6Ds4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha256-SyTu6CwrfOhaznYZPoolVw2rxoY7lKYKQvqbtqN93HI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/ecmd/assets/js/masonry.js" type="text/javascript"></script>
+
+  <!-- Medium Zoom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="/ecmd/assets/js/zoom.js"></script><!-- Load Common JS -->
+  <script src="/ecmd/assets/js/common.js"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+   <!-- 下面是插入目录的 -->
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toc = document.querySelector("#toc ul");
+        const headers = document.querySelectorAll(".post h1, .post h2, .post h3, .post h4, .post h5, .post h6");
+        headers.forEach(header => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            const id = header.textContent.replace(/\s+/g, "-").toLowerCase();
+            header.setAttribute("id", id);
+            a.setAttribute("href", `#${id}`);
+            a.textContent = header.textContent;
+            li.style.marginLeft = `${(parseInt(header.tagName.substring(1)) - 2) * 20}px`;
+            li.appendChild(a);
+            toc.appendChild(li);
+        });
+    });
+</script>
+
+</body>
+</html>
+
