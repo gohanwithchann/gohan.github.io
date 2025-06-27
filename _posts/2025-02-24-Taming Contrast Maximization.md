@@ -19,7 +19,7 @@ toc: true
 
 * [paper link](https://arxiv.org/pdf/2303.05214)
 * [Github Page](https://github.com/tudelft/taming_event_flow)
-* [博客](https://gohan.github.io/Awesome-Event-based-Contrast-Maximization/)对Event camera领域的Contrast-Maximization作了深入的介绍
+* [博客](https://gohanwithchann.github.io/Awesome-Event-based-Contrast-Maximization/)对Event camera领域的Contrast-Maximization作了深入的介绍
 * 此博客复现用的代码及后续注释代码：[taming_event_flow_comment](https://github.com/gohan/taming_event_flow_comment)
 
 
@@ -42,7 +42,7 @@ pip install -r requirements.txt
 # 数据的下载
 
 * 数据链接：[here](https://1drv.ms/u/s!Ah0kx0CRKrAZjxMxBx4z5HN1CjWv?e=UiayaL) 并且将数据下载到 `/datasets/`文件夹内（在文件夹内下载然后解压~）.
-* 用OneDrive下载数据到服务器可以参考：[Link](https://gohan.github.io/File/Blogs/Poster/ubuntu%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE.html#onedrive)
+* 用OneDrive下载数据到服务器可以参考：[Link](https://gohanwithchann.github.io/File/Blogs/Poster/ubuntu%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE.html#onedrive)
 
 # 预训练模型的下载
 * 预训练模型：[here](https://1drv.ms/u/s!Ah0kx0CRKrAZjxSwx8-UTUAncgg3?e=yM2g0i), 并放在文件夹 `mlruns/`（下载后直接解压即可）.

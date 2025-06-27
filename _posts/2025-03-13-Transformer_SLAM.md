@@ -21,8 +21,8 @@ toc: false #true
 
 其他相关链接：
 
-* [What is Transformer? Form NLP to CV](https://gohan.github.io/Transformer/)
-* [Survey for Learning-based VO/VIO](https://gohan.github.io/File/Blogs/Poster/Learning_based_VO.html)
+* [What is Transformer? Form NLP to CV](https://gohanwithchann.github.io/Transformer/)
+* [Survey for Learning-based VO/VIO](https://gohanwithchann.github.io/File/Blogs/Poster/Learning_based_VO.html)
 * [Awesome-Learning-based-VO-VIO](https://github.com/gohan/Awesome-Learning-based-VO-VIO)
 
 
@@ -38,7 +38,7 @@ toc: false #true
 
 | Year | Venue | Paper Title | Repository | Note |
 |:----:|:-----:| ----------- |:----------:|:----:|
-|2025|`CVPR`|[MASt3R-SLAM: Real-Time Dense SLAM with 3D Reconstruction Priors](https://arxiv.org/pdf/2412.12392)|[![Github stars](https://img.shields.io/github/stars/rmurai0610/MASt3R-SLAM.svg)](https://github.com/rmurai0610/MASt3R-SLAM)|[Website](https://edexheim.github.io/mast3r-slam/) <br> [Test](https://gohan.github.io/MASt3R-SLAM/)
+|2025|`CVPR`|[MASt3R-SLAM: Real-Time Dense SLAM with 3D Reconstruction Priors](https://arxiv.org/pdf/2412.12392)|[![Github stars](https://img.shields.io/github/stars/rmurai0610/MASt3R-SLAM.svg)](https://github.com/rmurai0610/MASt3R-SLAM)|[Website](https://edexheim.github.io/mast3r-slam/) <br> [Test](https://gohanwithchann.github.io/MASt3R-SLAM/)
 |2022|`ICARM`|[Tlcd: A transformer based loop closure detection for robotic visual slam](https://howardli0816.github.io/files/TLCD_A_Transformer_based_Loop_Closure_Detection_for_Robotic_Visual_SLAM.pdf)|---|just transformer for feature detection|
 |2022|`ECCV`|[Jperceiver: Joint perception network for depth, pose and layout estimation in driving scenes](https://arxiv.org/pdf/2207.07895)|[![Github stars](https://img.shields.io/github/stars/sunnyHelen/JPerceiver.svg)](https://github.com/sunnyHelen/JPerceiver)|CCT Module is very similar to Transformer|
 
@@ -95,12 +95,12 @@ toc: false #true
 
 | Year | Venue | Paper Title | Repository | Note |
 |:----:|:-----:| ----------- |:----------:|:----:|
-|2025|`CVPR`|[Fast3R: Towards 3D Reconstruction of 1000+ Images in One Forward Pass](https://arxiv.org/pdf/2501.13928)|[![Github stars](https://img.shields.io/github/stars/facebookresearch/fast3r.svg)](https://github.com/facebookresearch/fast3r)| [Website](https://fast3r-3d.github.io/) <br> [Test](https://gohan.github.io/Fast3R/)
+|2025|`CVPR`|[Fast3R: Towards 3D Reconstruction of 1000+ Images in One Forward Pass](https://arxiv.org/pdf/2501.13928)|[![Github stars](https://img.shields.io/github/stars/facebookresearch/fast3r.svg)](https://github.com/facebookresearch/fast3r)| [Website](https://fast3r-3d.github.io/) <br> [Test](https://gohanwithchann.github.io/Fast3R/)
 |2024|`CVPR`|[Depth anything: Unleashing the power of large-scale unlabeled data](https://openaccess.thecvf.com/content/CVPR2024/papers/Yang_Depth_Anything_Unleashing_the_Power_of_Large-Scale_Unlabeled_Data_CVPR_2024_paper.pdf)|[![Github stars](https://img.shields.io/github/stars/LiheYoung/Depth-Anything.svg)](https://github.com/LiheYoung/Depth-Anything)|[Website](https://depth-anything.github.io/)
 |2024|`CVPR`|[DeCoTR: Enhancing Depth Completion with 2D and 3D Attentions](https://openaccess.thecvf.com/content/CVPR2024/papers/Shi_DeCoTR_Enhancing_Depth_Completion_with_2D_and_3D_Attentions_CVPR_2024_paper.pdf)|---|---|
 |2024|`CVPR`|[Learning to adapt clip for few-shot monocular depth estimation](https://openaccess.thecvf.com/content/WACV2024/papers/Hu_Learning_To_Adapt_CLIP_for_Few-Shot_Monocular_Depth_Estimation_WACV_2024_paper.pdf)|---|---| 
-|2024|`ECCV`|[Grounding Image Matching in 3D with MASt3R](https://arxiv.org/pdf/2406.09756)|[![Github stars](https://img.shields.io/github/stars/naver/mast3r.svg)](https://github.com/naver/mast3r)| [Website](https://europe.naverlabs.com/blog/mast3r-matching-and-stereo-3d-reconstruction/) <br> [Test](https://gohan.github.io/File/Blogs/Poster/MASt3R-SLAM.html)
-|2024|`CVPR`|[DUSt3R: Geometric 3D Vision Made Easy](https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_DUSt3R_Geometric_3D_Vision_Made_Easy_CVPR_2024_paper.pdf)|[![Github stars](https://img.shields.io/github/stars/naver/dust3r.svg)](https://github.com/naver/dust3r)| [Website](https://europe.naverlabs.com/research/publications/dust3r-geometric-3d-vision-made-easy/) <br> [Test](https://gohan.github.io/File/Blogs/Poster/MASt3R-SLAM.html)
+|2024|`ECCV`|[Grounding Image Matching in 3D with MASt3R](https://arxiv.org/pdf/2406.09756)|[![Github stars](https://img.shields.io/github/stars/naver/mast3r.svg)](https://github.com/naver/mast3r)| [Website](https://europe.naverlabs.com/blog/mast3r-matching-and-stereo-3d-reconstruction/) <br> [Test](https://gohanwithchann.github.io/File/Blogs/Poster/MASt3R-SLAM.html)
+|2024|`CVPR`|[DUSt3R: Geometric 3D Vision Made Easy](https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_DUSt3R_Geometric_3D_Vision_Made_Easy_CVPR_2024_paper.pdf)|[![Github stars](https://img.shields.io/github/stars/naver/dust3r.svg)](https://github.com/naver/dust3r)| [Website](https://europe.naverlabs.com/research/publications/dust3r-geometric-3d-vision-made-easy/) <br> [Test](https://gohanwithchann.github.io/File/Blogs/Poster/MASt3R-SLAM.html)
 |2024|`TIP`|[BinsFormer: Revisiting Adaptive Bins for Monocular Depth Estimation](https://arxiv.org/pdf/2204.00987)|[![Github stars](https://img.shields.io/github/stars/zhyever/Monocular-Depth-Estimation-Toolbox.svg)](https://github.com/zhyever/Monocular-Depth-Estimation-Toolbox)|---|
 |2024|`TIP`|[GLPanoDepth: Global-to-Local Panoramic Depth Estimation](https://arxiv.org/pdf/2202.02796)|---|---|
 |2023|`ICCV`|[Towards zero-shot scale-aware monocular depth estimation](https://openaccess.thecvf.com/content/ICCV2023/papers/Guizilini_Towards_Zero-Shot_Scale-Aware_Monocular_Depth_Estimation_ICCV_2023_paper.pdf)|[![Github stars](https://img.shields.io/github/stars/tri-ml/vidar.svg)](https://github.com/tri-ml/vidar)|[website](https://sites.google.com/view/tri-zerodepth)|
@@ -173,7 +173,7 @@ toc: false #true
 至于监督，从图上来看似乎是监督rotation，然后用RPMG来进行梯度的反向传播。
 所谓的`RPMG`应该就是论文中提到的`Riemannian manifold optimization`，不采用欧拉角或者四元数来监督，而是采用`Riemannian manifold optimization`来让网络更好的学习rotation
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250314125229.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250314125229.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -181,7 +181,7 @@ toc: false #true
 * 更正，后续loss function可以看到，监督是同时监督rotation和translation的，只是对于rotation用的是旋转矩阵，而不是欧拉角或者四元数
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250314135327.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250314135327.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -189,7 +189,7 @@ toc: false #true
 
 这篇工作采用的结构与思路其实跟ECCV2022的[Efficient deep visual and inertial odometry with adaptive visual modality selection](https://arxiv.org/pdf/2205.06187)很类似，如下图所示。该工作采用的是LSTM进行融合，此处改为Transformer，当然Visual-Selective-VIO的监督loss是考虑了translation和rotation的.
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250314130039.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250314130039.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -199,7 +199,7 @@ toc: false #true
 本文所谓的`Causal Transformer`如下图所示。跟ViT的结构差不多，最后通过两层的MLP来输出pose（6个自由度，N+1张图片对应N组姿态结果）
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250314134510.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250314134510.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -208,7 +208,7 @@ toc: false #true
 实验对比效果如下图所示
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250314135722.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250314135722.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -224,7 +224,7 @@ toc: false #true
 而采用的framework则是TimeSformer，来自于《[Is space-time attention all you need for video understanding?](https://arxiv.org/pdf/2102.05095)》然后重新设计MSE loss来实现对姿态估计的回归而不是分类任务。
 而所谓的MSE loss就是跟GT求误差啦~
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250314160538.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250314160538.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -232,7 +232,7 @@ toc: false #true
 其framework如下图所示，跟基本的ViT是差不多的，把输入的图片分割为$N=H*W/p^2$个patch，然后通过CNN(2D卷积)来转换为token输入，而transformer的结构则是用TimeSformer
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250314160039.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250314160039.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -240,8 +240,8 @@ toc: false #true
 最终结果如下图所示（所谓的TSformer-VO1、2、3就是multi head self attention的head数目分别为2、3、4）
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250314160854.png" width="60%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250314160923.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250314160854.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250314160923.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -249,7 +249,7 @@ toc: false #true
 
 ## DUSt3R与MASt3R系列
 请见博客：
-* [DUSt3R与MASt3R学习博客](https://gohan.github.io/File/Blogs/Poster/MASt3R-SLAM.html)
+* [DUSt3R与MASt3R学习博客](https://gohanwithchann.github.io/File/Blogs/Poster/MASt3R-SLAM.html)
 
 ### Croco
 
@@ -266,10 +266,10 @@ Croco这两个工作最开始针对的任务是Mask image modeling（MIM）个�
   <table style="border: none; background-color: transparent;">
     <tr align="center">
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250317162137.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250317162137.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250317162157.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250317162157.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -283,7 +283,7 @@ Croco这两个工作最开始针对的任务是Mask image modeling（MIM）个�
 如下图所示，对于stereo matching 以及optical flow两个task，则是用预训练好的模型，输入为两张图片（此时图1不再mask），然后decoder中间层输出的结果通过DPT《[Vision transformers for dense prediction](https://openaccess.thecvf.com/content/ICCV2021/papers/Ranftl_Vision_Transformers_for_Dense_Prediction_ICCV_2021_paper.pdf)》来输出最终的结果
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250317205814.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250317205814.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -291,7 +291,7 @@ Croco这两个工作最开始针对的任务是Mask image modeling（MIM）个�
 而finetune则是用真值的target disparity通过Laplacian distribution来求
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250317210427.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250317210427.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -308,10 +308,10 @@ Croco这两个工作最开始针对的任务是Mask image modeling（MIM）个�
   <table style="border: none; background-color: transparent;">
     <tr align="center">
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250318130106.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250318130106.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250318130058.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250318130058.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -324,15 +324,15 @@ Croco这两个工作最开始针对的任务是Mask image modeling（MIM）个�
 
 ## MASt3R-SLAM: Real-Time Dense SLAM with 3D Reconstruction Priors
 
-* 解读及测试请见博客：[Link](https://gohan.github.io/MASt3R-SLAM/)
+* 解读及测试请见博客：[Link](https://gohanwithchann.github.io/MASt3R-SLAM/)
 
 ## Fast3R: Towards 3D Reconstruction of 1000+ Images in One Forward Pass
 
-* 解读及测试请见博客：[Link](https://gohan.github.io/Fast3R/)
+* 解读及测试请见博客：[Link](https://gohanwithchann.github.io/Fast3R/)
 
 ## VGGT: Visual Geometry Grounded Transformer
 
-* 解读及测试请见博客：[Link](https://gohan.github.io/VGGT/)
+* 解读及测试请见博客：[Link](https://gohanwithchann.github.io/VGGT/)
 
 其中《[VGGSfM: Visual Geometry Grounded Deep Structure From Motion](https://openaccess.thecvf.com/content/CVPR2024/papers/Wang_VGGSfM_Visual_Geometry_Grounded_Deep_Structure_From_Motion_CVPR_2024_paper.pdf)》应该算是其前作了，就是用transfomer-based的网络拟合end-to-end的sfm。感觉跟	MASt3R-SfM有些像，只不过	MASt3R-SfM是基于3D匹配的概念的，VGGSfM则还是2D匹配的概念。其架构如下图所示
 
@@ -340,10 +340,10 @@ Croco这两个工作最开始针对的任务是Mask image modeling（MIM）个�
   <table style="border: none; background-color: transparent;">
     <tr align="center">
       <td style="width: 70%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250320143408.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250320143408.png" width="100%" />
       </td>
       <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250320143431.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250320143431.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -353,7 +353,7 @@ Croco这两个工作最开始针对的任务是Mask image modeling（MIM）个�
 
 ## SLAM3R: Real-Time Dense Scene Reconstruction from Monocular RGB Videos
 
-* 解读及测试请见博客：[Link](https://gohan.github.io/SLAM3R/)
+* 解读及测试请见博客：[Link](https://gohanwithchann.github.io/SLAM3R/)
 
 ## Dynamic Point Maps: A Versatile Representation for Dynamic 3D Reconstruction
 
@@ -362,4 +362,4 @@ Croco这两个工作最开始针对的任务是Mask image modeling（MIM）个�
 
 ## MonST3R: A Simple Approach for Estimating Geometry in the Presence of Motion
 
-* 解读及测试请见博客：[Link](https://gohan.github.io/MonST3R/)
+* 解读及测试请见博客：[Link](https://gohanwithchann.github.io/MonST3R/)

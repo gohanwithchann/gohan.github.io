@@ -16,7 +16,7 @@ toc: true
 <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 # 引言
 
-之前博客（[Easi3R](https://gohan.github.io/Easi3R/),[MonST3R](https://gohan.github.io/MonST3R/)）复现了基于Transformer（主要以DUSt3R为主）的SLAM系统在动态场景下的4D重建。
+之前博客（[Easi3R](https://gohanwithchann.github.io/Easi3R/),[MonST3R](https://gohanwithchann.github.io/MonST3R/)）复现了基于Transformer（主要以DUSt3R为主）的SLAM系统在动态场景下的4D重建。
 
 本博文实测一些动态序列对于MASt3R以及MASt3R-SLAM的性能影响。
 
@@ -24,11 +24,11 @@ toc: true
 
 
 相关的资料：
-* MASt3R的复现：[blog](https://gohan.github.io/File/Blogs/Poster/MASt3R-SLAM.html#mast3r%E5%AE%9E%E9%AA%8C%E6%B5%8B%E8%AF%95)
-* MASt3R-SLAM的复现：[blog](https://gohan.github.io/MASt3R-SLAM/)
-* Survey for Transformer-based SLAM：[Paper List](https://github.com/gohan/Awesome-Transformer-based-SLAM) and [Blog](https://gohan.github.io/Transformer_SLAM/)
-* 博客：[What is Transformer? Form NLP to CV](https://gohan.github.io/Transformer/)
-* Survey for Dynamic SLAM: [blog](https://gohan.github.io/Dynamic-SLAM/)
+* MASt3R的复现：[blog](https://gohanwithchann.github.io/File/Blogs/Poster/MASt3R-SLAM.html#mast3r%E5%AE%9E%E9%AA%8C%E6%B5%8B%E8%AF%95)
+* MASt3R-SLAM的复现：[blog](https://gohanwithchann.github.io/MASt3R-SLAM/)
+* Survey for Transformer-based SLAM：[Paper List](https://github.com/gohan/Awesome-Transformer-based-SLAM) and [Blog](https://gohanwithchann.github.io/Transformer_SLAM/)
+* 博客：[What is Transformer? Form NLP to CV](https://gohanwithchann.github.io/Transformer/)
+* Survey for Dynamic SLAM: [blog](https://gohanwithchann.github.io/Dynamic-SLAM/)
 
 
 # MASt3R in Dynamic Scene
@@ -113,7 +113,7 @@ see https://github.com/naver/dust3r?tab=readme-ov-file#interactive-demo for deta
 * 采用lady-running数据（应该是只能上传图片而非视频）
 
 <div align="center">
-<video playsinline autoplay loop muted src="https://gohan.github.io/ubuntu_md_blog/MonST3R/lady-running.mp4" poster="https://gohan.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="80%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+<video playsinline autoplay loop muted src="https://gohanwithchann.github.io/ubuntu_md_blog/MonST3R/lady-running.mp4" poster="https://gohanwithchann.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="80%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
 </div>
 
 其效果如下：
@@ -206,7 +206,7 @@ CUDA_VISIBLE_DEVICES=0 python main.py --dataset /home/gwp/monst3r/demo_data/lady
 </div>
 
 <div align="center">
-<video playsinline autoplay loop muted src="https://r-c-group.github.io/blog_media/MASt3R-SLAM/123456.mp4" poster="https://gohan.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="80%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+<video playsinline autoplay loop muted src="https://r-c-group.github.io/blog_media/MASt3R-SLAM/123456.mp4" poster="https://gohanwithchann.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="80%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
 </div>
 
 * 接下来下载TUM-RGBD带有Dynamic Objects的数据集[bash](https://github.com/gohan/MASt3R-SLAM_comment/blob/comment/scripts/download_tum_dynamic.sh)
@@ -259,5 +259,5 @@ rgbd_dataset_freiburg3_walking_halfsphere
 </div>
 
 <div align="center">
-<video playsinline autoplay loop muted src="https://r-c-group.github.io/blog_media/MASt3R-SLAM/rgbd_dataset_freiburg3_walking_halfsphere.mp4" poster="https://gohan.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="80%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+<video playsinline autoplay loop muted src="https://r-c-group.github.io/blog_media/MASt3R-SLAM/rgbd_dataset_freiburg3_walking_halfsphere.mp4" poster="https://gohanwithchann.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="80%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
 </div>

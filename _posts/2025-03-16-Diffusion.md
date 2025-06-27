@@ -21,7 +21,7 @@ toc: true
 本博文仅供本人学习记录用
 
 
-* [What is Transformer? Form NLP to CV](https://gohan.github.io/Transformer/)
+* [What is Transformer? Form NLP to CV](https://gohanwithchann.github.io/Transformer/)
 * [Awesome-Transformer-based-SLAM](https://github.com/gohan/Awesome-Transformer-based-SLAM)
 
 # 图像生成
@@ -46,7 +46,7 @@ toc: true
 GAN基本思路是，既然生成网络（生成器）无法知道一幅图片好不好，那么就再训练一个网络（对抗网络/判别器），用于辨别生成网络生成的图片是不是和训练集里的图片长得一样（或者分布一样）。两个网络互相对抗，共同进步。
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250315113444.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250315113444.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -59,7 +59,7 @@ VAE中，把图像变成向量的网络叫做编码器，把向量转换回图�
 
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250315113751.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250315113751.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -80,7 +80,7 @@ Diffusion模型的思路则是：一个分布可以通过不断地添加噪声�
 网络的学习目标是让$T$个去噪声操作正好能抵消掉对应的加噪声操作。
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250315201910.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250315201910.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -88,7 +88,7 @@ Diffusion模型的思路则是：一个分布可以通过不断地添加噪声�
 训练完毕后，只需要从标准正态分布里随机采样出一个噪声，再利用反向过程里的神经网络把该噪声恢复成一幅图像，就能够生成一幅图片了。如下图所示。
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250315202233.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250315202233.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -97,7 +97,7 @@ Diffusion模型的思路则是：一个分布可以通过不断地添加噪声�
 下图为不同种类的生成模型的总结对比
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/generative-overview.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/generative-overview.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -114,7 +114,7 @@ Diffusion模型的思路则是：一个分布可以通过不断地添加噪声�
   height: 400px;
   margin: 0 auto;
   border-radius: 15px;
-  background: url('https://gohan.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
+  background: url('https://gohanwithchann.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
   ">
   <iframe width="100%" height="100%"
     src="https://introtodeeplearning.com/slides/6S191_MIT_DeepLearning_L4.pdf#toolbar=0&navpanes=0&scrollbar=0" ></iframe>
@@ -124,7 +124,7 @@ Diffusion模型的思路则是：一个分布可以通过不断地添加噪声�
 生成模型的发展非常强大，比如下面三张图片，竟然都是生成的
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250325160723.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250325160723.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -132,7 +132,7 @@ Diffusion模型的思路则是：一个分布可以通过不断地添加噪声�
 生成模型最基本的原理是：从训练样本中学到某种分布，让模型可以输出该分布的数据。`Take as input training samples from some distribution and learn a model that represents that distribution`
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250325161447.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250325161447.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -140,7 +140,7 @@ Diffusion模型的思路则是：一个分布可以通过不断地添加噪声�
 Autoencoders，其实就是类似U-Net的结构，从输入的数据$x$中学习低维度的latent space $z$,通过将$z$ mapping back回原来的数据，即可实现自监督/un-supervise learning，不需要任何的label
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250325162743.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250325162743.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -153,7 +153,7 @@ Autoencoders，其实就是类似U-Net的结构，从输入的数据$x$中学习
 因此需要引入一些随机性（randomness）到Autoencoders中
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250328132247.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250328132247.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -161,7 +161,7 @@ Autoencoders，其实就是类似U-Net的结构，从输入的数据$x$中学习
 对于每个latent variables都添加一个概率分布。那么进一步可以理解为编码器和解码器都是学习概率分布。而两个network分别学习权重$\phi$和$\theta$
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250328132339.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250328132339.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -170,11 +170,11 @@ Autoencoders，其实就是类似U-Net的结构，从输入的数据$x$中学习
   <table style="border: none; background-color: transparent;">
     <tr align="center">
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250328144647.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250328144647.png" width="100%" />
         重构loss
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250328144757.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250328144757.png" width="100%" />
         正则化loss
       </td>
     </tr>
@@ -185,8 +185,8 @@ Autoencoders，其实就是类似U-Net的结构，从输入的数据$x$中学习
 而所谓的正则化loss实际上就是让学习的分布要更加接近于某种预定义的分布。如下图所示，假设需要latent的先验分布为正态分布
 而下方图片则是计算两个分布有多靠近的公式
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250328145222.png" width="60%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250328145332.png" width="40%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250328145222.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250328145332.png" width="40%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -199,10 +199,10 @@ Autoencoders，其实就是类似U-Net的结构，从输入的数据$x$中学习
   <table style="border: none; background-color: transparent;">
     <tr align="center">
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250328150156.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250328150156.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250328150203.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250328150203.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -214,7 +214,7 @@ Autoencoders，其实就是类似U-Net的结构，从输入的数据$x$中学习
 
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250328151109.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250328151109.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -226,7 +226,7 @@ Autoencoders，其实就是类似U-Net的结构，从输入的数据$x$中学习
 Diffusion模型的思路则是：一个分布可以通过不断地添加噪声变成另一个分布。如下图所示
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250315114047.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250315114047.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -239,7 +239,7 @@ Diffusion模型的思路则是：一个分布可以通过不断地添加噪声�
 准确来说，`加噪声`并不是给上一时刻的图像加上噪声值，而是从一个均值与上一时刻图像相关的正态分布里采样出一幅新图像。直观解析通过下面公式来表述：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250316113956.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250316113956.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -250,8 +250,8 @@ PS：这个过程也符合马尔可夫过程，因为当前状态仅仅由上一
 而为了让每一步加噪声的过程能够从慢到快改变原图像，让最终的图像$X_{T}$为均值0，方差$I$(标准正态分布)，那么加噪声的扩散模型会设置为：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250316114847.png" width="60%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250316130826.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250316114847.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250316130826.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -267,7 +267,7 @@ PS：这个过程也符合马尔可夫过程，因为当前状态仅仅由上一
 而对于上述正向过程的$\beta_{t}$只要足够的小，那么每一步加噪声的逆操作也会满足正态分布
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250316115354.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250316115354.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -276,18 +276,18 @@ PS：这个过程也符合马尔可夫过程，因为当前状态仅仅由上一
 网络应该就是输入$t$和$X_{t}$拟合获得当前的均值$\tilde{\mu}_{t}$和方差$\tilde{\beta}_{t}$。而它的均值的求解过程请见[Link](https://zhouyifan.net/2023/07/07/20230330-diffusion-model/)，下面直接给出结果
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250316120326.png" width="60%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250316120333.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250316120326.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250316120333.png" width="60%" />
 <figcaption>  
 给定某个输入时，去噪的正态分布的均值和方差是可以用解析式表达出来的
 </figcaption>
 </div>
 
-$\beta_{t}$为加噪声的方差，是一个常量。<img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250316120441.png" width="30%" />
+$\beta_{t}$为加噪声的方差，是一个常量。<img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250316120441.png" width="30%" />
 而$\varepsilon_{t}$则是前面正向过程的时候从对应的$\varepsilon$(注意下面时间表达差一个时刻):
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250316121015.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250316121015.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -297,7 +297,7 @@ $\beta_{t}$为加噪声的方差，是一个常量。<img src="https://gohan.git
 对于网络预测的$\varepsilon_{\theta}(x_{t},t)$($\theta$为网络可学习参数)，让其和生成$x_{t}$的时候用的噪声方差$\tilde{\beta}_{t}$的均方误差最小即可：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250316124144.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250316124144.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>

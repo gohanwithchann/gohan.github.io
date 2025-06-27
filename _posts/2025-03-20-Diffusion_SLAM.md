@@ -74,11 +74,11 @@ or 3D reconstruction
 
 ## Other Resource
 
-* [What is Diffusion?](https://gohan.github.io/Diffusion/)
-* Survey for Learning-based VO,VIO,IO：[Paper List](https://github.com/gohan/Awesome-Learning-based-VO-VIO) and [Blog](https://gohan.github.io/Learning-based-VO-VIO/)
-* Survey for Transformer-based SLAM：[Paper List](https://github.com/gohan/Awesome-Transformer-based-SLAM) and [Blog](https://gohan.github.io/Transformer_SLAM/)
-* Survey for NeRF-based SLAM：[Blog](https://gohan.github.io/Awesome-NeRF-SLAM/)
-* Survey for 3DGS-based SLAM: [Blog](https://gohan.github.io/File/Blogs/Poster/survey_3DGS_SLAM.html)
+* [What is Diffusion?](https://gohanwithchann.github.io/Diffusion/)
+* Survey for Learning-based VO,VIO,IO：[Paper List](https://github.com/gohan/Awesome-Learning-based-VO-VIO) and [Blog](https://gohanwithchann.github.io/Learning-based-VO-VIO/)
+* Survey for Transformer-based SLAM：[Paper List](https://github.com/gohan/Awesome-Transformer-based-SLAM) and [Blog](https://gohanwithchann.github.io/Transformer_SLAM/)
+* Survey for NeRF-based SLAM：[Blog](https://gohanwithchann.github.io/Awesome-NeRF-SLAM/)
+* Survey for 3DGS-based SLAM: [Blog](https://gohanwithchann.github.io/File/Blogs/Poster/survey_3DGS_SLAM.html)
 * [Awesome-Diffusion-Models](https://github.com/diff-usion/Awesome-Diffusion-Models)
 * Some basic paper for Diffusion Model:
 
@@ -107,7 +107,7 @@ or 3D reconstruction
 
 这里所谓的特征匹配包括了几何( geometric)、语义(semantic)、时间（temporal）等多个维度的特征匹配，也就是同一个框架,只需要学习单个特征的描述子即可完成这三个任务下的特征匹配
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250320151734.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250320151734.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -116,7 +116,7 @@ MATCHA整合了来自于DINO V2(《[Dinov2: Learning robust visual features with
 关于这点，应该是由于缺乏来自语义以及几何的足够的真实数据，因此作者直接用了预训练的transformer模型来增强泛化能力。如下图所示
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250320153747.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250320153747.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -127,7 +127,7 @@ DINO V2提供的应该是 semantic knowledge, DIFT提供的semantic和geometric�
 说实话，这个框架感觉有点大力出奇迹的意味，stable diffusion+transformer+DINOv2全部柔到一块,而其中的`stable diffusion+transformer`则是DIFT，因此算是DIFT+DINOv2
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250320154105.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250320154105.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -135,7 +135,7 @@ DINO V2提供的应该是 semantic knowledge, DIFT提供的semantic和geometric�
 下面看看实验效果
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250320162153.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250320162153.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -147,10 +147,10 @@ DINO V2提供的应该是 semantic knowledge, DIFT提供的semantic和geometric�
   <table style="border: none; background-color: transparent;">
     <tr align="center">
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250320162627.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250320162627.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250320162710.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250320162710.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -164,10 +164,10 @@ DINO V2提供的应该是 semantic knowledge, DIFT提供的semantic和geometric�
   <table style="border: none; background-color: transparent;">
     <tr align="center">
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250320162840.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250320162840.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250320162852.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250320162852.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -192,7 +192,7 @@ diffusion model一般是用于做图像生成的，那么最关键的observation
 如下图所示，所谓的semantic correspondence也就是指定了位置(比如鸭子的熊的耳朵)，那么在各种不同但相似的图像上也可以把耳朵的特征点关联出来
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250321162635.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250321162635.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -200,7 +200,7 @@ diffusion model一般是用于做图像生成的，那么最关键的observation
 Diffusion models是一种生成模型，将正态分布转换为任意的数据分布的形式。而在训练的过程中，带有不同幅度的高斯噪声会被加到数据点上（clean data point）以获取带噪声的data point，如下公式所示
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250321163431.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250321163431.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -212,7 +212,7 @@ Diffusion models是一种生成模型，将正态分布转换为任意的数据�
 那么针对上面图像生成的过程，通过提取backward process中，特征时间$t$的中间层的feature map，然后用其来建立两张不同生成图片之间的correspondence，如下公式所示
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250321164543.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250321164543.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -223,8 +223,8 @@ PS：个人感觉就是作者假设Diffusion models是可以获取两张图像�
 
 语义以及temporal tracking可能不是SLAM中关注的，这里看看它几何匹配的效果
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250321165458.png" width="80%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250321165531.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250321165458.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250321165531.png" width="80%" />
 <figcaption>
  after removing outliers with RANSAC  
 </figcaption>
@@ -240,7 +240,7 @@ STABLE VIRTUAL CAMERA (SEVA)，就是输入视角以及相机pose等信息，可
 3. 在新视觉合成任务上，具有泛化能力
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250322131401.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250322131401.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -248,7 +248,7 @@ STABLE VIRTUAL CAMERA (SEVA)，就是输入视角以及相机pose等信息，可
 SEVA解决的是新视觉合成（Novel view synthesis，NVS）的问题。其结构如下，采用的是Stable Diffusion的结构，并且结合了self-attention
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250322132519.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250322132519.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -269,7 +269,7 @@ SEVA解决的是新视觉合成（Novel view synthesis，NVS）的问题。其�
 不过即使作者前面这样说，但是本文实际上又还是将3D场景表达为一系列的存在多个2D网格下的3D Gaussians，其结构如下图所示
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250322140355.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250322140355.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -294,7 +294,7 @@ PS：那么也就是用了Diffusion+VAE+3DGS最终拟合出类似MAST3R的效果
 其框架如下图所示。感觉跟DDPM模型很像，只是把估算噪声改为了估算相机的内外参。
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250322160058.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250322160058.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -305,10 +305,10 @@ PS：那么也就是用了Diffusion+VAE+3DGS最终拟合出类似MAST3R的效果
   <table style="border: none; background-color: transparent;">
     <tr align="center">
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250322160751.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250322160751.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250322160943.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250322160943.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -321,7 +321,7 @@ PS：本质上就是Transformer直接可以解决的问题，要改到diffusion�
 至于实验关于定位精度方面的验证基本是跟sfm对比，没有跟传统的SLAM方法对比，而且验证的序列也是非常少的
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250322161331.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250322161331.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>

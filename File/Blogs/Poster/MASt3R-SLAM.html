@@ -104,7 +104,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Kwan Wai-Pang | Personal Blog" />
   <meta property="og:description" content="Welcome 😊" />
-  <meta property="og:image" content="https://gohan.github.io/Poster_files/hku_logo.jpg" />
+  <meta property="og:image" content="https://gohanwithchann.github.io/Poster_files/hku_logo.jpg" />
 
   <meta property="og:locale" content="en" />
 
@@ -130,10 +130,10 @@
 
   <!-- Styles -->
 
-    <link rel="shortcut icon" href="https://gohan.github.io/Poster_files/hku_logo.jpg"/>
+    <link rel="shortcut icon" href="https://gohanwithchann.github.io/Poster_files/hku_logo.jpg"/>
 
-  <!-- <link rel="stylesheet" href="https://gohan.github.io/File/Blogs/assets/css/main.css"> -->
-  <!-- <link rel="stylesheet" href="https://gohan.github.io/File/Blogs/assets/css/fonts.css"> -->
+  <!-- <link rel="stylesheet" href="https://gohanwithchann.github.io/File/Blogs/assets/css/main.css"> -->
+  <!-- <link rel="stylesheet" href="https://gohanwithchann.github.io/File/Blogs/assets/css/fonts.css"> -->
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/fonts.css">
   <link rel="stylesheet" href="../assets/new_css_js/cpp-highlight/styles/gradient-dark.css">
@@ -254,7 +254,7 @@ CVPR2024
   所谓的“global alignment strategy”其实是参考BA的思想，通过在3D空间直接优化相机的pose以及场景的几何结构。
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 90%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241225143305.png" alt="Image description">
+      <img style="width: 90%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241225143305.png" alt="Image description">
     </div>
   <figcaption>
     图上方的DUSt3R网络结构是基于Transformer encoders and decoders
@@ -268,7 +268,7 @@ CVPR2024
 
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241229121014.png" alt="Image description">
+      <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241229121014.png" alt="Image description">
     </div>
   <figcaption>
     什么是Pointmap？（个人觉得其实可以理解为彩色点云，只是跟相机的pixel为一一对应关系，在相机坐标系）
@@ -278,7 +278,7 @@ CVPR2024
   相机内参已知的情况下，pointmap可以由深度图投影得到。如下面公式
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241229123606.png" alt="Image description">
+      <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241229123606.png" alt="Image description">
     </div>
   <figcaption>
   </figcaption>
@@ -288,7 +288,7 @@ CVPR2024
 
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 60%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241229123657.png" alt="Image description">
+      <img style="width: 60%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241229123657.png" alt="Image description">
     </div>
   <figcaption>
   </figcaption>
@@ -296,7 +296,7 @@ CVPR2024
   同时网络除了输出pointmap以外，还输出了不同区域对应发的confidence map for each pixel。如下图所示
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 90%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241229123918.png" alt="Image description">
+      <img style="width: 90%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241229123918.png" alt="Image description">
     </div>
   <figcaption>
   </figcaption>
@@ -305,7 +305,7 @@ CVPR2024
   整体的framework如下图所示：
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 90%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241225154344.png" alt="Image description">
+      <img style="width: 90%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241225154344.png" alt="Image description">
     </div>
   <figcaption>
     网络结构（更详细的理论学习略，基于CroCo及其v2）
@@ -323,7 +323,7 @@ CVPR2024
   通过实用一个简单的regression loss，采用带label（合成的、sfm生成的、其他传感器提供的）的8个大型公开数据集来训练模型（目前作者开源的github中包含的数据如下图）。
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 60%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241225154112.png" alt="Image description">
+      <img style="width: 60%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241225154112.png" alt="Image description">
     </div>
   <figcaption><p>
   </p></figcaption>
@@ -334,7 +334,7 @@ CVPR2024
   实验显示，DUSt3R在单目/多视图深度估计以及相对位姿估计三个任务上，均取得SOTA。
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 100%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241225154821.png" alt="Image description">
+      <img style="width: 100%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241225154821.png" alt="Image description">
     </div>
   <figcaption>
   </figcaption>
@@ -352,13 +352,13 @@ CVPR2024
 
 <figure style="text-align: center;">
   <div style="margin-bottom: 10px;">
-    <img style="width: 60%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241225224243.png" alt="Image description">
+    <img style="width: 60%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241225224243.png" alt="Image description">
   </div>
   <div style="margin-bottom: 10px;">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241225224321.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241225224321.png" alt="Image description">
   </div>
   <div style="margin-bottom: 10px;">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241225224331.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241225224331.png" alt="Image description">
   </div>
 <figcaption>
   任意选两张图片的三维重建效果（同时恢复相机的pose）
@@ -408,10 +408,10 @@ DUSt3R方法基于点图回归（pointmaps regression），在具有极端视点
 
 <figure style="text-align: center;">
   <div style="margin-bottom: 10px;">
-    <img style="width: 100%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226155152.png" alt="Image description">
-    <img style="width: 100%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226160703.png" alt="Image description">
-    <img style="width: 100%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226160714.png" alt="Image description">
-    <img style="width: 100%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226160724.png" alt="Image description">
+    <img style="width: 100%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226155152.png" alt="Image description">
+    <img style="width: 100%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226160703.png" alt="Image description">
+    <img style="width: 100%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226160714.png" alt="Image description">
+    <img style="width: 100%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226160724.png" alt="Image description">
   </div>
 <figcaption>
 在极端视点变换的情况下，仍然可以实现良好的匹配效果
@@ -436,7 +436,7 @@ DUSt3R方法基于点图回归（pointmaps regression），在具有极端视点
 
 <figure style="text-align: center;">
   <div style="margin-bottom: 10px;">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226155105.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226155105.png" alt="Image description">
   </div>
 <figcaption>
   结构跟DUSt3R类似，但是多了一个head来输出local features，并且额外添加了matching loss来进行训练。此外还有针对matching的fast reciprocal matching scheme
@@ -451,7 +451,7 @@ It comprises a training, validation and test sets of 460, 65 and 130 scenes resp
 
 <figure style="text-align: center;">
   <div style="margin-bottom: 10px;">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226163020.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226163020.png" alt="Image description">
   </div>
 <figcaption>
   在Map-free localization benchmark上表现最佳
@@ -474,7 +474,7 @@ It comprises a training, validation and test sets of 460, 65 and 130 scenes resp
 测试匹配效果（跟作者给出的效果差不多，注意要避免有其他进程还在运行会影响匹配的效果 <code>kill -9 PID</code>）
 <figure style="text-align: center;">
   <div style="margin-bottom: 10px;">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226185708.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226185708.png" alt="Image description">
   </div>
 <figcaption>
   github给出的结果
@@ -483,7 +483,7 @@ It comprises a training, validation and test sets of 460, 65 and 130 scenes resp
 
 <figure style="text-align: center;">
   <div style="margin-bottom: 10px;">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226185806.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226185806.png" alt="Image description">
   </div>
 <figcaption>
   匹配数为20的效果
@@ -493,7 +493,7 @@ It comprises a training, validation and test sets of 460, 65 and 130 scenes resp
 
 <figure style="text-align: center;">
   <div style="margin-bottom: 10px;">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226194414.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226194414.png" alt="Image description">
   </div>
 <figcaption>
   匹配数为50的效果
@@ -503,7 +503,7 @@ It comprises a training, validation and test sets of 460, 65 and 130 scenes resp
 
 <figure style="text-align: center;">
   <div style="margin-bottom: 10px;">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226195022.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226195022.png" alt="Image description">
   </div>
 <figcaption>
   大视差下的效果
@@ -515,8 +515,8 @@ It comprises a training, validation and test sets of 460, 65 and 130 scenes resp
 
 <figure style="text-align: center;">
   <div style="margin-bottom: 10px;">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226185857.png" alt="Image description">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226194642.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226185857.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226194642.png" alt="Image description">
   </div>
 <figcaption>
 </figcaption>
@@ -527,7 +527,7 @@ It comprises a training, validation and test sets of 460, 65 and 130 scenes resp
 
 <figure style="text-align: center;">
   <div style="margin-bottom: 10px;">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226190015.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226190015.png" alt="Image description">
   </div>
 <figcaption>
 </figcaption>
@@ -539,7 +539,7 @@ It comprises a training, validation and test sets of 460, 65 and 130 scenes resp
 
 <figure style="text-align: center;">
   <div style="margin-bottom: 10px;">
-    <img style="width: 80%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241226190108.png" alt="Image description">
+    <img style="width: 80%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241226190108.png" alt="Image description">
   </div>
 <figcaption>
 </figcaption>
@@ -571,7 +571,7 @@ MASt3R可视化效果如下：
   
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 90%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241227130626.png" alt="Image description">
+      <img style="width: 90%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241227130626.png" alt="Image description">
     </div>
   <figcaption>
     先通过MASt3D来预测pointmap以及实现3D pixel matching；
@@ -588,7 +588,7 @@ MASt3R可视化效果如下：
 
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 60%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241227135250.png" alt="Image description">
+      <img style="width: 60%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241227135250.png" alt="Image description">
     </div>
   <figcaption><p>
   </p></figcaption>
@@ -600,7 +600,7 @@ MASt3R可视化效果如下：
 
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 60%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241227140601.png" alt="Image description">
+      <img style="width: 60%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241227140601.png" alt="Image description">
     </div>
   <figcaption><p>
   </p></figcaption>
@@ -613,10 +613,10 @@ MASt3R可视化效果如下：
   接下来看看benchmark下的效果（our<sup>*</sup>就是未知内参矫正的）
   <figure style="text-align: center;">
     <div style="margin-bottom: 10px;">
-      <img style="width: 90%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241227141539.png" alt="Image description">
+      <img style="width: 90%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241227141539.png" alt="Image description">
     </div>
     <div style="margin-bottom: 10px;">
-      <img style="width: 90%;" src="https://gohan.github.io/Poster_files/learning_algorithm/others/微信截图_20241227145249.png" alt="Image description">
+      <img style="width: 90%;" src="https://gohanwithchann.github.io/Poster_files/learning_algorithm/others/微信截图_20241227145249.png" alt="Image description">
     </div>
   <figcaption>
     可以看到效果比起DROID-SLAM以及DPV-SLAM（DPVO的SLAM版本）都是要好一些的，当然数值上不太明显，可能是测试的序列没有太难
@@ -633,7 +633,7 @@ MASt3R可视化效果如下：
 
 <!-- waiting for the code to be released in <a href="https://edexheim.github.io/mast3r-slam/" target="_blank">MASt3R-SLAM Project Website</a>  -->
 
-测试记录请见：<a href="https://gohan.github.io/MASt3R-SLAM/" target="_blank">link</a>
+测试记录请见：<a href="https://gohanwithchann.github.io/MASt3R-SLAM/" target="_blank">link</a>
 
 
 
@@ -657,7 +657,7 @@ MASt3R可视化效果如下：
 <p><br></p>   
 <footer class="nofixed-bottom">
 <div class="container mt-0" style="width:100%;text-align:center;">
-  <!-- Please feel free to contact me through <a href="https://gohan.github.io/" target="_blank">my personal website</a> -->
+  <!-- Please feel free to contact me through <a href="https://gohanwithchann.github.io/" target="_blank">my personal website</a> -->
   A simple star should be the best affirmation 
   <!-- 载入GitHub按钮库 -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>

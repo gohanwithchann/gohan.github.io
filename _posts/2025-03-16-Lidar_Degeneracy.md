@@ -18,7 +18,7 @@ toc: false #true
 
 本博文主要介绍了一些用于检测和解决激光雷达SLAM中退化问题的算法。
 
-* 原博客：[Link](https://gohan.github.io/File/Blogs/Poster/Degeneracy_for_lidar.html)
+* 原博客：[Link](https://gohanwithchann.github.io/File/Blogs/Poster/Degeneracy_for_lidar.html)
 
 {% include_relative html_file/Degeneracy_for_lidar.html %}
 
@@ -50,7 +50,7 @@ toc: false #true
 <div id="iframe-wrapper-{{ page.url | slugify }}">
   <iframe 
     id="iframe-content-{{ page.url | slugify }}"
-    src="https://gohan.github.io/File/Blogs/Poster/Degeneracy_for_lidar.html"
+    src="https://gohanwithchann.github.io/File/Blogs/Poster/Degeneracy_for_lidar.html"
     onload='
       const frame = this;
       const wrapper = frame.parentElement;

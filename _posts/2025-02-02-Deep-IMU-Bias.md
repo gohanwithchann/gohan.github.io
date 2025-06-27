@@ -17,7 +17,7 @@ toc: false
 
 * Keep update the paper list in: [Awesome-Learning-based-VO-VIO](https://github.com/gohan/Awesome-Learning-based-VO-VIO)
 
-之前[博客](https://gohan.github.io/File/Blogs/Poster/Learning_based_VO.html)已经较为系统的介绍了基于learning的VO以及VIO工作。
+之前[博客](https://gohanwithchann.github.io/File/Blogs/Poster/Learning_based_VO.html)已经较为系统的介绍了基于learning的VO以及VIO工作。
 但是对于使用learning的方法来handle IMU bias仍然没有调研。
 为此，写下本博客，作为本人学习相关工作的学习笔记。
 本博客仅供本人学习记录用~
@@ -41,7 +41,7 @@ toc: false
 网络不是学习运动模型，而是显式地学习IMU bias，这样也可以使得模型可以泛化到训练中没见过的运行模式。
 下图展示了，如果模型只是学习运动的模型，当泛化到不同的环境（比如从行人手持到四足机器人，或者平地走训练的模型用到上下楼梯的场景）就会导致发散。
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202160846.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202160846.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -52,21 +52,21 @@ toc: false
 
 论文的基于NN估算IMU-bias的VIO图优化的framework如下：
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202161751.png" width="60%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202161803.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202161751.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202161803.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
 
 而所谓的可以从历史的IMU测量及bias中推断出IMU的bias的神经网络则是如下表示：
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202162236.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202162236.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
 此外设计了IMU-bias的因子如下：
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202162735.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202162735.png" width="60%" />
 <figcaption>  
 注意，此处的方差给定的是常数，当然也可以通过网络来估算uncertainty
 </figcaption>
@@ -77,10 +77,10 @@ toc: false
   <table style="background-color: transparent;">
     <tr>
       <td style="border: none; background-color: transparent;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202155453.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202155453.png" width="100%" />
       </td>
       <td style="border: none; background-color: transparent;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202155520.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202155520.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -93,7 +93,7 @@ toc: false
 
 此处用数据集提供的bias作为真值，让我对其性能产生质疑，因为网络最大化也就是模拟接近传感器标定对bias，那跟传统方法基于传感器的bias来做预积分建模区别能有多大呢？
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/WX20250206-120804@2x.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/WX20250206-120804@2x.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -105,10 +105,10 @@ toc: false
   <table style="background-color: transparent;">
     <tr>
       <td style="border: none; background-color: transparent;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202163309.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202163309.png" width="100%" />
       </td>
       <td style="border: none; background-color: transparent;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202163500.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202163500.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -119,14 +119,14 @@ toc: false
 
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202163627.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202163627.png" width="60%" />
 <figcaption>  
 在四足上的测试效果（网络都是用手持的数据进行训练的，也没有进行fine-tuning）
 </figcaption>
 </div>
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202163831.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202163831.png" width="60%" />
 <figcaption>  
 Euroc飞行数据集（平移和旋转误差）
 </figcaption>
@@ -146,10 +146,10 @@ Euroc飞行数据集（平移和旋转误差）
   <table style="border: none; background-color: transparent;">
     <tr>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/1738815777404.jpg" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/1738815777404.jpg" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/1738815812482.jpg" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/1738815812482.jpg" width="100%" />
       </td>
     </tr>
   </table>
@@ -159,14 +159,14 @@ Euroc飞行数据集（平移和旋转误差）
 RNN methods to compute the learnable terms ∆γ, ∆β, and ∆q instead of the relative poses (学习的为预积分而非related pose)。
 至于训练过程则如下图所示，RNN估算量会传到积分层来计算预积分值，然后用预积分来作为监督学习。但是在interference的时候，IMU的测量会直直接输入图优化中，而并非输入预积分值～
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250203154310.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250203154310.png" width="60%" />
 <figcaption>
 In the training stage, the output of RNN layer will be passed to the integration layer for calculating the training loss. In the reference stage, the RNN layer computes the learned IMU measurements, which will be directly used as the input for the probabilistic sensor fusion 
 </figcaption>
 </div>
 由于imu的观测量真值并不好获取，因此作者设计loss function是基于预积分的，但是网络输出在应用的时候则是IMU测量值，如下：
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/WX20250206-130535@2x.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/WX20250206-130535@2x.png" width="60%" />
 <figcaption>
 基于公式6和7，可以通过真值来反推预积分量
 </figcaption>
@@ -188,7 +188,7 @@ This is designed since sensor fusion algorithm using IMU measurements might need
 
 论文也是分别提出基于LSTM和Transformer结构网络来最小化IMU state propagation error。此外是针对UAV的。
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/WX20250206-133846@2x.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/WX20250206-133846@2x.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -196,8 +196,8 @@ This is designed since sensor fusion algorithm using IMU measurements might need
 
 至于训练，如文章所述：首先19个序列中的16个序列用于网络训练，而loss function跟上一个工作是差不多的（但此处监督的不是预积分而是relative pose，并通过动捕来提供relative pose以及速度）：
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/WX20250206-143631@2x.png" width="80%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/WX20250206-144146@2x.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/WX20250206-143631@2x.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/WX20250206-144146@2x.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -214,7 +214,7 @@ This is designed since sensor fusion algorithm using IMU measurements might need
 * [paper](https://arxiv.org/pdf/2310.04874)
 * [website](https://airimu.github.io/)
 
-关于这篇工作的解读额外写在了博客[论文复现之——《AirIMU: Learning uncertainty propagation for inertial odometry》](https://gohan.github.io/AirIMU/)中
+关于这篇工作的解读额外写在了博客[论文复现之——《AirIMU: Learning uncertainty propagation for inertial odometry》](https://gohanwithchann.github.io/AirIMU/)中
 
 
 <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
@@ -224,7 +224,7 @@ This is designed since sensor fusion algorithm using IMU measurements might need
 * [paper](https://arxiv.org/pdf/2501.15659)
 * [website](https://air-io.github.io/)
 
-关于这篇工作的解读额外写在了博客[论文复现之——《AirIO: Learning Inertial Odometry with Enhanced IMU Feature Observability》](https://gohan.github.io/AirIO/)中
+关于这篇工作的解读额外写在了博客[论文复现之——《AirIO: Learning Inertial Odometry with Enhanced IMU Feature Observability》](https://gohanwithchann.github.io/AirIO/)中
 
 
 
@@ -251,22 +251,22 @@ TCN是一个recurrent network模型来处理temporal sequences，但同时更容
 输入的陀螺仪测量量都会转换到世界坐标系。在训练过程则用动捕提供的orientation信息（加入高斯噪声，提供鲁棒性），在测试的过程用EKF来提供。
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250214151100.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250214151100.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
 
 该工作的实验是比较solid的，对比包括了：TLIO（一个learning-based IO），openvins，SVO,和Gate-IO（一个VIO，fuses the detection of the gate corners with IMU measurements in an EKF）
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250214154150.png" width="60%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250214154258.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250214154150.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250214154258.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
 
 不过作者在论文中也提到了他们主要的limitation还是泛化能力，而所提到的```train the network to estimate the positional displacements in the drone body frame```实际上也就是AirIO的主要贡献之一了~
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250214154533.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250214154533.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>

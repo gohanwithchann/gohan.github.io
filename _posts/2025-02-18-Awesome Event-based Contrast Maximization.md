@@ -37,10 +37,10 @@ CMax 首次在文献[《A Unifying Contrast Maximization Framework for Event Cam
   <table style="border: none; background-color: transparent;">
     <tr>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/Poster_files/Event_camera/event_in_voxel.gif" width="100%" />
+        <img src="https://gohanwithchann.github.io/Poster_files/Event_camera/event_in_voxel.gif" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219113408.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219113408.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -53,14 +53,14 @@ CMax 首次在文献[《A Unifying Contrast Maximization Framework for Event Cam
 如上面右图所示，point trajectory近似于直线。
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219120444.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219120444.png" width="60%" />
 <figcaption>
 数学描述所谓的point trajectory  
 </figcaption>
 </div>
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219152239.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219152239.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -76,13 +76,13 @@ CM算法的框架如上图所示，由以下三步组成：
 <table style="border: none; background-color: transparent;">
   <tr>
     <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219161647.png" width="100%" />
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219161647.png" width="100%" />
     </td>
     <td style="width: 40%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219161822.png" width="100%" />
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219161822.png" width="100%" />
     </td>
     <td style="width: 40%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219161937.png" width="100%" />
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219161937.png" width="100%" />
     </td>
   </tr>
 </table>
@@ -106,7 +106,7 @@ CM算法的框架如上图所示，由以下三步组成：
 汇总如下：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219161028.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219161028.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -115,43 +115,29 @@ CM算法的框架如上图所示，由以下三步组成：
 <table style="border: none; background-color: transparent;">
   <tr>
     <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219162425.png" width="100%" />
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219162425.png" width="100%" />
     </td>
     <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219162445.png" width="100%" />
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219162445.png" width="100%" />
     </td>
     <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219162543.png" width="100%" />
-    </td>
-  </tr>
-</table>
-
-<img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219162659.png" width="60%" />
-
-<table style="border: none; background-color: transparent;">
-  <tr>
-    <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219162837.png" width="100%" />
-    </td>
-    <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219162845.png" width="100%" />
-    </td>
-    <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219162857.png" width="100%" />
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219162543.png" width="100%" />
     </td>
   </tr>
 </table>
 
+<img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219162659.png" width="60%" />
+
 <table style="border: none; background-color: transparent;">
   <tr>
     <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219162939.png" width="100%" />
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219162837.png" width="100%" />
     </td>
     <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219162951.png" width="100%" />
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219162845.png" width="100%" />
     </td>
     <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219163003.png" width="100%" />
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219162857.png" width="100%" />
     </td>
   </tr>
 </table>
@@ -159,10 +145,24 @@ CM算法的框架如上图所示，由以下三步组成：
 <table style="border: none; background-color: transparent;">
   <tr>
     <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219163208.png" width="100%" />
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219162939.png" width="100%" />
     </td>
     <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-      <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219163225.png" width="100%" />
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219162951.png" width="100%" />
+    </td>
+    <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219163003.png" width="100%" />
+    </td>
+  </tr>
+</table>
+
+<table style="border: none; background-color: transparent;">
+  <tr>
+    <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219163208.png" width="100%" />
+    </td>
+    <td style="width: 30%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
+      <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219163225.png" width="100%" />
     </td>
   </tr>
 </table>
@@ -179,8 +179,8 @@ CM算法的框架如上图所示，由以下三步组成：
 
 PS:说是两篇，我个人觉得是一篇，因为两篇论文的结果图也就是换个排序而已😂
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219171050.png" width="80%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219171731.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219171050.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219171731.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -194,7 +194,7 @@ PS:说是两篇，我个人觉得是一篇，因为两篇论文的结果图也�
 3. 采用其他传感器提供更多约束（比如深度图）
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219174809.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219174809.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -204,7 +204,7 @@ PS:说是两篇，我个人觉得是一篇，因为两篇论文的结果图也�
 event collapse是由motion hypothesis（也就是wrap的模型）来决定，某些运行（比如光流或者rotational motion）是不会产生event collapse的
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220105110.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220105110.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -213,9 +213,9 @@ event collapse是由motion hypothesis（也就是wrap的模型）来决定，某
 而所设计的正则化器也应该由motion hypothesis（也就是wrap的模型）来，因此对于下面构建的CM优化问题：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220110211.png" width="25%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220110216.png" width="40%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220110222.png" width="25%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220110211.png" width="25%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220110216.png" width="40%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220110222.png" width="25%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -223,7 +223,7 @@ event collapse是由motion hypothesis（也就是wrap的模型）来决定，某
 所谓的正则化则是把优化函数改为以下的形式：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220110405.png" width="50%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220110405.png" width="50%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -232,7 +232,7 @@ event collapse是由motion hypothesis（也就是wrap的模型）来决定，某
 不过在该作者的最新的工作中[Secrets of Event-based Optical Flow, Depth and Ego-motion Estimation by Contrast Maximization (TPAMI2024)](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10517639)，前面两篇工作的正则化器全部不用😂，直接改为采用total variation (TV)
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220113242.png" width="50%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220113242.png" width="50%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -251,7 +251,7 @@ event collapse是由motion hypothesis（也就是wrap的模型）来决定，某
 所谓的光流实际上就说每个pixel的motion vector（在小的时间段内）。而在理想的情况下（无穷小）在图像平面上的点的轨迹应该是一条直线，那么可以用下面公式来表达：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219120444.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219120444.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -261,7 +261,7 @@ event collapse是由motion hypothesis（也就是wrap的模型）来决定，某
 首先将event累积在一起，通过proposed trajectories将他们warp到参考时间t<sub>ref</sub>下:
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219121240.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219121240.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -269,7 +269,7 @@ event collapse是由motion hypothesis（也就是wrap的模型）来决定，某
 公式2其实可以看成event累积的image（an image patch of warped events），求它的方差就可以得到下面公式
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219121823.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219121823.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -279,7 +279,7 @@ event collapse是由motion hypothesis（也就是wrap的模型）来决定，某
 PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（contrast）最大，因此这个方法命名为`contrast maximization`
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219121945.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219121945.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -288,7 +288,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 
 所谓的考不考虑极性是指在计算IWE的时候的公式2，对应下面两个公式：
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219151227.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219151227.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -297,7 +297,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 而通过IWE的对比分析则发现，如果带有极性，会使得 contrast function（公式3）下降得更加明显（因为存在正负极性相抵消）
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219151430.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219151430.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -312,10 +312,10 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
   <table style="border: none; background-color: transparent;">
     <tr>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219142622.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219142622.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219143658.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219143658.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -329,7 +329,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 对于一个事件点 e<sub>k</sub> 采用 warp (W) function转换到e<sup>'</sup><sub>k</sub>=(x<sup>'</sup><sub>k</sub>,t<sub>ref</sub>,p<sub>k</sub>)下:
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219143824.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219143824.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -337,7 +337,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 然后，类似于上面公式2（也就是下图公式），通过计算沿着candidate point trajectory事件的数量
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219144013.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219144013.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -345,7 +345,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 2. 通过测量上面获得的图片的对比度（或者说方差）来测试event以及depth value θ的匹配对：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219144203.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219144203.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -355,7 +355,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 下图通过可视化两个patch的优化过程来看CM算法的深度估计效果：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219144537.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219144537.png" width="80%" />
 <figcaption>
 </figcaption>
 </div>
@@ -367,7 +367,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 首先，此任务是针对在静态环境下相机仅有rotational motion的，同时相机的intrinsic也是已知且去失真~
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219145133.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219145133.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -375,7 +375,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 1. 其 geometric model如下：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219145522.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219145522.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -383,7 +383,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 2. 通过下面构思构建 image of warped events
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219144013.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219144013.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -391,7 +391,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 3. 更前面两个子任务一样，采用下式来构建优化方程
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219144203.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219144203.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -399,7 +399,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 估算的角速度的精度还是比较高的~
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219150052.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219150052.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -411,8 +411,8 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 在此场景，图像点的变换如下：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219150439.png" width="60%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219150728.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219150439.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219150728.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -423,10 +423,10 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
   <table style="border: none; background-color: transparent;">
     <tr>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219144013.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219144013.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219144203.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219144203.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -437,7 +437,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 效果如下图所示：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219150909.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219150909.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -445,7 +445,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 并且下图也展示了采用或者不采用CM框架下的VIO效果。可以看到采用CM算法恢复的平面点是要平整一些~
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250219151034.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250219151034.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -481,7 +481,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 对于估算出来的光流：u(x, y), v(x, y)可以构建warp function如下：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220121922.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220121922.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -491,8 +491,8 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 那么作者通过分离事件的极性，生成an image of the average timestamp at each pixel for each polarity：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220122850.png" width="60%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220122941.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220122850.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220122941.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -500,7 +500,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 而采用的最终的loss实际上就是两种图片的平方和:
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220123059.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220123059.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -508,7 +508,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 再进一步的，使用这个参考时间t'会存在一定的尺度问题(对于离参考事件不一样的事件，梯度相差很大)，那么就进一步的把loss转换为backwards 和 forwards也就是 t′ = t<sub>1</sub> 和 t′ = t<sub>N</sub>（可以理解为用头与为分别作为参考时间来warp）:
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220123439.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220123439.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -516,8 +516,8 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 同时，在上面的contrast loss的基础上，额外引入了一个Charbonnier smoothness prior (local smoothness regularization):
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220123734.png" width="60%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220124359.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220123734.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220124359.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -528,10 +528,10 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
   <table style="border: none; background-color: transparent;">
     <tr>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220132113.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220132113.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220132124.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220132124.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -544,7 +544,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 接下来论文《[Back to event basics: Self-supervised learning of image reconstruction for event cameras via photometric constancy (CVPR2021)](https://openaccess.thecvf.com/content/CVPR2021/papers/Paredes-Valles_Back_to_Event_Basics_Self-Supervised_Learning_of_Image_Reconstruction_for_CVPR_2021_paper.pdf)》实际上就是沿用了CM for SSL的思路，只是改为SSL估算的光流来监督image reconstruction，并且轻量化了这个光流网络
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250221165806.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250221165806.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -555,7 +555,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 因此，作者对CM loss提出改进`improves its convexity`也就是额外除以pixel数：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250221173602.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250221173602.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -563,7 +563,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 如下图所示，确实通过添加了scaling factor，loss function显得更“凸”了~
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250221173749.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250221173749.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -571,7 +571,7 @@ PS：因为这个求最优的过程，其实也就是对于IWE要求对比度（
 此外作者也提到，CM算法是需要有足够的linear blur才是有效的，而此处采用SNN的结构，每次输入都是`small number of event`,因此作者提出相应的解决方案：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220135703.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220135703.png" width="60%" />
 <figcaption>
 PS: 这点还不是太理解，后续看看代码：https://github.com/tudelft/event_flow
 </figcaption>
@@ -584,7 +584,7 @@ PS: 这点还不是太理解，后续看看代码：https://github.com/tudelft/e
 如下图（左下）所示。这些用CM来做self-supervised learning的方法都是需要假设`events move linearly within the time window of the loss`.因此在文献《[Taming contrast maximization for learning sequential, low-latency, event-based optical flow (CVPR2023)](https://openaccess.thecvf.com/content/ICCV2023/papers/Paredes-Valles_Taming_Contrast_Maximization_for_Learning_Sequential_Low-latency_Event-based_Optical_Flow_ICCV_2023_paper.pdf)》中，首先通过使用循环模型来处理小分区（small partitions）的事件流，而不是处理大量输入事件(也就是沿着他们上一篇论文《[Self-supervised learning of event-based optical flow with spiking neural networks (NIPS2021)](https://proceedings.neurips.cc/paper_files/paper/2021/file/39d4b545fb02556829aab1db805021c3-Paper.pdf)》来做)。这样可以很好利用event camera的high temporal resolution。这也就是论文中提到的`sequential processing`
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220144810.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220144810.png" width="80%" />
 <figcaption>
 </figcaption>
 </div>
@@ -592,7 +592,7 @@ PS: 这点还不是太理解，后续看看代码：https://github.com/tudelft/e
 对于`sequential processing`作者通过实验验证了其有效性
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220175806.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220175806.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -603,10 +603,10 @@ PS: 这点还不是太理解，后续看看代码：https://github.com/tudelft/e
   <table style="border: none; background-color: transparent;">
     <tr>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220180553.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220180553.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220180601.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220180601.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -620,11 +620,11 @@ PS: 这点还不是太理解，后续看看代码：https://github.com/tudelft/e
   <table style="border: none; background-color: transparent;">
     <tr>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220181125.png" width="100%" />
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220181444.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220181125.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220181444.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220181139.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220181139.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -635,7 +635,7 @@ PS: 这点还不是太理解，后续看看代码：https://github.com/tudelft/e
 而传统的其他CM方法则是如下：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220181228.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220181228.png" width="60%" />
 <figcaption>
 </figcaption>
 </div>
@@ -646,10 +646,10 @@ PS: 这点还不是太理解，后续看看代码：https://github.com/tudelft/e
   <table style="border: none; background-color: transparent;">
     <tr>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220145754.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220145754.png" width="100%" />
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250220145754.png" width="100%" />
+        <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250220145754.png" width="100%" />
       </td>
     </tr>
   </table>
@@ -784,7 +784,7 @@ and model-based approaches (MB, non-learning method).
 # 复现或测试CM相关工作
 
 * CMax-SLAM: Event-based Rotational-Motion Bundle Adjustment and SLAM System using Contrast Maximization (TRO2024)的复现：[CMax-SLAM-comment](https://github.com/gohan/CMax-SLAM-comment)
-* Taming contrast maximization for learning sequential, low-latency, event-based optical flow (CVPR2023)的复现：[博客](https://gohan.github.io/Taming-Contrast-Maximization/) and [taming_event_flow_comment](https://github.com/gohan/taming_event_flow_comment)
+* Taming contrast maximization for learning sequential, low-latency, event-based optical flow (CVPR2023)的复现：[博客](https://gohanwithchann.github.io/Taming-Contrast-Maximization/) and [taming_event_flow_comment](https://github.com/gohan/taming_event_flow_comment)
 
 
 <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->

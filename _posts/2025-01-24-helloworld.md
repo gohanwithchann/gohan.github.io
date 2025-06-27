@@ -24,11 +24,11 @@ toc: true
 博客初始化的时候参考的是[lemonchann的博客](https://lemonchann.github.io/blog/create_blog_with_github_pages/)。
 而基于初始的模板，本博客做了系列的改进。
 * 可以fork此[github 仓库](https://github.com/gohan/Blog_basedon_markdown)然后重命名为自己想要的仓库名
-* PS: 无需跟github账户同名，只需用链接:```https://YOUR_username.github.io/YOUR_repository_name/```即可接入对应的博客。比如此博客的接入链接为```https://gohan.github.io/Blog_basedon_markdown/```
+* PS: 无需跟github账户同名，只需用链接:```https://YOUR_username.github.io/YOUR_repository_name/```即可接入对应的博客。比如此博客的接入链接为```https://gohanwithchann.github.io/Blog_basedon_markdown/```
 * 需确保对应的```YOUR_repository_name```仓库中 Github Pages配置如下：
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250202171747.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250202171747.png" width="60%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -40,7 +40,7 @@ toc: true
 # 插入图片与动图
 
 <div align="center">
-  <img src="https://gohan.github.io/Poster_files/md_blog/yijiansanlian.gif" width="80%" />
+  <img src="https://gohanwithchann.github.io/Poster_files/md_blog/yijiansanlian.gif" width="80%" />
 <figcaption>  
 图片标题
 </figcaption>
@@ -51,11 +51,11 @@ toc: true
   <table style="border: none; background-color: transparent;">
     <tr align="center">
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/Poster_files/md_blog/yijiansanlian.gif" width="100%" />
+        <img src="https://gohanwithchann.github.io/Poster_files/md_blog/yijiansanlian.gif" width="100%" />
         子标题1
       </td>
       <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
-        <img src="https://gohan.github.io/Poster_files/md_blog/yijiansanlian.gif" width="100%" />
+        <img src="https://gohanwithchann.github.io/Poster_files/md_blog/yijiansanlian.gif" width="100%" />
         子标题2
       </td>
     </tr>
@@ -78,7 +78,7 @@ toc: true
   height: 400px;
   margin: 0 auto;
   border-radius: 15px;
-  background: url('https://gohan.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
+  background: url('https://gohanwithchann.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
   ">
   <iframe width="100%" height="100%"
     src="https://www.youtube.com/embed/Nn40U4e5Si8?si=P_4XDu5l83VeVRQo" 
@@ -103,7 +103,7 @@ toc: true
   height: 400px;
   margin: 0 auto;
   border-radius: 15px;
-  background: url('https://gohan.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
+  background: url('https://gohanwithchann.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
   ">
   <iframe width="100%" height="100%"
     src="填入B站链接&autoplay=0" 
@@ -118,7 +118,7 @@ toc: true
   height: 400px;
   margin: 0 auto;
   border-radius: 15px;
-  background: url('https://gohan.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
+  background: url('https://gohanwithchann.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
   ">
   <iframe width="100%" height="100%"
     src="//player.bilibili.com/player.html?isOutside=true&aid=983500021&bvid=BV15t4y1t7yS&cid=777013703&p=1&autoplay=0" 
@@ -128,7 +128,7 @@ toc: true
 
 ## 自己的视频链接
 <div align="center">
-<video playsinline autoplay loop muted src="https://gohan.github.io/SLAM_DEMO/PL-EVIO.mp4" poster="https://gohan.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="80%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+<video playsinline autoplay loop muted src="https://gohanwithchann.github.io/SLAM_DEMO/PL-EVIO.mp4" poster="https://gohanwithchann.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="80%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
 </div>
 
 # 插入代码块
@@ -224,7 +224,7 @@ git push -u origin main
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <model-viewer
-  src="https://gohan.github.io/ubuntu_md_blog/VGGT/mydesk.glb" 
+  src="https://gohanwithchann.github.io/ubuntu_md_blog/VGGT/mydesk.glb" 
   alt="3D Model"
   ar
   auto-rotate
@@ -246,7 +246,7 @@ git push -u origin main
         gap: 2em;
       ">
 <iframe
-      src="https://gohan.github.io/ubuntu_md_blog/4D_plugin/build/?playbackPath=YOUR_FILE_PATH.viser&initDistanceScale=1&initHeightOffset=0.0" style="
+      src="https://gohanwithchann.github.io/ubuntu_md_blog/4D_plugin/build/?playbackPath=YOUR_FILE_PATH.viser&initDistanceScale=1&initHeightOffset=0.0" style="
       border-radius: 0.5em;
       width: 80%;
       height: 400px;
@@ -266,7 +266,7 @@ git push -u origin main
         gap: 2em;
       ">
 <iframe
-      src="https://gohan.github.io/ubuntu_md_blog/4D_plugin/build/?playbackPath=https://gohan.github.io/ubuntu_md_blog/MonST3R/recording_breakdance.viser&initDistanceScale=0.3&initHeightOffset=0.15" style="
+      src="https://gohanwithchann.github.io/ubuntu_md_blog/4D_plugin/build/?playbackPath=https://gohanwithchann.github.io/ubuntu_md_blog/MonST3R/recording_breakdance.viser&initDistanceScale=0.3&initHeightOffset=0.15" style="
       border-radius: 0.5em;
       width: 80%;
       height: 400px;
@@ -279,11 +279,11 @@ git push -u origin main
 # google搜索引擎中登记网站
 * 首先在google的搜索栏中输入下面的语句：
 ~~~
-site:https://gohan.github.io/
+site:https://gohanwithchann.github.io/
 ~~~
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/WX20250207-211228@2x.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/WX20250207-211228@2x.png" width="60%" />
 <figcaption> 
 可以搜到就证明网站已经被google收录了 
 </figcaption>
@@ -292,8 +292,8 @@ site:https://gohan.github.io/
 * Google网站站长[Google Search Console](https://search.google.com/search-console?hl=zh-CN)然后添加资源，并按要求验证即可。下载对应的html文件，然后放在主目录下
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/WX20250207-211559@2x.png" width="60%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/WX20250207-211442@2x.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/WX20250207-211559@2x.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/WX20250207-211442@2x.png" width="60%" />
 <figcaption> 
 </figcaption>
 </div>
@@ -301,16 +301,16 @@ site:https://gohan.github.io/
 * 接下来应该是通过添加站点，那么应该就让博客也可以被google搜到了
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250319174824.png" width="60%" />
-  <img src="https://gohan.github.io/ubuntu_md_blog/images/微信截图_20250319175610.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250319174824.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/images/微信截图_20250319175610.png" width="60%" />
 <figcaption> 
 </figcaption>
 </div>
 
-所谓的站点地图是一个 XML 文件，列出了你网站上的所有页面，帮助 Google 爬虫更快地发现和索引你的内容。应该为`https://gohan.github.io/sitemap.xml`
+所谓的站点地图是一个 XML 文件，列出了你网站上的所有页面，帮助 Google 爬虫更快地发现和索引你的内容。应该为`https://gohanwithchann.github.io/sitemap.xml`
 但似乎还是无法抓取~~~
 
-对应的`https://gohan.github.io/robots.txt`应该也是正常的
+对应的`https://gohanwithchann.github.io/robots.txt`应该也是正常的
 
 
 

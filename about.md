@@ -15,7 +15,7 @@ If you find this blog is useful, a simple star (<a class="github-button"
   data-show-count="true" 
   aria-label="Star it on GitHub">Star on Github</a>) should be the best affirmation. 😊
 
-<!-- * [My Homepage](https://gohan.github.io/)  -->
+<!-- * [My Homepage](https://gohanwithchann.github.io/)  -->
 
 [comment]: <> (  <h2 align="center">PAPER</h2>)
   <h3 align="center">
@@ -44,7 +44,7 @@ If you find this blog is useful, a simple star (<a class="github-button"
 <div id="iframe-wrapper">
   <iframe 
     id="iframe-content"
-    src="https://gohan.github.io/index.html" 
+    src="https://gohanwithchann.github.io/index.html" 
     onload="this.style.height = this.contentWindow.document.documentElement.scrollHeight + 'px'"
   ></iframe>
 </div>

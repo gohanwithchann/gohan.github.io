@@ -160,7 +160,7 @@ roslaunch zima_ros rviz.launch
   height: 400px;
   margin: 0 auto;
   border-radius: 15px;
-  background: url('https://gohan.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
+  background: url('https://gohanwithchann.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
   ">
   <iframe width="100%" height="100%"
     src="//player.bilibili.com/player.html?isOutside=true&aid=114142061004880&bvid=BV1KMRHYJE6N&cid=28806481727&p=1&autoplay=0" 

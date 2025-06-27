@@ -62,7 +62,7 @@ SET(Sophus_LIBRARIES "/usr/local/lib/libSophus.so")
 ~~~
 
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/fast_livo2_testing/2025-01-26 12-19-37 的屏幕截图.png" width="60%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/fast_livo2_testing/2025-01-26 12-19-37 的屏幕截图.png" width="60%" />
 <figcaption>  
 编译成功
 </figcaption>
@@ -115,19 +115,19 @@ rosbag play YOUR_DOWNLOADED.bag
 
 其中对于CBD_Building_02的测试发现有存在比较明显的drift的情况。如下图所示，实验人员应该是试图回到起点的，但是最终的位置与起始的位置差别较大。并且从生成的彩色点云也可以看到柱子的地方有较为明显的偏移。
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/fast_livo2_testing/2025-01-26 12-52-32 的屏幕截图.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/fast_livo2_testing/2025-01-26 12-52-32 的屏幕截图.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
 对于序列HIT_Graffiti_Wall_01，也是一个长走廊的序列，且路径比上面的序列更长，但却可以较好的回到原点，看似不是由于长走廊带来的drift吧~
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/fast_livo2_testing/2025-01-26 13-20-12 的屏幕截图.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/fast_livo2_testing/2025-01-26 13-20-12 的屏幕截图.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
 再次测试CBD_Building_02序列，又是正常的，可以回归原点～～～
 <div align="center">
-  <img src="https://gohan.github.io/ubuntu_md_blog/fast_livo2_testing/2025-01-26 13-38-41 的屏幕截图.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/ubuntu_md_blog/fast_livo2_testing/2025-01-26 13-38-41 的屏幕截图.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>
@@ -146,7 +146,7 @@ Fast-LIVO2是基于Fast-LIVO的升级版本，一个基于ESIKF的lidar-image-im
 此外通过引入on-demanding raycast operation （光线投射操作）和估算图像的曝光时间（这似乎是r3live里面的一个重要贡献）来增强系统的鲁棒性。
 
 <div align="center">
-  <img src="https://gohan.github.io/Poster_files/md_blog/微信截图_20250126212319.png" width="80%" />
+  <img src="https://gohanwithchann.github.io/Poster_files/md_blog/微信截图_20250126212319.png" width="80%" />
 <figcaption>  
 </figcaption>
 </div>

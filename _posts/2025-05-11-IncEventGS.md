@@ -75,7 +75,7 @@ IncEventGS是一个基于单目事件相机的增量式3DGS重建算法（无需
 </div>
 
 
-从恢复的效果可见，虽然不像[E-3DGS](https://gohan.github.io/E-3DGS/)那样可以渲染彩色视觉，但还是具有丰富的纹理细节的
+从恢复的效果可见，虽然不像[E-3DGS](https://gohanwithchann.github.io/E-3DGS/)那样可以渲染彩色视觉，但还是具有丰富的纹理细节的
 
 也有在虚拟数据上跟MONOGS以及SplatTAM对比。不过这里宣称是fast motion似乎就是有所误导了😂
 
@@ -122,7 +122,7 @@ pip install -U "transformers<=4.48.1"
 ```
 
 * 下载数据集及预训练模型[link](https://westlakeu-my.sharepoint.com/:f:/g/personal/cvgl_westlake_edu_cn/EooEsF6LJPJHnEqbTYo4qO0B4-dlbznGZlLy9BDLPAx_og?e=wmqeFP)
-* 下载ondrive数据[blog](https://gohan.github.io/File/Blogs/Poster/ubuntu%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE.html)
+* 下载ondrive数据[blog](https://gohanwithchann.github.io/File/Blogs/Poster/ubuntu%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE.html)
 
 ## 实验测试
 

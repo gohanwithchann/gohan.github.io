@@ -24,7 +24,7 @@ toc: false #true
   height: 500px;
   margin: 0 auto;
   border-radius: 15px;
-  background: url('https://gohan.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
+  background: url('https://gohanwithchann.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
   ">
   <iframe src="https://onedrive.live.com/embed?resid=893B607C76D94A76!120&authkey=!AI5r_iQJbZJQqhw&em=2&wdAr=1.777&wdHideHeaders=true&wdEmbedCode=0" width="100%" height="100%" frameborder="0"></iframe>
 </div>
@@ -36,16 +36,16 @@ toc: false #true
   height: 500px;
   margin: 0 auto;
   border-radius: 15px;
-  background: url('https://gohan.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
+  background: url('https://gohanwithchann.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
   ">
   <iframe width="100%" height="100%"
-    src="https://gohan.github.io/awesome_NeRF_SLAM/学习笔记之——NeRF SLAM（基于神经辐射场的SLAM）-CSDN博客_files/Survey for Dynamic SLAM.pdf#toolbar=0&navpanes=0&scrollbar=0" ></iframe>
+    src="https://gohanwithchann.github.io/awesome_NeRF_SLAM/学习笔记之——NeRF SLAM（基于神经辐射场的SLAM）-CSDN博客_files/Survey for Dynamic SLAM.pdf#toolbar=0&navpanes=0&scrollbar=0" ></iframe>
 </div>
 
 <br>
 
 * 😁原创不易，如果使用请给出引用以及给个star <a class="github-button"   href="https://github.com/gohan/gohan.github.io"   data-icon="octicon-star"   data-size="large"  data-show-count="true"  aria-label="Star 你的用户名/你的仓库名 on GitHub">Star</a>谢谢😊
-* Previous Survey for Dynamic-SLAM: [Blog](https://gohan.github.io/File/Blogs/Poster/survey_dynamic_SLAM.html)
+* Previous Survey for Dynamic-SLAM: [Blog](https://gohanwithchann.github.io/File/Blogs/Poster/survey_dynamic_SLAM.html)
 * 基于3DGS以及Transformer的也有大量跟Dynamic-SLAM相关的工作，具体请见：
   * Awesome-Transformer-based-SLAM: [Paper List](https://github.com/gohan/Awesome-Transformer-based-SLAM) 
   * Awesome-3DGS-SLAM: [Paper List](https://github.com/gohan/Awesome-3DGS-SLAM)
