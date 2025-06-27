@@ -40,15 +40,15 @@ excerpt_separator: <!-- more -->
 # Includes an icon in the footer for each username you enter（配置各种社交链接，请见_includes\svg-icons.html）
 footer-links:
   home: https://gohanwithchann.github.io/ #https://gohanwithchann.github.io/  #https://gohanwithchann.github.io/File/Blogs/My_Blog.html
-  email: wpguan@connect.hku.hk
-  google_scholar: "fUU5Cv0AAAAJ"
-  ORCID: # "0000-0003-4518-7852"
-  Clarivate: # "AAV-2613-2020"
-  Scopus_id: # "56957694200"
-  ResearchGate: # "Guan-Wp"
-  github: gohan 
-  youtube: "@Kwan-WaiPang"
-  bilibili: "499377825"  # B 站 ID
+  # email: wpguan@connect.hku.hk
+  # google_scholar: "fUU5Cv0AAAAJ"
+  # ORCID: # "0000-0003-4518-7852"
+  # Clarivate: # "AAV-2613-2020"
+  # Scopus_id: # "56957694200"
+  # ResearchGate: # "Guan-Wp"
+  # github: gohan 
+  # youtube: "@Kwan-WaiPang"
+  # bilibili: "499377825"  # B 站 ID
 
 # Text under the icons in footer
 footer-text: A simple star should be the best affirmation 😊
@@ -59,18 +59,18 @@ footer-text: A simple star should be the best affirmation 😊
 disqus: # fromendworld
 
 # Gitalk（评论功能的配置）
-gitalk:
-  clientID: Ov23liD7RVncxyVJkpxC
-  clientSecret: 8ce63fcbaa301ab0fb7f54e4c7d69d2f17ab1fc3
-  repo: gohan.github.io
-  owner: gohan
+# gitalk:
+#   clientID: Ov23liD7RVncxyVJkpxC
+#   clientSecret: 8ce63fcbaa301ab0fb7f54e4c7d69d2f17ab1fc3
+#   repo: gohan.github.io
+#   owner: gohan
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics: G-R1QX9D95NS
+# google_analytics: G-R1QX9D95NS
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: https://gohan.github.io
+url: https://gohanwithchann.github.io/
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
